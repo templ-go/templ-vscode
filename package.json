@@ -2,6 +2,10 @@
     "name": "templ",
     "displayName": "templ-vscode",
     "description": "Provides syntax highlighting.",
+    "publisher": "a-h",
+    "repository": {
+        "url": "https://github.com/a-h/templ-vscode"
+    },
     "version": "0.0.1",
     "engines": {
         "vscode": "^1.56.0"
