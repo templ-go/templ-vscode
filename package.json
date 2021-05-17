@@ -6,7 +6,7 @@
     "repository": {
         "url": "https://github.com/a-h/templ-vscode"
     },
-    "version": "0.0.1",
+    "version": "0.0.2",
     "engines": {
         "vscode": "^1.56.0"
     },

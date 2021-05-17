@@ -21,6 +21,10 @@
 			"patterns": [
 				{
 					"include": "source.go"
+				},
+        {
+					"match": "\\b(templ|endtempl|endfor|endif|endswitch|endcase|enddefault)\\b",
+					"name": "keyword.control.go"
 				}
 			]
 		}
