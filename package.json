@@ -1,0 +1,37 @@
+{
+    "name": "templ",
+    "displayName": "templ-vscode",
+    "description": "Provides syntax highlighting.",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.56.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [
+            {
+                "id": "templ",
+                "aliases": [
+                    "templ",
+                    "templ"
+                ],
+                "extensions": [
+                    ".templ"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "templ",
+                "scopeName": "source.templ",
+                "path": "./syntaxes/templ.tmLanguage"
+            }
+        ]
+    },
+    "devDependencies": {
+        "vsce": "^1.88.0"
+    }
+}
