@@ -31,7 +31,7 @@
             {
                 "language": "templ",
                 "scopeName": "source.templ",
-                "path": "./syntaxes/templ.tmLanguage"
+                "path": "./syntaxes/templ.tmLanguage.json"
             }
         ]
     },

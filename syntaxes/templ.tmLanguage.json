@@ -1,0 +1,29 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "templ",
+	"patterns": [
+		{
+			"include": "#html"
+		},
+		{
+			"include": "#go"
+		}
+	],
+	"repository": {
+		"html": {
+			"patterns": [{
+				"include": "text.html.basic"
+			}]
+		},
+		"go": {
+			"begin": "{%[\\!\\=]?",
+			"end": "%}",
+			"patterns": [
+				{
+					"include": "source.go"
+				}
+			]
+		}
+	},
+	"scopeName": "source.templ"
+}
