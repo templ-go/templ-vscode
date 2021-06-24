@@ -181,6 +181,9 @@
         },
         {
           "include": "#if-expression"
+        },
+        {
+          "include": "#for-expression"
         }
       ]
     },
@@ -240,6 +243,33 @@
           "name": "keyword.control.go"
         }
       }
+    },
+    "for-expression": {
+      "begin": "{% (for) (.+) %}",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.control.go"
+        },
+        "2": {
+          "name": "expression.for.templ",
+          "patterns": [
+            {
+              "include": "source.go"
+            }
+          ]
+        }
+      },
+      "end": "{% (endfor) %}",
+      "endCaptures": {
+        "1": {
+          "name": "keyword.control.go"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#template-node"
+        }
+      ]
     },
     "call-expression": {
       "begin": "{%! ",
