@@ -19,7 +19,8 @@
     "webpack": "webpack --mode development",
     "compile": "webpack --mode production",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "package": "npx vsce package"
+    "package": "npx vsce package",
+    "publish": "npx vsce publish"
   },
   "categories": [
     "Programming Languages"
