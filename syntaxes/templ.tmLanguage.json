@@ -127,6 +127,84 @@
           "include": "source.go"
         }
       ]
+    },
+    "html-template": {
+      "begin": "({% templ .+? %})",
+      "end": "{% (endtempl) %}",
+      "beginCaptures": {
+        "1": {
+          "patterns": [
+            {
+              "include": "#html-template-start"
+            }
+          ]
+        }
+      },
+      "endCaptures": {
+        "1": {
+          "name": "keyword.control.go"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#string-expression"
+        },
+        {
+          "include": "#call-expression"
+        }
+      ]
+    },
+    "html-template-start": {
+      "begin": "{% (templ) ",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.control.go"
+        }
+      },
+      "end": "%}",
+      "patterns": [
+        {
+          "include": "source.go"
+        }
+      ]
+    },
+    "string-expression": {
+      "begin": "{%= ",
+      "beginCaptures": {
+        "0": {
+          "name": "start.string-expression.templ"
+        }
+      },
+      "end": "%}",
+      "endCaptures": {
+        "0": {
+          "name": "end.string-expression.templ"
+        }
+      },
+      "patterns": [
+        {
+          "include": "source.go"
+        }
+      ]
+    },
+    "call-expression": {
+      "begin": "{%! ",
+      "beginCaptures": {
+        "0": {
+          "name": "start.call-expression.templ"
+        }
+      },
+      "end": "%}",
+      "endCaptures": {
+        "0": {
+          "name": "end.call-expression.templ"
+        }
+      },
+      "patterns": [
+        {
+          "include": "source.go"
+        }
+      ]
     }
   }
 }
