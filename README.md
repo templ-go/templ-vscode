@@ -10,6 +10,12 @@ Requires templ command line on the path.
 
 ## Release Notes
 
+### 0.0.5
+
+* Added support for templ CSS components.
+* Complete rewrite of syntax highlighting.
+* Fixed bug where expression attribute values are not formatted correctly.
+
 ### 0.0.1
 
 Beta release
