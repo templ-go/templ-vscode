@@ -184,6 +184,9 @@
         },
         {
           "include": "#for-expression"
+        },
+        {
+          "include": "#switch-expression"
         }
       ]
     },
@@ -232,11 +235,11 @@
           "include": "#template-node"
         },
         {
-          "include": "#else"
+          "include": "#else-expression"
         }
       ]
     },
-    "else": {
+    "else-expression": {
       "match": "{% (else) %}",
       "captures": {
         "1": {
@@ -260,6 +263,93 @@
         }
       },
       "end": "{% (endfor) %}",
+      "endCaptures": {
+        "1": {
+          "name": "keyword.control.go"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#template-node"
+        }
+      ]
+    },
+    "switch-expression": {
+      "begin": "{% (switch) (.+) %}",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.control.go"
+        },
+        "2": {
+          "name": "expression.switch.templ",
+          "patterns": [
+            {
+              "include": "source.go"
+            }
+          ]
+        }
+      },
+      "end": "{% (endswitch) %}",
+      "endCaptures": {
+        "1": {
+          "name": "keyword.control.go"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#template-node"
+        },
+        {
+          "include": "#case-expression"
+        },
+        {
+          "include": "#default-expression"
+        }
+      ]
+    },
+    "case-expression": {
+      "begin": "{% (case) (.+) %}",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.control.go"
+        },
+        "2": {
+          "name": "expression.case.templ",
+          "patterns": [
+            {
+              "include": "source.go"
+            }
+          ]
+        }
+      },
+      "end": "{% (endcase) %}",
+      "endCaptures": {
+        "1": {
+          "name": "keyword.control.go"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#template-node"
+        }
+      ]
+    },
+    "default-expression": {
+      "begin": "{% (default) %}",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.control.go"
+        },
+        "2": {
+          "name": "expression.default.templ",
+          "patterns": [
+            {
+              "include": "source.go"
+            }
+          ]
+        }
+      },
+      "end": "{% (enddefault) %}",
       "endCaptures": {
         "1": {
           "name": "keyword.control.go"
