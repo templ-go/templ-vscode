@@ -1,22 +1,15 @@
 import vscode = require('vscode');
-import { LanguageClient } from 'vscode-languageclient/node';
 import {
     CancellationToken,
     CloseAction,
     CompletionItemKind,
     ConfigurationParams,
     ConfigurationRequest,
-    ErrorAction,
-    ExecuteCommandSignature,
-    HandleDiagnosticsSignature,
-    InitializeError,
-    Message,
-    ProvideCodeLensesSignature,
-    ProvideCompletionItemsSignature,
+    ErrorAction, Message, ProvideCompletionItemsSignature,
     ProvideDocumentFormattingEditsSignature,
-    ResponseError,
-    RevealOutputChannelOn
+    ResponseError
 } from 'vscode-languageclient';
+import { LanguageClient } from 'vscode-languageclient/node';
 
 export async function activate(ctx: vscode.ExtensionContext) {
     try {
@@ -24,7 +17,8 @@ export async function activate(ctx: vscode.ExtensionContext) {
         lc.start()
         await lc.onReady();
     } catch (err) {
-        vscode.window.showErrorMessage("error initializing templ LSP", err)
+        const msg = err && err as Error ? (err as Error).message : 'unknown'
+        vscode.window.showErrorMessage(`error initializing templ LSP: ${msg}`);
     }
 }
 
@@ -104,7 +98,7 @@ export async function buildLanguageClient(): Promise<LanguageClient> {
                             // cause to reorder candiates, which is not ideal.
                             // Force to use non-empty `label`.
                             // https://github.com/golang/vscode-go/issues/441
-                            hardcodedFilterText = items[0].label;
+                            hardcodedFilterText = items[0].label.toString();
                         }
                         for (const item of items) {
                             item.filterText = hardcodedFilterText;
