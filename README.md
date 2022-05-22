@@ -10,6 +10,10 @@ Requires templ command line on the path.
 
 ## Release Notes
 
+### 0.0.6
+
+* Migrate to templ 2.0 syntax.
+
 ### 0.0.5
 
 * Added support for templ CSS components.
