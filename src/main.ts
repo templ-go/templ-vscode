@@ -22,17 +22,51 @@ export async function activate(ctx: vscode.ExtensionContext) {
     }
 }
 
+interface Configuration {
+    goplsLog: string
+    goplsRPCTrace: boolean
+    log: string
+    pprof: boolean
+}
+
+const loadConfiguration = (): Configuration => {
+    const c = vscode.workspace.getConfiguration('templ')
+    return {
+        goplsLog: c.get("goplsLog") || "",
+        goplsRPCTrace: c.get("goplsRPCTrace") ? true : false,
+        log: c.get("log") || "",
+        pprof: c.get("pprof") ? true : false,
+    }
+}
+
 export async function buildLanguageClient(): Promise<LanguageClient> {
     const documentSelector = [
         { language: 'templ', scheme: 'file' },
-    ];
+    ]
+
+    const config = loadConfiguration()
+    const args: Array<string> = ["lsp"]
+    if(config.goplsLog.length > 0) {
+        args.push(`-goplsLog=${config.goplsLog}`)
+    }
+    if(config.goplsRPCTrace) {
+        args.push(`-goplsRPCTrace=true`)
+    }
+    if(config.log.length > 0) {
+        args.push(`-log=${config.log}`)
+    }
+    if(config.pprof) {
+        args.push(`-pprof=true`)
+    }
+
+    vscode.window.showInformationMessage(`Starting LSP: templ ${args.join(' ')}`)
 
     const c = new LanguageClient(
         'templ', // id
-        "templ", // name e.g. gopls
+        'templ', // name e.g. gopls
         {
-            command: "templ",
-            args: ['lsp'],
+            command: 'templ',
+            args,
         },
         {
             documentSelector,
