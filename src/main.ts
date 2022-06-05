@@ -2,10 +2,11 @@ import vscode = require('vscode');
 import {
     CancellationToken,
     CloseAction,
+    CloseHandlerResult,
     CompletionItemKind,
     ConfigurationParams,
     ConfigurationRequest,
-    ErrorAction, Message, ProvideCompletionItemsSignature,
+    ErrorAction, ErrorHandlerResult, Message, ProvideCompletionItemsSignature,
     ProvideDocumentFormattingEditsSignature,
     ResponseError
 } from 'vscode-languageclient';
@@ -14,8 +15,7 @@ import { LanguageClient } from 'vscode-languageclient/node';
 export async function activate(ctx: vscode.ExtensionContext) {
     try {
         const lc = await buildLanguageClient()
-        lc.start()
-        await lc.onReady();
+        await lc.start()
     } catch (err) {
         const msg = err && err as Error ? (err as Error).message : 'unknown'
         vscode.window.showErrorMessage(`error initializing templ LSP: ${msg}`);
@@ -63,7 +63,7 @@ export async function buildLanguageClient(): Promise<LanguageClient> {
 
     const c = new LanguageClient(
         'templ', // id
-        'templ', // name e.g. gopls
+        'templ',
         {
             command: 'templ',
             args,
@@ -77,19 +77,19 @@ export async function buildLanguageClient(): Promise<LanguageClient> {
                 protocol2Code: (uri: string) => vscode.Uri.parse(uri)
             },
             errorHandler: {
-                error: (error: Error, message: Message, count: number): ErrorAction => {
+                error: (error: Error, message: Message, count: number): ErrorHandlerResult => {
                     // Allow 5 crashes before shutdown.
                     if (count < 5) {
-                        return ErrorAction.Continue;
+                        return { action: ErrorAction.Continue };
                     }
                     vscode.window.showErrorMessage(
                         `Error communicating with the language server: ${error}: ${message}.`
                     );
-                    return ErrorAction.Shutdown;
+                    return { action: ErrorAction.Shutdown };
                 },
-                closed: (): CloseAction => {
-                    return CloseAction.DoNotRestart;
-                }
+                closed: (): CloseHandlerResult => ({
+                    action: CloseAction.DoNotRestart,
+                }),
             },
             middleware: {
                 provideDocumentFormattingEdits: async (
@@ -173,18 +173,10 @@ export async function buildLanguageClient(): Promise<LanguageClient> {
                 },
                 // Keep track of the last file change in order to not prompt
                 // user if they are actively working.
-                didOpen: (e, next) => {
-                    next(e);
-                },
-                didChange: (e, next) => {
-                    next(e);
-                },
-                didClose: (e, next) => {
-                    next(e);
-                },
-                didSave: (e, next) => {
-                    next(e);
-                },
+                didOpen: async (e, next) => next(e),
+                didChange: async (e, next) => next(e),
+                didClose: (e, next) => next(e),
+                didSave: (e, next) => next(e),
                 workspace: {
                     configuration: async (
                         params: ConfigurationParams,
@@ -210,7 +202,8 @@ export async function buildLanguageClient(): Promise<LanguageClient> {
                     }
                 }
             }
-        }
+        },
+        false,
     );
     return c;
 }
