@@ -11,7 +11,7 @@
     "onLanguage:templ"
   ],
   "main": "./dist/main.js",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "engines": {
     "vscode": "^1.67.0"
   },
@@ -73,6 +73,11 @@
           "type": "boolean",
           "default": false,
           "description": "Set to true to enable a pprof HTTP endppint (same as the templ -pprof argument)"
+        },
+        "templ.http": {
+          "type": "string",
+          "default": "",
+          "description": "Set to a value such as localhost:7474 to enable a HTTP endpoint that can be used for debugging (same as the templ -http argument)"
         }
       }
     }

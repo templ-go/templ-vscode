@@ -12,7 +12,7 @@ import {
 } from 'vscode-languageclient';
 import { LanguageClient } from 'vscode-languageclient/node';
 
-export async function activate(ctx: vscode.ExtensionContext) {
+export async function activate(_ctx: vscode.ExtensionContext) {
     try {
         const lc = await buildLanguageClient()
         await lc.start()
@@ -27,6 +27,7 @@ interface Configuration {
     goplsRPCTrace: boolean
     log: string
     pprof: boolean
+    http: string
 }
 
 const loadConfiguration = (): Configuration => {
@@ -36,6 +37,7 @@ const loadConfiguration = (): Configuration => {
         goplsRPCTrace: c.get("goplsRPCTrace") ? true : false,
         log: c.get("log") || "",
         pprof: c.get("pprof") ? true : false,
+        http: c.get("http") || "",
     }
 }
 
@@ -46,17 +48,20 @@ export async function buildLanguageClient(): Promise<LanguageClient> {
 
     const config = loadConfiguration()
     const args: Array<string> = ["lsp"]
-    if(config.goplsLog.length > 0) {
+    if (config.goplsLog.length > 0) {
         args.push(`-goplsLog=${config.goplsLog}`)
     }
-    if(config.goplsRPCTrace) {
+    if (config.goplsRPCTrace) {
         args.push(`-goplsRPCTrace=true`)
     }
-    if(config.log.length > 0) {
+    if (config.log.length > 0) {
         args.push(`-log=${config.log}`)
     }
-    if(config.pprof) {
+    if (config.pprof) {
         args.push(`-pprof=true`)
+    }
+    if (config.http.length > 0) {
+        args.push(`-http=${config.http}`)
     }
 
     vscode.window.showInformationMessage(`Starting LSP: templ ${args.join(' ')}`)
@@ -190,11 +195,6 @@ export async function buildLanguageClient(): Promise<LanguageClient> {
                         const ret = [] as any[];
                         for (let i = 0; i < configs.length; i++) {
                             let workspaceConfig = configs[i];
-                            if (!!workspaceConfig && typeof workspaceConfig === 'object') {
-                                const scopeUri = params.items[i].scopeUri;
-                                const resource = scopeUri ? vscode.Uri.parse(scopeUri) : undefined;
-                                const section = params.items[i].section;
-                            }
                             console.log(workspaceConfig)
                             ret.push(workspaceConfig);
                         }
