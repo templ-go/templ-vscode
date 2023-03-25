@@ -3,6 +3,7 @@
   "displayName": "templ-vscode",
   "description": "Provides syntax highlighting.",
   "publisher": "a-h",
+  "icon": "templ.png",
   "repository": {
     "url": "https://github.com/a-h/templ-vscode"
   },
