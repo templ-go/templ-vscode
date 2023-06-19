@@ -12,7 +12,7 @@
     "onLanguage:templ"
   ],
   "main": "./dist/main.js",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "engines": {
     "vscode": "^1.79.1"
   },
