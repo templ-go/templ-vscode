@@ -179,6 +179,9 @@
           "include": "#call-expression"
         },
         {
+          "include": "#import-expression"
+        },
+        {
           "include": "#element"
         },
         {
@@ -353,6 +356,54 @@
           "include": "#template-node"
         }
       ]
+    },
+    "import-expression": {
+      "begin": "@(.+?{)$",
+      "end": "^\\s*(})$",
+      "beginCaptures": {
+        "0": {
+          "patterns": [
+            {
+              "include": "#import-expression-start"
+            }
+          ]
+        }
+      },
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.brace.close"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#template-node"
+        }
+      ],
+      "name": "import-expression.templ"
+    },
+    "import-expression-start": {
+      "begin": "(@)",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.control.go"
+        }
+      },
+      "end": "({)$",
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.brace.open"
+        }
+      },
+      "patterns": [
+        {
+          "include": "source.go"
+        }
+      ],
+      "captures": {
+        "0": {
+          "name": "start.import-expression.templ"
+        }
+      }
     },
     "call-expression": {
       "begin": "({\\!)\\s+",
