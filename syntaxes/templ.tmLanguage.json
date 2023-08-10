@@ -200,6 +200,9 @@
           "include": "#close-element"
         },
         {
+          "include": "#else-if-expression"
+        },
+        {
           "include": "#if-expression"
         },
         {
@@ -234,8 +237,8 @@
       "name": "expression.html-template.templ"
     },
     "if-expression": {
-      "begin": "^\\s*if .+?{$",
-      "end": "(^\\s*}$)|(^\\s*}(?=\\s*else\\s*{$))",
+      "begin": "^\\s*if .+?{\\s*$",
+      "end": "(^\\s*}$)|(^\\s*}(?=\\s*else\\s*{$))|(^\\s*}(?=\\s*else\\s*if .+?{\\s*$))",
       "captures": {
         "0": {
           "name": "meta.embedded.block.go",
@@ -254,8 +257,28 @@
       "name": "if.html-template.templ"
     },
     "else-expression": {
-      "begin": "\\s+else\\s+{$",
+      "begin": "\\s+else\\s+{\\s*$",
       "end": "^\\s*}$",
+      "captures": {
+        "0": {
+          "name": "meta.embedded.block.go",
+          "patterns": [
+            {
+              "include": "source.go"
+            }
+          ]
+        }
+      },
+      "patterns": [
+        {
+          "include": "#template-node"
+        }
+      ],
+      "name": "else.html-template.templ"
+    },
+    "else-if-expression": {
+      "begin": "\\s+else\\s+if .+?{\\s*$",
+      "end": "(^\\s*}$)|(^\\s*}(?=\\s*else\\s*{$))|(^\\s*}(?=\\s*else\\s*if .+?{\\s*$))",
       "captures": {
         "0": {
           "name": "meta.embedded.block.go",
