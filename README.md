@@ -12,18 +12,34 @@ Requires templ command line on the path.
 
 Please raise any issues in https://github.com/a-h/templ
 
-## Release Notes
+## Tasks
 
-### 0.0.6
+### compile
 
-* Migrate to templ 2.0 syntax.
+```sh
+npm run compile
+```
 
-### 0.0.5
+### version
 
-* Added support for templ CSS components.
-* Complete rewrite of syntax highlighting.
-* Fixed bug where expression attribute values are not formatted correctly.
+requires: compile
 
-### 0.0.1
+```sh
+npm run version
+```
 
-Beta release
+### package
+
+requires: version
+
+```sh
+npm run package
+```
+
+### publish
+
+requires: package
+
+```sh
+npm run package
+```
