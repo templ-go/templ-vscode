@@ -712,7 +712,7 @@
               "name": "meta.toc-list.id.html"
             }
           },
-          "match": "(?<==)(?:[^\\s<>/'\"]|/(?!>))+",
+          "match": "(?<==)(?:[^\\s{}<>/'\"]|/(?!>))+",
           "name": "string.unquoted.html"
         }
       ]
