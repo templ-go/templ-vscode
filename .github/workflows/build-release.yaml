@@ -6,13 +6,58 @@ on:
       - "CHANGELOG.md"
   workflow_dispatch:
 
-permissions:
-  contents: write
-  packages: read
-
 jobs:
-  build-release:
+  check-version-change:
+    outputs:
+      changed: ${{ steps.check-version.outputs.result }}
+
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Check if version has changed
+        id: check-version
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const version = '${{ github.event.inputs.version }}' || require('./package.json').version;
+            // Find a release for that version
+            const release = await github.rest.repos.getReleaseByTag({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              tag: `release-v${version}`,
+            }).catch(() => null);
+
+            // If the release exists, the version has not changed
+            if (release) {
+              console.log(`Version ${version} has an existing release`);
+              console.log(release.data.html_url);
+              core.summary.addLink(`Release v${version}`, release.data.html_url);
+              await core.summary.write();
+              return "false";
+            }
+            console.log(`Version ${version} does not have a release`);
+            return true;
+
+  release:
+    needs: check-version-change
+    if: ${{ needs.check-version-change.outputs.changed == 'true' }}
+
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      packages: read
+
+    env:
+      EXT_VERSION: "" # will be set in the workflow
+
+    outputs:
+      version: ${{ env.EXT_VERSION }}
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -75,3 +120,40 @@ jobs:
             core.summary.addLink(`Release v${{ env.EXT_VERSION }}`, release.data.html_url);
             await core.summary.write();
 
+  publish:
+    environment: publish
+
+    needs: release
+
+    runs-on: ubuntu-latest
+    permissions: {}
+
+    steps:
+      - uses: actions/download-artifact@v3
+        with:
+          name: vscode-github-actions-${{ needs.release.outputs.version }}.vsix
+
+      - name: Publish to marketplace
+        # https://github.com/HaaLeo/publish-vscode-extension/releases/tag/v1.4.0
+        uses: HaaLeo/publish-vscode-extension@dfe4f6ad46624424fe24cb5bca79839183399045
+        with:
+          pat: ${{ secrets.PUBLISHER_KEY }}
+          registryUrl: https://marketplace.visualstudio.com
+          extensionFile: ./vscode-github-actions-${{ needs.release.outputs.version }}.vsix
+          
+  #open-vsx-publish:
+    #name: Publish to Open VSX Registry
+    #needs: release
+    #environment: publish-open-vsx
+    #runs-on: ubuntu-latest
+    #env:
+      #OPEN_VSX_TOKEN: ${{ secrets.OPEN_VSX_TOKEN }}
+    #steps:
+      #- name: Download artifact
+        #uses: actions/download-artifact@v3
+        #with:
+          #name: vscode-github-actions-${{ needs.release.outputs.version }}.vsix
+
+      #- name: Publish to Registry
+        #run: |
+          #npx ovsx publish -p $OPEN_VSX_TOKEN *.vsix
