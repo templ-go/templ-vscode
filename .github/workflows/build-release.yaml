@@ -131,7 +131,7 @@ jobs:
     steps:
       - uses: actions/download-artifact@v3
         with:
-          name: vscode-github-actions-${{ needs.release.outputs.version }}.vsix
+          name: templ-${{ needs.release.outputs.version }}.vsix
 
       - name: Publish to marketplace
         # https://github.com/HaaLeo/publish-vscode-extension/releases/tag/v1.4.0
@@ -141,19 +141,19 @@ jobs:
           registryUrl: https://marketplace.visualstudio.com
           extensionFile: ./templ-${{ needs.release.outputs.version }}.vsix
           
-  #open-vsx-publish:
-    #name: Publish to Open VSX Registry
-    #needs: release
-    #environment: publish-open-vsx
-    #runs-on: ubuntu-latest
-    #env:
-      #OPEN_VSX_TOKEN: ${{ secrets.OPEN_VSX_TOKEN }}
-    #steps:
-      #- name: Download artifact
-        #uses: actions/download-artifact@v3
-        #with:
-          #name: vscode-github-actions-${{ needs.release.outputs.version }}.vsix
+  open-vsx-publish:
+    name: Publish to Open VSX Registry
+    needs: release
+    environment: publish-open-vsx
+    runs-on: ubuntu-latest
+    env:
+      OPEN_VSX_TOKEN: ${{ secrets.OPEN_VSX_TOKEN }}
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: templ-${{ needs.release.outputs.version }}.vsix
 
-      #- name: Publish to Registry
-        #run: |
-          #npx ovsx publish -p $OPEN_VSX_TOKEN *.vsix
+      - name: Publish to Registry
+        run: |
+          npx ovsx publish -p $OPEN_VSX_TOKEN *.vsix
