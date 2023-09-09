@@ -28,7 +28,7 @@ jobs:
             const release = await github.rest.repos.getReleaseByTag({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              tag: `release-v${version}`,
+              tag: `v${version}`,
             }).catch(() => null);
 
             // If the release exists, the version has not changed
