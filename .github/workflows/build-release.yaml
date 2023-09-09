@@ -139,7 +139,7 @@ jobs:
         with:
           pat: ${{ secrets.PUBLISHER_KEY }}
           registryUrl: https://marketplace.visualstudio.com
-          extensionFile: ./vscode-github-actions-${{ needs.release.outputs.version }}.vsix
+          extensionFile: ./templ-${{ needs.release.outputs.version }}.vsix
           
   #open-vsx-publish:
     #name: Publish to Open VSX Registry
