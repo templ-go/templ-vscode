@@ -24,7 +24,7 @@ jobs:
       - name: Build
         run: npm run compile
       - name: Package
-        run: npm vsce package
+        run: npm run package
       - name: Parse version from package.json
         run: |
           echo "EXT_VERSION=$(node -p -e "require('./package.json').version")" >> $GITHUB_ENV
