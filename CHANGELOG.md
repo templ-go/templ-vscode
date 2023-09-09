@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.13](https://github.com/a-h/templ-vscode/compare/v0.0.12...v0.0.13) (2023-09-09)
+
+
+### Bug Fixes
+
+* ensure go expressions are highlighted as Go code, not strings ([98024f3](https://github.com/a-h/templ-vscode/commit/98024f3da686f91b50c9425257b7916b2ae656db))
+
 ### [0.0.12](https://github.com/a-h/templ-vscode/compare/v0.0.11...v0.0.12) (2023-08-20)
 
 ### [0.0.11](https://github.com/a-h/templ-vscode/compare/v0.0.10...v0.0.11) (2023-08-20)
