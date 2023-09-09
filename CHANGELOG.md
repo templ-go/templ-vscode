@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.14](https://github.com/a-h/templ-vscode/compare/v0.0.13...v0.0.14) (2023-09-09)
+
+
+### Features
+
+* add OpenVSX and VS Code Marketplace CI, fixes [#111](https://github.com/a-h/templ-vscode/issues/111) ([824166a](https://github.com/a-h/templ-vscode/commit/824166abfc2fb0108317f98b1ebd719a5f7f549f))
+
 ### [0.0.13](https://github.com/a-h/templ-vscode/compare/v0.0.12...v0.0.13) (2023-09-09)
 
 
