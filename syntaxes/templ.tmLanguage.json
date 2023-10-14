@@ -188,6 +188,12 @@
           "include": "#html-comment"
         },
         {
+          "include": "#go-comment-block"
+        },
+        {
+          "include": "#go-comment-double-slash"
+        },
+        {
           "include": "#sgml"
         },
         {
@@ -485,6 +491,31 @@
           "include": "#tag-stuff"
         }
       ]
+    },
+    "go-comment-block": {
+      "name": "comment.block.go",
+      "begin": "(\\/\\*)",
+      "beginCaptures": {
+        "1": {
+          "name": "punctuation.definition.comment.go"
+        }
+      },
+      "end": "(\\*\\/)",
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.definition.comment.go"
+        }
+      }
+    },
+    "go-comment-double-slash": {
+      "name": "comment.line.double-slash.go",
+      "begin": "(\\/\\/)",
+      "beginCaptures": {
+        "1": {
+          "name": "punctuation.definition.comment.go"
+        }
+      },
+      "end": "(?:\\n|$)"
     },
     "html-comment": {
       "begin": "<!--",
