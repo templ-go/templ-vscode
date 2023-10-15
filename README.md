@@ -6,7 +6,7 @@ Syntax highlighting for the templ language (https://github.com/a-h/templ).
 
 ## Requirements
 
-Requires templ command line on the path.
+Requires `templ` and `gopls` on the system path to function.
 
 ## Issues
 
