@@ -87,7 +87,7 @@
   "devDependencies": {
     "@types/vscode": "1.79.1",
     "@vscode/test-electron": "2.3.5",
-    "@vscode/vsce": "^2.19.0",
+    "@vscode/vsce": "^2.22.0",
     "standard-version": "^9.5.0",
     "ts-loader": "9.5.0",
     "typescript": "5.2.2",
