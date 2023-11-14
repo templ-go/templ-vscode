@@ -18,7 +18,6 @@ import { lookpath } from 'lookpath';
 export async function activate(_ctx: vscode.ExtensionContext) {
     try {
         const lc = await buildLanguageClient()
-        vscode.window.showInformationMessage(`Returning config`)
         await lc.start()
     } catch (err) {
         const msg = err && err as Error ? (err as Error).message : 'unknown'
