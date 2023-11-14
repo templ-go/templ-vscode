@@ -387,8 +387,8 @@
       ]
     },
     "import-expression": {
-      "begin": "@(.+?{)$",
-      "end": "^\\s*(})$",
+      "begin": "@(.+?{)",
+      "end": "(})",
       "beginCaptures": {
         "0": {
           "patterns": [
