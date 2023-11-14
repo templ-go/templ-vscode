@@ -10,11 +10,15 @@ import {
     ProvideDocumentFormattingEditsSignature,
     ResponseError
 } from 'vscode-languageclient';
+import fs from 'fs/promises';
+import path from 'path';
 import { LanguageClient } from 'vscode-languageclient/node';
+import { lookpath } from 'lookpath';
 
 export async function activate(_ctx: vscode.ExtensionContext) {
     try {
         const lc = await buildLanguageClient()
+        vscode.window.showInformationMessage(`Returning config`)
         await lc.start()
     } catch (err) {
         const msg = err && err as Error ? (err as Error).message : 'unknown'
@@ -41,6 +45,42 @@ const loadConfiguration = (): Configuration => {
     }
 }
 
+const templLocations = [
+    path.join(process.env.GOBIN ?? "", 'templ'),
+    path.join(process.env.GOBIN ?? "", 'templ.exe'),
+    path.join(process.env.GOPATH ?? "", 'bin', 'templ'),
+    path.join(process.env.GOPATH ?? "", 'bin', 'templ.exe'),
+    path.join(process.env.GOROOT || "", 'bin', 'templ'),
+    path.join(process.env.GOROOT || "", 'bin', 'templ.exe'),
+    path.join(process.env.HOME || "", 'bin', 'templ'),
+    path.join(process.env.HOME || "", 'bin', 'templ.exe'),
+    '/usr/local/bin/templ',
+    '/usr/bin/templ',
+    '/usr/local/go/bin/templ',
+    '/usr/local/share/go/bin/templ',
+    '/usr/share/go/bin/templ',
+];
+
+async function findTempl(): Promise<string> {
+    const linuxName = await lookpath('templ');
+    if (linuxName) {
+        return linuxName;
+    }
+    const windowsName = await lookpath('templ.exe');
+    if (windowsName) {
+        return windowsName;
+    }
+    for (const exe of templLocations) {
+        try {
+            await fs.stat(exe);
+            return exe;
+        } catch (err) {
+            // ignore
+        }
+    }
+    throw new Error(`Could not find templ executable in path or in ${templLocations.join(', ')}`)
+}
+
 export async function buildLanguageClient(): Promise<LanguageClient> {
     const documentSelector = [
         { language: 'templ', scheme: 'file' },
@@ -64,13 +104,15 @@ export async function buildLanguageClient(): Promise<LanguageClient> {
         args.push(`-http=${config.http}`)
     }
 
+    const templPath = await findTempl()
+
     vscode.window.showInformationMessage(`Starting LSP: templ ${args.join(' ')}`)
 
     const c = new LanguageClient(
         'templ', // id
         'templ',
         {
-            command: 'templ',
+            command: templPath,
             args,
         },
         {
@@ -134,7 +176,7 @@ export async function buildLanguageClient(): Promise<LanguageClient> {
                             // if filterText is falsy, the `label` should be used.
                             // But we observed that's not the case.
                             // Even if vscode picked the label value, that would
-                            // cause to reorder candiates, which is not ideal.
+                            // cause to reorder candidates, which is not ideal.
                             // Force to use non-empty `label`.
                             // https://github.com/golang/vscode-go/issues/441
                             hardcodedFilterText = items[0].label.toString();
