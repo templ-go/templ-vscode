@@ -8,11 +8,10 @@
     "url": "https://github.com/a-h/templ-vscode"
   },
   "activationEvents": [
-    "workspaceContains:**/*.templ",
-    "onLanguage:templ"
+    "workspaceContains:**/*.templ"
   ],
   "main": "./dist/main.js",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "engines": {
     "vscode": "^1.79.1"
   },
