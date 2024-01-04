@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.18](https://github.com/a-h/templ-vscode/compare/v0.0.17...v0.0.18) (2024-01-04)
+
+
+### Features
+
+* add ~/go/bin to probed directories, fixes [#393](https://github.com/a-h/templ-vscode/issues/393) ([34543ff](https://github.com/a-h/templ-vscode/commit/34543ff8688cac6bcb9905a5645ee61fa9414e95))
+
 ### [0.0.14](https://github.com/a-h/templ-vscode/compare/v0.0.13...v0.0.14) (2023-09-09)
 
 
