@@ -53,6 +53,8 @@ const templLocations = [
     path.join(process.env.GOROOT || "", 'bin', 'templ.exe'),
     path.join(process.env.HOME || "", 'bin', 'templ'),
     path.join(process.env.HOME || "", 'bin', 'templ.exe'),
+    path.join(process.env.HOME || "", 'go', 'bin', 'templ'),
+    path.join(process.env.HOME || "", 'go', 'bin', 'templ.exe'),
     '/usr/local/bin/templ',
     '/usr/bin/templ',
     '/usr/local/go/bin/templ',
