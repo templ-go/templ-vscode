@@ -350,7 +350,7 @@
     },
     "case-expression": {
       "begin": "^\\s*case .+?:$",
-      "end": "(^\\s*case .+?:$)|(^\\s*default:$)|(^\\s*}$)|(\\s*$)",
+      "end": "(^\\s*case .+?:$)|(^\\s*default:$)|(\\s*$)",
       "captures": {
         "0": {
           "name": "case.switch.html-template.templ",
@@ -369,7 +369,7 @@
     },
     "default-expression": {
       "begin": "^\\s*default:$",
-      "end": "(^\\s*case .+?:$)|(^\\s*default:$)|(^\\s*}$)|(\\s*$)",
+      "end": "(^\\s*case .+?:$)|(^\\s*default:$)|(\\s*$)",
       "captures": {
         "0": {
           "name": "default.switch.html-template.templ",
