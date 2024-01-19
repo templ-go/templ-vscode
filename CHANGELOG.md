@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.19](https://github.com/a-h/templ-vscode/compare/v0.0.18...v0.0.19) (2024-01-19)
+
+### Features
+
+* Resolve issue with broken syntax highlighting on switch statements, fixes [#437](https://github.com/a-h/templ/issues/437) ([b6f0c68](https://github.com/a-h/templ-vscode/commit/b6f0c68b487bf96648661d6d1ada81b76c09f492))
+
 ### [0.0.18](https://github.com/a-h/templ-vscode/compare/v0.0.17...v0.0.18) (2024-01-04)
 
 
