@@ -179,6 +179,9 @@
           "include": "#call-expression"
         },
         {
+          "include": "#empty-import-expression"
+        },
+        {
           "include": "#import-expression"
         },
         {
@@ -386,6 +389,18 @@
         }
       ]
     },
+    "empty-import-expression":{
+      "match": "@(?:[A-z_][A-z_0-9]*\\.)?[A-z_][A-z_0-9]*\\(.*\\)\\s*$",
+      "captures": {
+        "0": {
+          "patterns": [
+            {
+              "include": "#import-expression-start"
+            }
+          ]
+        }
+      }
+    },
     "import-expression": {
       "begin": "@(?:[A-z_][A-z_0-9]*\\.)?[A-z_][A-z_0-9]*\\(.*\\)\\s*{$",
       "beginCaptures": {
@@ -413,6 +428,9 @@
     "import-expression-start": {
       "begin": "(@)",
       "beginCaptures": {
+        "0": {
+          "name": "start.import-expression.templ"
+        },
         "1": {
           "name": "keyword.control.go"
         }
@@ -427,12 +445,7 @@
         {
           "include": "source.go"
         }
-      ],
-      "captures": {
-        "0": {
-          "name": "start.import-expression.templ"
-        }
-      }
+      ]
     },
     "call-expression": {
       "begin": "({\\!)\\s+",
