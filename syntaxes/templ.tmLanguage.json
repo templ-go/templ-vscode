@@ -428,9 +428,6 @@
     "import-expression-start": {
       "begin": "(@)",
       "beginCaptures": {
-        "0": {
-          "name": "start.import-expression.templ"
-        },
         "1": {
           "name": "keyword.control.go"
         }
@@ -445,7 +442,12 @@
         {
           "include": "source.go"
         }
-      ]
+      ],
+      "captures": {
+        "0": {
+          "name": "start.import-expression.templ"
+        }
+      }
     },
     "call-expression": {
       "begin": "({\\!)\\s+",
