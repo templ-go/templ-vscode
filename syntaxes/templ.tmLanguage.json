@@ -387,8 +387,7 @@
       ]
     },
     "import-expression": {
-      "begin": "@(.+?{)",
-      "end": "(})",
+      "begin": "@(?:[A-z_][A-z_0-9]*\\.)?[A-z_][A-z_0-9]*\\(.*\\)\\s*{$",
       "beginCaptures": {
         "0": {
           "patterns": [
@@ -398,6 +397,7 @@
           ]
         }
       },
+      "end": "(})",
       "endCaptures": {
         "1": {
           "name": "punctuation.brace.close"
