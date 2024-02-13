@@ -179,6 +179,9 @@
           "include": "#call-expression"
         },
         {
+          "include": "#empty-import-expression"
+        },
+        {
           "include": "#import-expression"
         },
         {
@@ -386,9 +389,20 @@
         }
       ]
     },
+    "empty-import-expression":{
+      "match": "@(?:[A-z_][A-z_0-9]*\\.)?[A-z_][A-z_0-9]*\\(.*\\)\\s*$",
+      "captures": {
+        "0": {
+          "patterns": [
+            {
+              "include": "#import-expression-start"
+            }
+          ]
+        }
+      }
+    },
     "import-expression": {
-      "begin": "@(.+?{)",
-      "end": "(})",
+      "begin": "@(?:[A-z_][A-z_0-9]*\\.)?[A-z_][A-z_0-9]*\\(.*\\)\\s*{$",
       "beginCaptures": {
         "0": {
           "patterns": [
@@ -398,6 +412,7 @@
           ]
         }
       },
+      "end": "(})",
       "endCaptures": {
         "1": {
           "name": "punctuation.brace.close"
