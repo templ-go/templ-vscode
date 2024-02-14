@@ -390,12 +390,15 @@
       "patterns": [
         {
           "name": "start.import-expression.templ",
-          "begin": "@(?:[A-z_][A-z_0-9]*\\.)?[A-z_][A-z_0-9]*\\(",
+          "begin": "(@)((?:[A-z_][A-z_0-9]*\\.)?[A-z_][A-z_0-9]*\\()",
           "beginCaptures": {
-            "0": {
+            "1": {
+              "name": "keyword.control.go"
+            },
+            "2": {
               "patterns": [
                 {
-                  "include": "#import-expression-start"
+                  "include": "source.go"
                 }
               ]
             }
@@ -431,20 +434,6 @@
               "include": "#template-node"
             }
           ]
-        }
-      ]
-    },
-    "import-expression-start": {
-      "begin": "(@)",
-      "beginCaptures": {
-        "1": {
-          "name": "keyword.control.go"
-        }
-      },
-      "end": "\\s*$",
-      "patterns": [
-        {
-          "include": "source.go"
         }
       ]
     },
