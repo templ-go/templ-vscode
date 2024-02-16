@@ -403,7 +403,7 @@
               ]
             }
           },
-          "end": "\\s*$",
+          "end": "(?<=\\))$|(?<=})$",
           "patterns": [
             {
               "name": "params.import-expression.templ",
