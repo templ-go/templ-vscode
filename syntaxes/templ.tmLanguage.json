@@ -389,7 +389,7 @@
     "import-expression": {
       "patterns": [
         {
-          "name": "start.import-expression.templ",
+          "name": "import-expression.templ",
           "begin": "(@)((?:[A-z_][A-z_0-9]*\\.)?[A-z_][A-z_0-9]*\\()",
           "beginCaptures": {
             "1": {
@@ -403,35 +403,42 @@
               ]
             }
           },
-          "end": "(\\))",
-          "endCaptures": {
-            "1": {
-              "name": "punctuation.definition.end.bracket.round.go"
-            }
-          },
+          "end": "\\s*$",
           "patterns": [
             {
-              "include": "source.go"
-            }
-          ]
-        },
-        {
-          "name": "children.import-expression.templ",
-          "begin": "(?<=\\))\\s({)$",
-          "beginCaptures": {
-            "1": {
-              "name": "punctuation.brace.open"
-            }
-          },
-          "end": "^\\s*(})$",
-          "endCaptures": {
-            "1": {
-              "name": "punctuation.brace.close"
-            }
-          },
-          "patterns": [
+              "name": "params.import-expression.templ",
+              "begin": "(?<=\\()",
+              "end": "(\\))",
+              "endCaptures": {
+                "1": {
+                  "name": "punctuation.definition.end.bracket.round.go"
+                }
+              },
+              "patterns": [
+                {
+                  "include": "source.go"
+                }
+              ]
+            },
             {
-              "include": "#template-node"
+              "name": "children.import-expression.templ",
+              "begin": "(?<=\\))\\s({)$",
+              "beginCaptures": {
+                "1": {
+                  "name": "punctuation.brace.open"
+                }
+              },
+              "end": "^\\s*(})$",
+              "endCaptures": {
+                "1": {
+                  "name": "punctuation.brace.close"
+                }
+              },
+              "patterns": [
+                {
+                  "include": "#template-node"
+                }
+              ]
             }
           ]
         }
