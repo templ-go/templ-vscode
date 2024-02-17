@@ -805,6 +805,48 @@
         }
       ]
     },
+    "tag-else-if-attribute": {
+      "name": "else-if.attribute.html",
+      "begin": "\\s(else if)\\s",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.control.go"
+        }
+      },
+      "end": "(?<=\\s*})",
+      "patterns": [
+        {
+          "name": "expression.else-if.attribute.html",
+          "begin": "(?<=if\\s)",
+          "end": "({)$",
+          "endCaptures": {
+            "1": {
+              "name": "punctuation.brace.open"
+            }
+          },
+          "patterns": [
+            {
+              "include": "source.go"
+            }
+          ]
+        },
+        {
+          "name": "block.else-if.attribute.html",
+          "begin": "(?<={)$",
+          "end": "^\\s*(})",
+          "endCaptures": {
+            "1": {
+              "name": "punctuation.brace.close"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#tag-stuff"
+            }
+          ]
+        }
+      ]
+    },
     "tag-stuff": {
       "patterns": [
         {
@@ -821,6 +863,9 @@
         },
         {
           "include": "#tag-if-attribute"
+        },
+        {
+          "include": "#tag-else-if-attribute"
         }
       ]
     }
