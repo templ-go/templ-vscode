@@ -308,24 +308,46 @@
       "name": "else.html-template.templ"
     },
     "else-if-expression": {
-      "begin": "\\s+else\\s+if .+?{\\s*$",
-      "end": "(^\\s*}$)|(^\\s*}(?=\\s*else\\s*{$))|(^\\s*}(?=\\s*else\\s*if .+?{\\s*$))",
-      "captures": {
-        "0": {
-          "name": "meta.embedded.block.go",
+      "name": "else-if.html-template.templ",
+      "begin": "\\s(else if)\\s",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.control.go"
+        }
+      },
+      "end": "(?<=\\s*})",
+      "patterns": [
+        {
+          "name": "expression.else-if.html-template.templ",
+          "begin": "(?<=if\\s)",
+          "end": "({)$",
+          "endCaptures": {
+            "1": {
+              "name": "punctuation.definition.begin.bracket.curly.go"
+            }
+          },
           "patterns": [
             {
               "include": "source.go"
             }
           ]
-        }
-      },
-      "patterns": [
+        },
         {
-          "include": "#template-node"
+          "name": "block.else-if.html-template.templ",
+          "begin": "(?<={)$",
+          "end": "^\\s*(})",
+          "endCaptures": {
+            "1": {
+              "name": "punctuation.definition.end.bracket.curly.go"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#template-node"
+            }
+          ]
         }
-      ],
-      "name": "else.if.html-template.templ"
+      ]
     },
     "for-expression": {
       "begin": "^\\s*for .+{",
