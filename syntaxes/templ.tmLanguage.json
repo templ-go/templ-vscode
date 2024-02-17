@@ -222,6 +222,9 @@
         },
         {
           "include": "#switch-expression"
+        },
+        {
+          "include": "#script-element"
         }
       ]
     },
@@ -389,7 +392,7 @@
         }
       ]
     },
-    "empty-import-expression":{
+    "empty-import-expression": {
       "match": "@(?:[A-z_][A-z_0-9]*\\.)?[A-z_][A-z_0-9]*\\(.*\\)\\s*$",
       "captures": {
         "0": {
@@ -650,6 +653,25 @@
       "patterns": [
         {
           "include": "#tag-stuff"
+        }
+      ]
+    },
+    "script-element": {
+      "name": "meta.tag.script.html",
+      "begin": "(?<=<script.*>)",
+      "end": "</script>",
+      "endCaptures": {
+        "0": {
+          "patterns": [
+            {
+              "include": "#close-element"
+            }
+          ]
+        }
+      },
+      "patterns": [
+        {
+          "include": "source.js"
         }
       ]
     },
