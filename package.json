@@ -48,7 +48,8 @@
         "embeddedLanguages": {
           "meta.embedded.block.go": "go",
           "meta.embedded.block.js": "js",
-          "meta.embedded.block.html": "html"
+          "meta.embedded.block.html": "html",
+          "meta.embedded.block.css": "css"
         }
       }
     ],
