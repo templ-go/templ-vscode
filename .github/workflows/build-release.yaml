@@ -17,7 +17,7 @@ jobs:
       contents: read
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Check if version has changed
         id: check-version
         uses: actions/github-script@v6
@@ -60,12 +60,12 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           submodules: recursive
           fetch-depth: 0
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: '18'
           cache: npm
@@ -83,7 +83,7 @@ jobs:
         run: |
           echo "EXT_VERSION=$(node -p -e "require('./package.json').version")" >> $GITHUB_ENV
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v7
         with:
           name: templ-${{ env.EXT_VERSION }}.vsix
           path: ./templ-${{ env.EXT_VERSION }}.vsix
@@ -129,7 +129,7 @@ jobs:
     permissions: {}
 
     steps:
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: templ-${{ needs.release.outputs.version }}.vsix
 
@@ -150,7 +150,7 @@ jobs:
       OPEN_VSX_TOKEN: ${{ secrets.OPEN_VSX_TOKEN }}
     steps:
       - name: Download artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: templ-${{ needs.release.outputs.version }}.vsix
 
