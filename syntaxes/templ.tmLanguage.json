@@ -179,9 +179,6 @@
           "include": "#call-expression"
         },
         {
-          "include": "#empty-import-expression"
-        },
-        {
           "include": "#import-expression"
         },
         {
@@ -389,65 +386,63 @@
         }
       ]
     },
-    "empty-import-expression":{
-      "match": "@(?:[A-z_][A-z_0-9]*\\.)?[A-z_][A-z_0-9]*\\(.*\\)\\s*$",
-      "captures": {
-        "0": {
-          "patterns": [
-            {
-              "include": "#import-expression-start"
-            }
-          ]
-        }
-      }
-    },
     "import-expression": {
-      "begin": "@(?:[A-z_][A-z_0-9]*\\.)?[A-z_][A-z_0-9]*\\(.*\\)\\s*{$",
-      "beginCaptures": {
-        "0": {
+      "patterns": [
+        {
+          "name": "import-expression.templ",
+          "begin": "(@)((?:[A-z_][A-z_0-9]*\\.)?[A-z_][A-z_0-9]*\\()",
+          "beginCaptures": {
+            "1": {
+              "name": "keyword.control.go"
+            },
+            "2": {
+              "patterns": [
+                {
+                  "include": "source.go"
+                }
+              ]
+            }
+          },
+          "end": "(?<=\\))$|(?<=})$",
           "patterns": [
             {
-              "include": "#import-expression-start"
+              "name": "params.import-expression.templ",
+              "begin": "(?<=\\()",
+              "end": "(\\))",
+              "endCaptures": {
+                "1": {
+                  "name": "punctuation.definition.end.bracket.round.go"
+                }
+              },
+              "patterns": [
+                {
+                  "include": "source.go"
+                }
+              ]
+            },
+            {
+              "name": "children.import-expression.templ",
+              "begin": "(?<=\\))\\s({)$",
+              "beginCaptures": {
+                "1": {
+                  "name": "punctuation.brace.open"
+                }
+              },
+              "end": "^\\s*(})$",
+              "endCaptures": {
+                "1": {
+                  "name": "punctuation.brace.close"
+                }
+              },
+              "patterns": [
+                {
+                  "include": "#template-node"
+                }
+              ]
             }
           ]
         }
-      },
-      "end": "(})",
-      "endCaptures": {
-        "1": {
-          "name": "punctuation.brace.close"
-        }
-      },
-      "patterns": [
-        {
-          "include": "#template-node"
-        }
-      ],
-      "name": "import-expression.templ"
-    },
-    "import-expression-start": {
-      "begin": "(@)",
-      "beginCaptures": {
-        "1": {
-          "name": "keyword.control.go"
-        }
-      },
-      "end": "({)$",
-      "endCaptures": {
-        "1": {
-          "name": "punctuation.brace.open"
-        }
-      },
-      "patterns": [
-        {
-          "include": "source.go"
-        }
-      ],
-      "captures": {
-        "0": {
-          "name": "start.import-expression.templ"
-        }
-      }
+      ]
     },
     "call-expression": {
       "begin": "({\\!)\\s+",
