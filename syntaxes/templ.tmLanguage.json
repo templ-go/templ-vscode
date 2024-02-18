@@ -219,6 +219,12 @@
         },
         {
           "include": "#switch-expression"
+        },
+        {
+          "include": "#script-element"
+        },
+        {
+          "include": "#style-element"
         }
       ]
     },
@@ -701,6 +707,44 @@
       "patterns": [
         {
           "include": "#tag-stuff"
+        }
+      ]
+    },
+    "script-element": {
+      "name": "meta.tag.script.html",
+      "begin": "(?<=<script.*>)",
+      "end": "</script>",
+      "endCaptures": {
+        "0": {
+          "patterns": [
+            {
+              "include": "#close-element"
+            }
+          ]
+        }
+      },
+      "patterns": [
+        {
+          "include": "source.js"
+        }
+      ]
+    },
+    "style-element": {
+      "name": "meta.tag.style.html",
+      "begin": "(?<=<style.*>)",
+      "end": "</style>",
+      "endCaptures": {
+        "0": {
+          "patterns": [
+            {
+              "include": "#close-element"
+            }
+          ]
+        }
+      },
+      "patterns": [
+        {
+          "include": "source.css"
         }
       ]
     },
