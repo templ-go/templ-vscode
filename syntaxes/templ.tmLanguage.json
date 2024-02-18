@@ -858,6 +858,113 @@
         }
       ]
     },
+    "tag-if-attribute": {
+      "name": "if.attribute.html",
+      "begin": "^\\s*(if)\\s",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.control.go"
+        }
+      },
+      "end": "(?<=\\s*})",
+      "patterns": [
+        {
+          "name": "expression.if.attribute.html",
+          "begin": "(?<=if\\s)",
+          "end": "({)$",
+          "endCaptures": {
+            "1": {
+              "name": "punctuation.brace.open"
+            }
+          },
+          "patterns": [
+            {
+              "include": "source.go"
+            }
+          ]
+        },
+        {
+          "name": "block.if.attribute.html",
+          "begin": "(?<={)$",
+          "end": "^\\s*(})",
+          "endCaptures": {
+            "1": {
+              "name": "punctuation.brace.close"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#tag-stuff"
+            }
+          ]
+        }
+      ]
+    },
+    "tag-else-if-attribute": {
+      "name": "else-if.attribute.html",
+      "begin": "\\s(else if)\\s",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.control.go"
+        }
+      },
+      "end": "(?<=\\s*})",
+      "patterns": [
+        {
+          "name": "expression.else-if.attribute.html",
+          "begin": "(?<=if\\s)",
+          "end": "({)$",
+          "endCaptures": {
+            "1": {
+              "name": "punctuation.brace.open"
+            }
+          },
+          "patterns": [
+            {
+              "include": "source.go"
+            }
+          ]
+        },
+        {
+          "name": "block.else-if.attribute.html",
+          "begin": "(?<={)$",
+          "end": "^\\s*(})",
+          "endCaptures": {
+            "1": {
+              "name": "punctuation.brace.close"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#tag-stuff"
+            }
+          ]
+        }
+      ]
+    },
+    "tag-else-attribute": {
+      "name": "else.attribute.html",
+      "begin": "\\s(else)\\s({)$",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.control.go"
+        },
+        "2": {
+          "name": "punctuation.brace.open"
+        }
+      },
+      "end": "^\\s*(})$",
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.brace.close"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#tag-stuff"
+        }
+      ]
+    },
     "tag-stuff": {
       "patterns": [
         {
@@ -871,6 +978,15 @@
         },
         {
           "include": "#string-expression"
+        },
+        {
+          "include": "#tag-if-attribute"
+        },
+        {
+          "include": "#tag-else-if-attribute"
+        },
+        {
+          "include": "#tag-else-attribute"
         }
       ]
     }
