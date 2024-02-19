@@ -91,7 +91,7 @@
     "standard-version": "^9.5.0",
     "ts-loader": "9.5.1",
     "typescript": "5.3.3",
-    "webpack": "5.89.0",
+    "webpack": "5.90.2",
     "webpack-cli": "5.1.4"
   },
   "dependencies": {
