@@ -11,7 +11,7 @@
     "workspaceContains:**/*.templ"
   ],
   "main": "./dist/main.js",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "engines": {
     "vscode": "^1.86.0"
   },
@@ -51,6 +51,12 @@
           "meta.embedded.block.html": "html",
           "meta.embedded.block.css": "css"
         }
+      }
+    ],
+    "commands": [
+      {
+        "command": "templ.restartServer",
+        "title": "Templ: Restart Language Server"
       }
     ],
     "configuration": {
