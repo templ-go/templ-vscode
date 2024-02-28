@@ -436,18 +436,6 @@
         }
       ]
     },
-    "empty-import-expression": {
-      "match": "@(?:[A-z_][A-z_0-9]*\\.)?[A-z_][A-z_0-9]*\\(.*\\)\\s*$",
-      "captures": {
-        "0": {
-          "patterns": [
-            {
-              "include": "#import-expression-start"
-            }
-          ]
-        }
-      }
-    },
     "import-expression": {
       "patterns": [
         {
