@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### Unreleased
+
+* Add syntax highlighting for struct method import expression, fixes [#566](https://github.com/a-h/templ/issues/566) in #38
+
 ### [0.0.21](https://github.com/a-h/templ-vscode/compare/v0.0.20...v0.0.21) (2024-02-27)
 
 ### Features
