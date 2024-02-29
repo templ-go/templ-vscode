@@ -722,7 +722,7 @@
     },
     "script-element": {
       "name": "meta.tag.script.html",
-      "begin": "(?<=<script.*>)",
+      "begin": "(?<=<script.*>)(?<!</script>)",
       "end": "</script>",
       "endCaptures": {
         "0": {
