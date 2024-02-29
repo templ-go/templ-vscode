@@ -440,7 +440,7 @@
       "patterns": [
         {
           "name": "import-expression.templ",
-          "begin": "(@)((?:[A-z_][A-z_0-9]*\\.)?[A-z_][A-z_0-9]*(?:\\(|{))",
+          "begin": "(@)((?:[A-z_][A-z_0-9]*\\.)?[A-z_][A-z_0-9]*(?:\\(|{|$))",
           "beginCaptures": {
             "1": {
               "name": "keyword.control.go"
@@ -453,7 +453,7 @@
               ]
             }
           },
-          "end": "(?<=\\))$|(?<=})$",
+          "end": "(?<=\\))$|(?<=})$|(?<=$)",
           "patterns": [
             {
               "name": "struct-method.import-expression.templ",
