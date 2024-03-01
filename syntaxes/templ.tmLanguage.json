@@ -741,7 +741,7 @@
     },
     "style-element": {
       "name": "meta.tag.style.html",
-      "begin": "(?<=<style.*>)",
+      "begin": "(?<=<style.*>)(?<!</style>)",
       "end": "</style>",
       "endCaptures": {
         "0": {
