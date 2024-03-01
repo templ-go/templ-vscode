@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.22](https://github.com/a-h/templ-vscode/compare/v0.0.20...v0.0.22) (2024-03-01)
+
+
+### Bug Fixes
+
+* Closing style tags on the same line cause syntax highlight issues ([#40](https://github.com/a-h/templ-vscode/issues/40)) ([69ddaf0](https://github.com/a-h/templ-vscode/commit/69ddaf0003fa962740e2fbd911140061c2e558d9))
+* non-function import expression syntax highlighting ([#39](https://github.com/a-h/templ-vscode/issues/39)) ([e33c522](https://github.com/a-h/templ-vscode/commit/e33c5229f43564db51ae51c5ce86d1589fefd53c))
+* struct method syntax highlighting ([b961f34](https://github.com/a-h/templ-vscode/commit/b961f34cee9d4cd18dad697a78e5676a096e358c))
+* Syntax issue when closing a script on the same line ([#35](https://github.com/a-h/templ-vscode/issues/35)) ([36b2da7](https://github.com/a-h/templ-vscode/commit/36b2da785e6c8643f8df8af6dc84cc72a99e1bce))
+
 ### [0.0.21](https://github.com/a-h/templ-vscode/compare/v0.0.20...v0.0.21) (2024-02-27)
 
 ### Features

@@ -11,7 +11,7 @@
     "workspaceContains:**/*.templ"
   ],
   "main": "./dist/main.js",
-  "version": "0.0.21",
+  "version": "0.0.22",
   "engines": {
     "vscode": "^1.86.0"
   },
