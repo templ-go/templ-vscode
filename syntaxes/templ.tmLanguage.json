@@ -130,45 +130,58 @@
       ]
     },
     "html-template": {
-      "begin": "^(templ .+?{)$",
-      "end": "^}$",
+      "begin": "^(templ) ((?:\\([A-z_][A-z_0-9]* \\*?[A-z_][A-z_0-9]*\\) )?[A-z_][A-z_0-9]*\\()",
+      "end": "(?<=^}$)",
       "beginCaptures": {
         "1": {
+          "name": "keyword.control.go"
+        }, 
+        "2": {
           "patterns": [
             {
-              "include": "#html-template-start"
+              "include": "source.go"
             }
           ]
         }
       },
       "patterns": [
         {
-          "include": "#template-node"
+          "name": "params.html-template.templ",
+          "begin": "(?<=\\()",
+          "end": "(\\))",
+          "endCaptures": {
+            "1": {
+              "name": "punctuation.definition.end.bracket.round.go"
+            }
+          },
+          "patterns": [
+            {
+              "include": "source.go"
+            }
+          ]
+        },
+        {
+          "name": "block.html-template.templ",
+          "begin": "(?<=\\)) ({)$",
+          "beginCaptures": {
+            "1": {
+              "name": "punctuation.definition.begin.bracket.curly.go"
+            }
+          },
+          "end": "^(})$",
+          "endCaptures": {
+            "1": {
+              "name": "punctuation.definition.end.bracket.curly.go"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#template-node"
+            }
+          ]
         }
       ],
       "name": "html-template.templ"
-    },
-    "html-template-start": {
-      "begin": "^(templ) ",
-      "beginCaptures": {
-        "1": {
-          "name": "keyword.control.go"
-        }
-      },
-      "end": "{$",
-      "patterns": [
-        {
-          "include": "source.go"
-        },
-        {
-          "include": "#template-node"
-        }
-      ],
-      "captures": {
-        "0": {
-          "name": "start.html-template.templ"
-        }
-      }
     },
     "template-node": {
       "patterns": [
