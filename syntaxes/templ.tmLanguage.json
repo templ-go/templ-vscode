@@ -18,16 +18,11 @@
   ],
   "repository": {
     "script-template": {
-      "begin": "^(script) (.+? {)",
-      "end": "(^}$)",
+      "begin": "^(script) ([A-z_][A-z_0-9]*\\()",
       "beginCaptures": {
         "1": {
-          "patterns": [
-            {
-              "include": "#script-template-start"
-            }
-          ]
-        },
+          "name": "keyword.control.go"
+        }, 
         "2": {
           "patterns": [
             {
@@ -36,30 +31,45 @@
           ]
         }
       },
-      "endCaptures": {
-        "1": {
+      "end": "(?<=^}$)",
+      "patterns": [
+        {
+          "name": "params.script-template.templ",
+          "begin": "(?<=\\()",
+          "end": "(\\))",
+          "endCaptures": {
+            "1": {
+              "name": "punctuation.definition.end.bracket.round.go"
+            }
+          },
           "patterns": [
             {
               "include": "source.go"
             }
           ]
-        }
-      },
-      "patterns": [
+        },
         {
-          "include": "source.js"
+          "name": "block.script-template.templ",
+          "begin": "(?<=\\)) ({)$",
+          "beginCaptures": {
+            "1": {
+              "name": "punctuation.definition.begin.bracket.curly.go"
+            }
+          },
+          "end": "^(})$",
+          "endCaptures": {
+            "1": {
+              "name": "punctuation.definition.end.bracket.curly.go"
+            }
+          },
+          "patterns": [
+            {
+              "include": "source.js"
+            }
+          ]
         }
       ],
       "name": "script-template.templ"
-    },
-    "script-template-start": {
-      "match": ".+",
-      "captures": {
-        "0": {
-          "name": "keyword.control.go"
-        }
-      },
-      "name": "start.script-template.templ"
     },
     "css-template": {
       "begin": "(^css .+? {)",
@@ -131,7 +141,6 @@
     },
     "html-template": {
       "begin": "^(templ) ((?:\\([A-z_][A-z_0-9]* \\*?[A-z_][A-z_0-9]*\\) )?[A-z_][A-z_0-9]*\\()",
-      "end": "(?<=^}$)",
       "beginCaptures": {
         "1": {
           "name": "keyword.control.go"
@@ -144,6 +153,7 @@
           ]
         }
       },
+      "end": "(?<=^}$)",
       "patterns": [
         {
           "name": "params.html-template.templ",
