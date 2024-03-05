@@ -149,7 +149,7 @@ export async function buildLanguageClient(): Promise<LanguageClient> {
     await stopLanguageClient();
   }
 
-  vscode.window.showInformationMessage(`Starting LSP: templ ${args.join(" ")}`);
+  vscode.window.setStatusBarMessage(`Starting LSP: templ ${args.join(" ")}`, 3000);
 
   const c = new LanguageClient(
     "templ", // id
