@@ -235,6 +235,12 @@
           "include": "#import-expression"
         },
         {
+          "include": "#script-element"
+        },
+        {
+          "include": "#style-element"
+        },
+        {
           "include": "#element"
         },
         {
@@ -272,12 +278,6 @@
         },
         {
           "include": "#switch-expression"
-        },
-        {
-          "include": "#script-element"
-        },
-        {
-          "include": "#style-element"
         }
       ]
     },
@@ -778,7 +778,25 @@
     },
     "script-element": {
       "name": "meta.tag.script.html",
-      "begin": "(?<=<script.*>)(?<!</script>)",
+      "begin": "(<)(script)([^>]*)(>)",
+      "beginCaptures": {
+        "1": {
+          "name": "punctuation.definition.tag.html"
+        },
+        "2": {
+          "name": "entity.name.tag.html"
+        },
+        "3": {
+          "patterns": [
+            {
+              "include": "#tag-stuff"
+            }
+          ]
+        },
+        "4": {
+          "name": "punctuation.definition.tag.html"
+        }
+      },
       "end": "</script>",
       "endCaptures": {
         "0": {
@@ -797,7 +815,25 @@
     },
     "style-element": {
       "name": "meta.tag.style.html",
-      "begin": "(?<=<style.*>)(?<!</style>)",
+      "begin": "(<)(style)([^>]*)(>)",
+      "beginCaptures": {
+        "1": {
+          "name": "punctuation.definition.tag.html"
+        },
+        "2": {
+          "name": "entity.name.tag.html"
+        },
+        "3": {
+          "patterns": [
+            {
+              "include": "#tag-stuff"
+            }
+          ]
+        },
+        "4": {
+          "name": "punctuation.definition.tag.html"
+        }
+      },
       "end": "</style>",
       "endCaptures": {
         "0": {
