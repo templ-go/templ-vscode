@@ -309,7 +309,7 @@
           "name": "keyword.control.go"
         }
       },
-      "end": "(?<=\\s*})",
+      "end": "(?<=})",
       "patterns": [
         {
           "name": "expression.if.html-template.templ",
@@ -344,16 +344,19 @@
       ]
     },
     "else-expression": {
-      "begin": "\\s+else\\s+{\\s*$",
-      "end": "^\\s*}$",
-      "captures": {
-        "0": {
-          "name": "meta.embedded.block.go",
-          "patterns": [
-            {
-              "include": "source.go"
-            }
-          ]
+      "begin": "\\s+(else)\\s+({)\\s*$",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.control.go"
+        },
+        "2": {
+          "name": "punctuation.definition.end.bracket.curly.go"
+        }
+      },
+      "end": "^\\s*(})$",
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.definition.end.bracket.curly.go"
         }
       },
       "patterns": [
@@ -371,7 +374,7 @@
           "name": "keyword.control.go"
         }
       },
-      "end": "(?<=\\s*})",
+      "end": "(?<=})",
       "patterns": [
         {
           "name": "expression.else-if.html-template.templ",
@@ -929,7 +932,7 @@
           "name": "keyword.control.go"
         }
       },
-      "end": "(?<=\\s*})",
+      "end": "(?<=})",
       "patterns": [
         {
           "name": "expression.if.attribute.html",
@@ -971,7 +974,7 @@
           "name": "keyword.control.go"
         }
       },
-      "end": "(?<=\\s*})",
+      "end": "(?<=})",
       "patterns": [
         {
           "name": "expression.else-if.attribute.html",
