@@ -96,7 +96,7 @@
     "@vscode/vsce": "^2.24.0",
     "standard-version": "^9.5.0",
     "ts-loader": "9.5.1",
-    "typescript": "5.4.3",
+    "typescript": "5.4.4",
     "webpack": "5.91.0",
     "webpack-cli": "5.1.4"
   },
