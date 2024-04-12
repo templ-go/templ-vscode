@@ -1,0 +1,669 @@
+>package testcssusage
+#^^^^^^^ source.templ keyword.package.go
+#       ^ source.templ
+#        ^^^^^^^^^^^^ source.templ entity.name.package.go
+>
+>import "fmt"
+#^^^^^^ source.templ keyword.import.go
+#      ^ source.templ
+#       ^ source.templ string.quoted.double.go punctuation.definition.string.begin.go
+#        ^^^ source.templ string.quoted.double.go entity.name.import.go
+#           ^ source.templ string.quoted.double.go punctuation.definition.string.end.go
+>
+>// Constant class.
+#^^ source.templ comment.line.double-slash.go punctuation.definition.comment.go
+#  ^^^^^^^^^^^^^^^^ source.templ comment.line.double-slash.go
+>templ StyleTagsAreSupported() {
+#^^^^^ source.templ html-template.templ keyword.control.go
+#     ^ source.templ html-template.templ
+#      ^^^^^^^^^^^^^^^^^^^^^ source.templ html-template.templ
+#                           ^ source.templ html-template.templ punctuation.definition.begin.bracket.round.go
+#                            ^ source.templ html-template.templ params.html-template.templ punctuation.definition.end.bracket.round.go
+#                             ^ source.templ html-template.templ block.html-template.templ
+#                              ^ source.templ html-template.templ block.html-template.templ punctuation.definition.begin.bracket.curly.go
+>	<style>
+#^ source.templ html-template.templ block.html-template.templ
+# ^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html punctuation.definition.tag.begin.html
+#  ^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html entity.name.tag.inline.any.html
+#       ^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html punctuation.definition.tag.end.html
+>	.test {
+#^ source.templ html-template.templ block.html-template.templ meta.tag.style.html
+# ^ source.templ html-template.templ block.html-template.templ meta.tag.style.html meta.selector.css entity.other.attribute-name.class.css punctuation.definition.entity.css
+#  ^^^^ source.templ html-template.templ block.html-template.templ meta.tag.style.html meta.selector.css entity.other.attribute-name.class.css
+#      ^ source.templ html-template.templ block.html-template.templ meta.tag.style.html
+#       ^ source.templ html-template.templ block.html-template.templ meta.tag.style.html meta.property-list.css punctuation.section.property-list.begin.bracket.curly.css
+>		color: #ff0000;
+#^^ source.templ html-template.templ block.html-template.templ meta.tag.style.html meta.property-list.css
+#  ^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.style.html meta.property-list.css meta.property-name.css support.type.property-name.css
+#       ^ source.templ html-template.templ block.html-template.templ meta.tag.style.html meta.property-list.css punctuation.separator.key-value.css
+#        ^ source.templ html-template.templ block.html-template.templ meta.tag.style.html meta.property-list.css
+#         ^ source.templ html-template.templ block.html-template.templ meta.tag.style.html meta.property-list.css meta.property-value.css constant.other.color.rgb-value.hex.css punctuation.definition.constant.css
+#          ^^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.style.html meta.property-list.css meta.property-value.css constant.other.color.rgb-value.hex.css
+#                ^ source.templ html-template.templ block.html-template.templ meta.tag.style.html meta.property-list.css punctuation.terminator.rule.css
+>	}
+#^ source.templ html-template.templ block.html-template.templ meta.tag.style.html meta.property-list.css
+# ^ source.templ html-template.templ block.html-template.templ meta.tag.style.html meta.property-list.css punctuation.section.property-list.end.bracket.curly.css
+>	</style>
+#^ source.templ html-template.templ block.html-template.templ meta.tag.style.html
+# ^^ source.templ html-template.templ block.html-template.templ meta.tag.style.html meta.tag.other.html punctuation.definition.tag.begin.html
+#   ^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.style.html meta.tag.other.html entity.name.tag.other.html
+#        ^ source.templ html-template.templ block.html-template.templ meta.tag.style.html meta.tag.other.html punctuation.definition.tag.end.html
+>	<div class="test">Style tags are supported</div>
+#^ source.templ html-template.templ block.html-template.templ
+# ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#  ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#     ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html
+#      ^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.other.attribute-name.html
+#           ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html
+#            ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html string.quoted.double.html punctuation.definition.string.begin.html
+#             ^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html string.quoted.double.html
+#                 ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html string.quoted.double.html punctuation.definition.string.end.html
+#                  ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+#                   ^^^^^^^^^^^^^^^^^^^^^^^^ source.templ html-template.templ block.html-template.templ
+#                                           ^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#                                             ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#                                                ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+>}
+#^ source.templ html-template.templ block.html-template.templ punctuation.definition.end.bracket.curly.go
+>
+>// CSS components.
+#^^ source.templ comment.line.double-slash.go punctuation.definition.comment.go
+#  ^^^^^^^^^^^^^^^^ source.templ comment.line.double-slash.go
+>
+>const red = "#00ff00"
+#^^^^^ source.templ keyword.const.go
+#     ^^^^^ source.templ
+#          ^ source.templ keyword.operator.assignment.go
+#           ^ source.templ
+#            ^ source.templ string.quoted.double.go punctuation.definition.string.begin.go
+#             ^^^^^^^ source.templ string.quoted.double.go
+#                    ^ source.templ string.quoted.double.go punctuation.definition.string.end.go
+>
+>css cssComponentGreen() {
+#^^^ source.templ css-template.templ keyword.control.go
+#   ^ source.templ css-template.templ
+#    ^^^^^^^^^^^^^^^^^ source.templ css-template.templ
+#                     ^ source.templ css-template.templ punctuation.definition.begin.bracket.round.go
+#                      ^ source.templ css-template.templ params.css-template.templ punctuation.definition.end.bracket.round.go
+#                       ^ source.templ css-template.templ block.css-template.templ
+#                        ^ source.templ css-template.templ block.css-template.templ punctuation.definition.begin.bracket.curly.go
+>	color: { red };
+#^ source.templ css-template.templ block.css-template.templ property.css-template.templ
+# ^^^^^ source.templ css-template.templ block.css-template.templ property.css-template.templ support.type.property-name.css
+#      ^^ source.templ css-template.templ block.css-template.templ property.css-template.templ
+#        ^ source.templ css-template.templ block.css-template.templ property.css-template.templ expression.property.css-template.templ punctuation.definition.begin.bracket.curly.go
+#         ^^^^^ source.templ css-template.templ block.css-template.templ property.css-template.templ expression.property.css-template.templ
+#              ^ source.templ css-template.templ block.css-template.templ property.css-template.templ expression.property.css-template.templ punctuation.definition.end.bracket.curly.go
+#               ^ source.templ css-template.templ block.css-template.templ property.css-template.templ expression.property.css-template.templ punctuation.terminator.rule.css
+>}
+#^ source.templ css-template.templ block.css-template.templ punctuation.definition.end.bracket.curly.go
+>
+>templ CSSComponentsAreSupported() {
+#^^^^^ source.templ html-template.templ keyword.control.go
+#     ^ source.templ html-template.templ
+#      ^^^^^^^^^^^^^^^^^^^^^^^^^ source.templ html-template.templ
+#                               ^ source.templ html-template.templ punctuation.definition.begin.bracket.round.go
+#                                ^ source.templ html-template.templ params.html-template.templ punctuation.definition.end.bracket.round.go
+#                                 ^ source.templ html-template.templ block.html-template.templ
+#                                  ^ source.templ html-template.templ block.html-template.templ punctuation.definition.begin.bracket.curly.go
+>	<div class={ cssComponentGreen() }>CSS components are supported</div>
+#^ source.templ html-template.templ block.html-template.templ
+# ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#  ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#     ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html
+#      ^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.other.attribute-name.html
+#           ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html
+#            ^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ start.string-expression.templ
+#              ^^^^^^^^^^^^^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ
+#                               ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.definition.begin.bracket.round.go
+#                                ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.definition.end.bracket.round.go
+#                                 ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ
+#                                  ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ end.string-expression.templ
+#                                   ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+#                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.templ html-template.templ block.html-template.templ
+#                                                                ^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#                                                                  ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#                                                                     ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+>}
+#^ source.templ html-template.templ block.html-template.templ punctuation.definition.end.bracket.curly.go
+>
+>// Both CSS components and constants are supported.
+#^^ source.templ comment.line.double-slash.go punctuation.definition.comment.go
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.templ comment.line.double-slash.go
+>// Only string names are really required. There is no need to use templ.Class or templ.SafeClass.
+#^^ source.templ comment.line.double-slash.go punctuation.definition.comment.go
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.templ comment.line.double-slash.go
+>templ CSSComponentsAndConstantsAreSupported() {
+#^^^^^ source.templ html-template.templ keyword.control.go
+#     ^ source.templ html-template.templ
+#      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.templ html-template.templ
+#                                           ^ source.templ html-template.templ punctuation.definition.begin.bracket.round.go
+#                                            ^ source.templ html-template.templ params.html-template.templ punctuation.definition.end.bracket.round.go
+#                                             ^ source.templ html-template.templ block.html-template.templ
+#                                              ^ source.templ html-template.templ block.html-template.templ punctuation.definition.begin.bracket.curly.go
+>	<div class={ cssComponentGreen(), "classA", templ.Class("&&&classB"), templ.SafeClass("classC"), "d e" } type="button">Both CSS components and constants are supported</div>
+#^ source.templ html-template.templ block.html-template.templ
+# ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#  ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#     ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html
+#      ^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.other.attribute-name.html
+#           ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html
+#            ^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ start.string-expression.templ
+#              ^^^^^^^^^^^^^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ
+#                               ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.definition.begin.bracket.round.go
+#                                ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.definition.end.bracket.round.go
+#                                 ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.other.comma.go
+#                                  ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ
+#                                   ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go punctuation.definition.string.begin.go
+#                                    ^^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go
+#                                          ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go punctuation.definition.string.end.go
+#                                           ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.other.comma.go
+#                                            ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ
+#                                             ^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ variable.other.object.access.go
+#                                                  ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.separator.dot-access.go
+#                                                   ^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ entity.name.function.member.go
+#                                                        ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.section.arguments.bracket.round.function.member.go
+#                                                         ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go punctuation.definition.string.begin.go
+#                                                          ^^^^^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go
+#                                                                   ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go punctuation.definition.string.end.go
+#                                                                    ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.section.arguments.bracket.round.function.member.go
+#                                                                     ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.other.comma.go
+#                                                                      ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ
+#                                                                       ^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ variable.other.object.access.go
+#                                                                            ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.separator.dot-access.go
+#                                                                             ^^^^^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ entity.name.function.member.go
+#                                                                                      ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.section.arguments.bracket.round.function.member.go
+#                                                                                       ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go punctuation.definition.string.begin.go
+#                                                                                        ^^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go
+#                                                                                              ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go punctuation.definition.string.end.go
+#                                                                                               ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.section.arguments.bracket.round.function.member.go
+#                                                                                                ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.other.comma.go
+#                                                                                                 ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ
+#                                                                                                  ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go punctuation.definition.string.begin.go
+#                                                                                                   ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go
+#                                                                                                      ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go punctuation.definition.string.end.go
+#                                                                                                       ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ
+#                                                                                                        ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ end.string-expression.templ
+#                                                                                                         ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html
+#                                                                                                          ^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.other.attribute-name.html
+#                                                                                                              ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html
+#                                                                                                               ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html string.quoted.double.html punctuation.definition.string.begin.html
+#                                                                                                                ^^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html string.quoted.double.html
+#                                                                                                                      ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html string.quoted.double.html punctuation.definition.string.end.html
+#                                                                                                                       ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+#                                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.templ html-template.templ block.html-template.templ
+#                                                                                                                                                                       ^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#                                                                                                                                                                         ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#                                                                                                                                                                            ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+>	// The following is also valid, but not required - you can put the class names in directly.
+#^ source.templ html-template.templ block.html-template.templ
+# ^^ source.templ html-template.templ block.html-template.templ comment.line.double-slash.go punctuation.definition.comment.go
+#   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.templ html-template.templ block.html-template.templ comment.line.double-slash.go
+>	<div class={ templ.Classes(cssComponentGreen(), "classA", templ.Class("&&&classB"), templ.SafeClass("classC")), "d e" } type="button">Both CSS components and constants are supported</div>
+#^ source.templ html-template.templ block.html-template.templ
+# ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#  ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#     ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html
+#      ^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.other.attribute-name.html
+#           ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html
+#            ^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ start.string-expression.templ
+#              ^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ variable.other.object.access.go
+#                   ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.separator.dot-access.go
+#                    ^^^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ entity.name.function.member.go
+#                           ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.section.arguments.bracket.round.function.member.go
+#                            ^^^^^^^^^^^^^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ
+#                                             ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.definition.begin.bracket.round.go
+#                                              ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.definition.end.bracket.round.go
+#                                               ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.other.comma.go
+#                                                ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ
+#                                                 ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go punctuation.definition.string.begin.go
+#                                                  ^^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go
+#                                                        ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go punctuation.definition.string.end.go
+#                                                         ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.other.comma.go
+#                                                          ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ
+#                                                           ^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ variable.other.object.access.go
+#                                                                ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.separator.dot-access.go
+#                                                                 ^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ entity.name.function.member.go
+#                                                                      ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.section.arguments.bracket.round.function.member.go
+#                                                                       ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go punctuation.definition.string.begin.go
+#                                                                        ^^^^^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go
+#                                                                                 ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go punctuation.definition.string.end.go
+#                                                                                  ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.section.arguments.bracket.round.function.member.go
+#                                                                                   ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.other.comma.go
+#                                                                                    ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ
+#                                                                                     ^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ variable.other.object.access.go
+#                                                                                          ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.separator.dot-access.go
+#                                                                                           ^^^^^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ entity.name.function.member.go
+#                                                                                                    ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.section.arguments.bracket.round.function.member.go
+#                                                                                                     ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go punctuation.definition.string.begin.go
+#                                                                                                      ^^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go
+#                                                                                                            ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go punctuation.definition.string.end.go
+#                                                                                                             ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.section.arguments.bracket.round.function.member.go
+#                                                                                                              ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.section.arguments.bracket.round.function.member.go
+#                                                                                                               ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.other.comma.go
+#                                                                                                                ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ
+#                                                                                                                 ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go punctuation.definition.string.begin.go
+#                                                                                                                  ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go
+#                                                                                                                     ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go punctuation.definition.string.end.go
+#                                                                                                                      ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ
+#                                                                                                                       ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ end.string-expression.templ
+#                                                                                                                        ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html
+#                                                                                                                         ^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.other.attribute-name.html
+#                                                                                                                             ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html
+#                                                                                                                              ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html string.quoted.double.html punctuation.definition.string.begin.html
+#                                                                                                                               ^^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html string.quoted.double.html
+#                                                                                                                                     ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html string.quoted.double.html punctuation.definition.string.end.html
+#                                                                                                                                      ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+#                                                                                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.templ html-template.templ block.html-template.templ
+#                                                                                                                                                                                      ^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#                                                                                                                                                                                        ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#                                                                                                                                                                                           ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+>}
+#^ source.templ html-template.templ block.html-template.templ punctuation.definition.end.bracket.curly.go
+>
+>// Maps can be used to determine if a class should be added or not.
+#^^ source.templ comment.line.double-slash.go punctuation.definition.comment.go
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.templ comment.line.double-slash.go
+>templ MapsCanBeUsedToConditionallySetClasses() {
+#^^^^^ source.templ html-template.templ keyword.control.go
+#     ^ source.templ html-template.templ
+#      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.templ html-template.templ
+#                                            ^ source.templ html-template.templ punctuation.definition.begin.bracket.round.go
+#                                             ^ source.templ html-template.templ params.html-template.templ punctuation.definition.end.bracket.round.go
+#                                              ^ source.templ html-template.templ block.html-template.templ
+#                                               ^ source.templ html-template.templ block.html-template.templ punctuation.definition.begin.bracket.curly.go
+>	<div class={ map[string]bool{"a": true, "b": false, "c": true} }>Maps can be used to determine if a class should be added or not.</div>
+#^ source.templ html-template.templ block.html-template.templ
+# ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#  ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#     ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html
+#      ^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.other.attribute-name.html
+#           ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html
+#            ^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ start.string-expression.templ
+#              ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ keyword.map.go
+#                 ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.definition.bracket.square.go
+#                  ^^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ storage.type.string.go
+#                        ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.definition.bracket.square.go
+#                         ^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ storage.type.boolean.go
+#                             ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.definition.begin.bracket.curly.go
+#                              ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go punctuation.definition.string.begin.go
+#                               ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go
+#                                ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go punctuation.definition.string.end.go
+#                                 ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.other.colon.go
+#                                  ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ
+#                                   ^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ constant.language.go
+#                                       ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.other.comma.go
+#                                        ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ
+#                                         ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go punctuation.definition.string.begin.go
+#                                          ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go
+#                                           ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go punctuation.definition.string.end.go
+#                                            ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.other.colon.go
+#                                             ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ
+#                                              ^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ constant.language.go
+#                                                   ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.other.comma.go
+#                                                    ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ
+#                                                     ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go punctuation.definition.string.begin.go
+#                                                      ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go
+#                                                       ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go punctuation.definition.string.end.go
+#                                                        ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.other.colon.go
+#                                                         ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ
+#                                                          ^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ constant.language.go
+#                                                              ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.definition.end.bracket.curly.go
+#                                                               ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ
+#                                                                ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ end.string-expression.templ
+#                                                                 ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+#                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.templ html-template.templ block.html-template.templ
+#                                                                                                                                  ^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#                                                                                                                                    ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#                                                                                                                                       ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+>}
+#^ source.templ html-template.templ block.html-template.templ punctuation.definition.end.bracket.curly.go
+>
+>// The templ.KV function can be used to add a class if a condition is true.
+#^^ source.templ comment.line.double-slash.go punctuation.definition.comment.go
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.templ comment.line.double-slash.go
+>
+>css d() {
+#^^^ source.templ css-template.templ keyword.control.go
+#   ^ source.templ css-template.templ
+#    ^ source.templ css-template.templ
+#     ^ source.templ css-template.templ punctuation.definition.begin.bracket.round.go
+#      ^ source.templ css-template.templ params.css-template.templ punctuation.definition.end.bracket.round.go
+#       ^ source.templ css-template.templ block.css-template.templ
+#        ^ source.templ css-template.templ block.css-template.templ punctuation.definition.begin.bracket.curly.go
+>	font-size: 12pt;
+#^ source.templ css-template.templ block.css-template.templ property.css-template.templ
+# ^^^^^^^^^ source.templ css-template.templ block.css-template.templ property.css-template.templ support.type.property-name.css
+#          ^^ source.templ css-template.templ block.css-template.templ property.css-template.templ
+#            ^^^^ source.templ css-template.templ block.css-template.templ property.css-template.templ constant.property.css-template.templ support.type.property-value.css
+#                ^ source.templ css-template.templ block.css-template.templ property.css-template.templ constant.property.css-template.templ punctuation.terminator.rule.css
+>}
+#^ source.templ css-template.templ block.css-template.templ punctuation.definition.end.bracket.curly.go
+>
+>css e() {
+#^^^ source.templ css-template.templ keyword.control.go
+#   ^ source.templ css-template.templ
+#    ^ source.templ css-template.templ
+#     ^ source.templ css-template.templ punctuation.definition.begin.bracket.round.go
+#      ^ source.templ css-template.templ params.css-template.templ punctuation.definition.end.bracket.round.go
+#       ^ source.templ css-template.templ block.css-template.templ
+#        ^ source.templ css-template.templ block.css-template.templ punctuation.definition.begin.bracket.curly.go
+>	font-size: 14pt;
+#^ source.templ css-template.templ block.css-template.templ property.css-template.templ
+# ^^^^^^^^^ source.templ css-template.templ block.css-template.templ property.css-template.templ support.type.property-name.css
+#          ^^ source.templ css-template.templ block.css-template.templ property.css-template.templ
+#            ^^^^ source.templ css-template.templ block.css-template.templ property.css-template.templ constant.property.css-template.templ support.type.property-value.css
+#                ^ source.templ css-template.templ block.css-template.templ property.css-template.templ constant.property.css-template.templ punctuation.terminator.rule.css
+>}
+#^ source.templ css-template.templ block.css-template.templ punctuation.definition.end.bracket.curly.go
+>
+>templ KVCanBeUsedToConditionallySetClasses() {
+#^^^^^ source.templ html-template.templ keyword.control.go
+#     ^ source.templ html-template.templ
+#      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.templ html-template.templ
+#                                          ^ source.templ html-template.templ punctuation.definition.begin.bracket.round.go
+#                                           ^ source.templ html-template.templ params.html-template.templ punctuation.definition.end.bracket.round.go
+#                                            ^ source.templ html-template.templ block.html-template.templ
+#                                             ^ source.templ html-template.templ block.html-template.templ punctuation.definition.begin.bracket.curly.go
+>	<div class={ "a", templ.KV("b", false), "c", templ.KV(d(), false), templ.KV(e(), true) }>KV can be used to conditionally set classes.</div>
+#^ source.templ html-template.templ block.html-template.templ
+# ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#  ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#     ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html
+#      ^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.other.attribute-name.html
+#           ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html
+#            ^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ start.string-expression.templ
+#              ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go punctuation.definition.string.begin.go
+#               ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go
+#                ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go punctuation.definition.string.end.go
+#                 ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.other.comma.go
+#                  ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ
+#                   ^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ variable.other.object.access.go
+#                        ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.separator.dot-access.go
+#                         ^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ entity.name.function.member.go
+#                           ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.section.arguments.bracket.round.function.member.go
+#                            ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go punctuation.definition.string.begin.go
+#                             ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go
+#                              ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go punctuation.definition.string.end.go
+#                               ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.other.comma.go
+#                                ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ
+#                                 ^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ constant.language.go
+#                                      ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.section.arguments.bracket.round.function.member.go
+#                                       ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.other.comma.go
+#                                        ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ
+#                                         ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go punctuation.definition.string.begin.go
+#                                          ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go
+#                                           ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go punctuation.definition.string.end.go
+#                                            ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.other.comma.go
+#                                             ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ
+#                                              ^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ variable.other.object.access.go
+#                                                   ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.separator.dot-access.go
+#                                                    ^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ entity.name.function.member.go
+#                                                      ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.section.arguments.bracket.round.function.member.go
+#                                                       ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ
+#                                                        ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.definition.begin.bracket.round.go
+#                                                         ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.definition.end.bracket.round.go
+#                                                          ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.other.comma.go
+#                                                           ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ
+#                                                            ^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ constant.language.go
+#                                                                 ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.section.arguments.bracket.round.function.member.go
+#                                                                  ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.other.comma.go
+#                                                                   ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ
+#                                                                    ^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ variable.other.object.access.go
+#                                                                         ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.separator.dot-access.go
+#                                                                          ^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ entity.name.function.member.go
+#                                                                            ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.section.arguments.bracket.round.function.member.go
+#                                                                             ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ
+#                                                                              ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.definition.begin.bracket.round.go
+#                                                                               ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.definition.end.bracket.round.go
+#                                                                                ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.other.comma.go
+#                                                                                 ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ
+#                                                                                  ^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ constant.language.go
+#                                                                                      ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.section.arguments.bracket.round.function.member.go
+#                                                                                       ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ
+#                                                                                        ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ end.string-expression.templ
+#                                                                                         ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+#                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.templ html-template.templ block.html-template.templ
+#                                                                                                                                      ^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#                                                                                                                                        ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#                                                                                                                                           ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+>}
+#^ source.templ html-template.templ block.html-template.templ punctuation.definition.end.bracket.curly.go
+>
+>// Pseudo attributes can be used without any special syntax.
+#^^ source.templ comment.line.double-slash.go punctuation.definition.comment.go
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.templ comment.line.double-slash.go
+>templ PsuedoAttributesAndComplexClassNamesAreSupported() {
+#^^^^^ source.templ html-template.templ keyword.control.go
+#     ^ source.templ html-template.templ
+#      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.templ html-template.templ
+#                                                      ^ source.templ html-template.templ punctuation.definition.begin.bracket.round.go
+#                                                       ^ source.templ html-template.templ params.html-template.templ punctuation.definition.end.bracket.round.go
+#                                                        ^ source.templ html-template.templ block.html-template.templ
+#                                                         ^ source.templ html-template.templ block.html-template.templ punctuation.definition.begin.bracket.curly.go
+>	<div class={ "bg-violet-500", "hover:bg-red-600", "hover:bg-sky-700", "text-[#50d71e]", "w-[calc(100%-4rem)" }>Psuedo attributes and complex class names are supported.</div>
+#^ source.templ html-template.templ block.html-template.templ
+# ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#  ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#     ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html
+#      ^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.other.attribute-name.html
+#           ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html
+#            ^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ start.string-expression.templ
+#              ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go punctuation.definition.string.begin.go
+#               ^^^^^^^^^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go
+#                            ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go punctuation.definition.string.end.go
+#                             ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.other.comma.go
+#                              ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ
+#                               ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go punctuation.definition.string.begin.go
+#                                ^^^^^^^^^^^^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go
+#                                                ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go punctuation.definition.string.end.go
+#                                                 ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.other.comma.go
+#                                                  ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ
+#                                                   ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go punctuation.definition.string.begin.go
+#                                                    ^^^^^^^^^^^^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go
+#                                                                    ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go punctuation.definition.string.end.go
+#                                                                     ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.other.comma.go
+#                                                                      ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ
+#                                                                       ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go punctuation.definition.string.begin.go
+#                                                                        ^^^^^^^^^^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go
+#                                                                                      ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go punctuation.definition.string.end.go
+#                                                                                       ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.other.comma.go
+#                                                                                        ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ
+#                                                                                         ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go punctuation.definition.string.begin.go
+#                                                                                          ^^^^^^^^^^^^^^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go
+#                                                                                                            ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go punctuation.definition.string.end.go
+#                                                                                                             ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ
+#                                                                                                              ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ end.string-expression.templ
+#                                                                                                               ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+#                                                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.templ html-template.templ block.html-template.templ
+#                                                                                                                                                                        ^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#                                                                                                                                                                          ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#                                                                                                                                                                             ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+>}
+#^ source.templ html-template.templ block.html-template.templ punctuation.definition.end.bracket.curly.go
+>
+>// Class names are HTML escaped.
+#^^ source.templ comment.line.double-slash.go punctuation.definition.comment.go
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.templ comment.line.double-slash.go
+>templ ClassNamesAreHTMLEscaped() {
+#^^^^^ source.templ html-template.templ keyword.control.go
+#     ^ source.templ html-template.templ
+#      ^^^^^^^^^^^^^^^^^^^^^^^^ source.templ html-template.templ
+#                              ^ source.templ html-template.templ punctuation.definition.begin.bracket.round.go
+#                               ^ source.templ html-template.templ params.html-template.templ punctuation.definition.end.bracket.round.go
+#                                ^ source.templ html-template.templ block.html-template.templ
+#                                 ^ source.templ html-template.templ block.html-template.templ punctuation.definition.begin.bracket.curly.go
+>	<div class={ "a\" onClick=\"alert('hello')\"" }>Class names are HTML escaped.</div>
+#^ source.templ html-template.templ block.html-template.templ
+# ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#  ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#     ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html
+#      ^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.other.attribute-name.html
+#           ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html
+#            ^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ start.string-expression.templ
+#              ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go punctuation.definition.string.begin.go
+#               ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go
+#                ^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go constant.character.escape.go
+#                  ^^^^^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go
+#                           ^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go constant.character.escape.go
+#                             ^^^^^^^^^^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go
+#                                           ^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go constant.character.escape.go
+#                                             ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ string.quoted.double.go punctuation.definition.string.end.go
+#                                              ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ
+#                                               ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ end.string-expression.templ
+#                                                ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+#                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.templ html-template.templ block.html-template.templ
+#                                                                              ^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#                                                                                ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#                                                                                   ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+>}
+#^ source.templ html-template.templ block.html-template.templ punctuation.definition.end.bracket.curly.go
+>
+>// CSS components can be used with arguments.
+#^^ source.templ comment.line.double-slash.go punctuation.definition.comment.go
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.templ comment.line.double-slash.go
+>
+>css loading(percent int) {
+#^^^ source.templ css-template.templ keyword.control.go
+#   ^ source.templ css-template.templ
+#    ^^^^^^^ source.templ css-template.templ
+#           ^ source.templ css-template.templ punctuation.definition.begin.bracket.round.go
+#            ^^^^^^^^ source.templ css-template.templ params.css-template.templ
+#                    ^^^ source.templ css-template.templ params.css-template.templ storage.type.numeric.go
+#                       ^ source.templ css-template.templ params.css-template.templ punctuation.definition.end.bracket.round.go
+#                        ^ source.templ css-template.templ block.css-template.templ
+#                         ^ source.templ css-template.templ block.css-template.templ punctuation.definition.begin.bracket.curly.go
+>	width: { fmt.Sprintf("%d%%", percent) };
+#^ source.templ css-template.templ block.css-template.templ property.css-template.templ
+# ^^^^^ source.templ css-template.templ block.css-template.templ property.css-template.templ support.type.property-name.css
+#      ^^ source.templ css-template.templ block.css-template.templ property.css-template.templ
+#        ^ source.templ css-template.templ block.css-template.templ property.css-template.templ expression.property.css-template.templ punctuation.definition.begin.bracket.curly.go
+#         ^ source.templ css-template.templ block.css-template.templ property.css-template.templ expression.property.css-template.templ
+#          ^^^ source.templ css-template.templ block.css-template.templ property.css-template.templ expression.property.css-template.templ variable.other.object.access.go
+#             ^ source.templ css-template.templ block.css-template.templ property.css-template.templ expression.property.css-template.templ punctuation.separator.dot-access.go
+#              ^^^^^^^ source.templ css-template.templ block.css-template.templ property.css-template.templ expression.property.css-template.templ entity.name.function.member.go
+#                     ^ source.templ css-template.templ block.css-template.templ property.css-template.templ expression.property.css-template.templ punctuation.section.arguments.bracket.round.function.member.go
+#                      ^ source.templ css-template.templ block.css-template.templ property.css-template.templ expression.property.css-template.templ string.quoted.double.go punctuation.definition.string.begin.go
+#                       ^^ source.templ css-template.templ block.css-template.templ property.css-template.templ expression.property.css-template.templ string.quoted.double.go constant.other.placeholder.go
+#                         ^^ source.templ css-template.templ block.css-template.templ property.css-template.templ expression.property.css-template.templ string.quoted.double.go constant.other.placeholder.go
+#                           ^ source.templ css-template.templ block.css-template.templ property.css-template.templ expression.property.css-template.templ string.quoted.double.go punctuation.definition.string.end.go
+#                            ^ source.templ css-template.templ block.css-template.templ property.css-template.templ expression.property.css-template.templ punctuation.other.comma.go
+#                             ^^^^^^^^ source.templ css-template.templ block.css-template.templ property.css-template.templ expression.property.css-template.templ
+#                                     ^ source.templ css-template.templ block.css-template.templ property.css-template.templ expression.property.css-template.templ punctuation.section.arguments.bracket.round.function.member.go
+#                                      ^ source.templ css-template.templ block.css-template.templ property.css-template.templ expression.property.css-template.templ
+#                                       ^ source.templ css-template.templ block.css-template.templ property.css-template.templ expression.property.css-template.templ punctuation.definition.end.bracket.curly.go
+#                                        ^ source.templ css-template.templ block.css-template.templ property.css-template.templ expression.property.css-template.templ punctuation.terminator.rule.css
+>}
+#^ source.templ css-template.templ block.css-template.templ punctuation.definition.end.bracket.curly.go
+>
+>templ CSSComponentsCanBeUsedWithArguments() {
+#^^^^^ source.templ html-template.templ keyword.control.go
+#     ^ source.templ html-template.templ
+#      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.templ html-template.templ
+#                                         ^ source.templ html-template.templ punctuation.definition.begin.bracket.round.go
+#                                          ^ source.templ html-template.templ params.html-template.templ punctuation.definition.end.bracket.round.go
+#                                           ^ source.templ html-template.templ block.html-template.templ
+#                                            ^ source.templ html-template.templ block.html-template.templ punctuation.definition.begin.bracket.curly.go
+>	<div class={ loading(50) }>CSS components can be used with arguments.</div>
+#^ source.templ html-template.templ block.html-template.templ
+# ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#  ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#     ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html
+#      ^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.other.attribute-name.html
+#           ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html
+#            ^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ start.string-expression.templ
+#              ^^^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ
+#                     ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.definition.begin.bracket.round.go
+#                      ^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ constant.numeric.decimal.go
+#                        ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.definition.end.bracket.round.go
+#                         ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ
+#                          ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ end.string-expression.templ
+#                           ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+#                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.templ html-template.templ block.html-template.templ
+#                                                                      ^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#                                                                        ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#                                                                           ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+>	<div class={ loading(100) }>CSS components can be used with arguments.</div>
+#^ source.templ html-template.templ block.html-template.templ
+# ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#  ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#     ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html
+#      ^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.other.attribute-name.html
+#           ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html
+#            ^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ start.string-expression.templ
+#              ^^^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ
+#                     ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.definition.begin.bracket.round.go
+#                      ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ constant.numeric.decimal.go
+#                         ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ punctuation.definition.end.bracket.round.go
+#                          ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ
+#                           ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html expression.html-template.templ end.string-expression.templ
+#                            ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+#                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.templ html-template.templ block.html-template.templ
+#                                                                       ^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#                                                                         ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#                                                                            ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+>}
+#^ source.templ html-template.templ block.html-template.templ punctuation.definition.end.bracket.curly.go
+>
+>// Combine all tests.
+#^^ source.templ comment.line.double-slash.go punctuation.definition.comment.go
+#  ^^^^^^^^^^^^^^^^^^^ source.templ comment.line.double-slash.go
+>templ TestComponent() {
+#^^^^^ source.templ html-template.templ keyword.control.go
+#     ^ source.templ html-template.templ
+#      ^^^^^^^^^^^^^ source.templ html-template.templ
+#                   ^ source.templ html-template.templ punctuation.definition.begin.bracket.round.go
+#                    ^ source.templ html-template.templ params.html-template.templ punctuation.definition.end.bracket.round.go
+#                     ^ source.templ html-template.templ block.html-template.templ
+#                      ^ source.templ html-template.templ block.html-template.templ punctuation.definition.begin.bracket.curly.go
+>	@StyleTagsAreSupported()
+#^ source.templ html-template.templ block.html-template.templ
+# ^ source.templ html-template.templ block.html-template.templ import-expression.templ keyword.control.go
+#  ^^^^^^^^^^^^^^^^^^^^^ source.templ html-template.templ block.html-template.templ import-expression.templ
+#                       ^ source.templ html-template.templ block.html-template.templ import-expression.templ punctuation.definition.begin.bracket.round.go
+#                        ^ source.templ html-template.templ block.html-template.templ import-expression.templ params.import-expression.templ punctuation.definition.end.bracket.round.go
+>	@CSSComponentsAreSupported()
+#^ source.templ html-template.templ block.html-template.templ
+# ^ source.templ html-template.templ block.html-template.templ import-expression.templ keyword.control.go
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^ source.templ html-template.templ block.html-template.templ import-expression.templ
+#                           ^ source.templ html-template.templ block.html-template.templ import-expression.templ punctuation.definition.begin.bracket.round.go
+#                            ^ source.templ html-template.templ block.html-template.templ import-expression.templ params.import-expression.templ punctuation.definition.end.bracket.round.go
+>	@CSSComponentsAndConstantsAreSupported()
+#^ source.templ html-template.templ block.html-template.templ
+# ^ source.templ html-template.templ block.html-template.templ import-expression.templ keyword.control.go
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.templ html-template.templ block.html-template.templ import-expression.templ
+#                                       ^ source.templ html-template.templ block.html-template.templ import-expression.templ punctuation.definition.begin.bracket.round.go
+#                                        ^ source.templ html-template.templ block.html-template.templ import-expression.templ params.import-expression.templ punctuation.definition.end.bracket.round.go
+>	@MapsCanBeUsedToConditionallySetClasses()
+#^ source.templ html-template.templ block.html-template.templ
+# ^ source.templ html-template.templ block.html-template.templ import-expression.templ keyword.control.go
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.templ html-template.templ block.html-template.templ import-expression.templ
+#                                        ^ source.templ html-template.templ block.html-template.templ import-expression.templ punctuation.definition.begin.bracket.round.go
+#                                         ^ source.templ html-template.templ block.html-template.templ import-expression.templ params.import-expression.templ punctuation.definition.end.bracket.round.go
+>	@KVCanBeUsedToConditionallySetClasses()
+#^ source.templ html-template.templ block.html-template.templ
+# ^ source.templ html-template.templ block.html-template.templ import-expression.templ keyword.control.go
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.templ html-template.templ block.html-template.templ import-expression.templ
+#                                      ^ source.templ html-template.templ block.html-template.templ import-expression.templ punctuation.definition.begin.bracket.round.go
+#                                       ^ source.templ html-template.templ block.html-template.templ import-expression.templ params.import-expression.templ punctuation.definition.end.bracket.round.go
+>	@PsuedoAttributesAndComplexClassNamesAreSupported()
+#^ source.templ html-template.templ block.html-template.templ
+# ^ source.templ html-template.templ block.html-template.templ import-expression.templ keyword.control.go
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.templ html-template.templ block.html-template.templ import-expression.templ
+#                                                  ^ source.templ html-template.templ block.html-template.templ import-expression.templ punctuation.definition.begin.bracket.round.go
+#                                                   ^ source.templ html-template.templ block.html-template.templ import-expression.templ params.import-expression.templ punctuation.definition.end.bracket.round.go
+>	@ClassNamesAreHTMLEscaped()
+#^ source.templ html-template.templ block.html-template.templ
+# ^ source.templ html-template.templ block.html-template.templ import-expression.templ keyword.control.go
+#  ^^^^^^^^^^^^^^^^^^^^^^^^ source.templ html-template.templ block.html-template.templ import-expression.templ
+#                          ^ source.templ html-template.templ block.html-template.templ import-expression.templ punctuation.definition.begin.bracket.round.go
+#                           ^ source.templ html-template.templ block.html-template.templ import-expression.templ params.import-expression.templ punctuation.definition.end.bracket.round.go
+>	@CSSComponentsCanBeUsedWithArguments()
+#^ source.templ html-template.templ block.html-template.templ
+# ^ source.templ html-template.templ block.html-template.templ import-expression.templ keyword.control.go
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.templ html-template.templ block.html-template.templ import-expression.templ
+#                                     ^ source.templ html-template.templ block.html-template.templ import-expression.templ punctuation.definition.begin.bracket.round.go
+#                                      ^ source.templ html-template.templ block.html-template.templ import-expression.templ params.import-expression.templ punctuation.definition.end.bracket.round.go
+>}
+#^ source.templ html-template.templ block.html-template.templ punctuation.definition.end.bracket.curly.go
+>
