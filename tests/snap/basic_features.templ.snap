@@ -217,7 +217,7 @@
 #   ^ source.templ html-template.templ block.html-template.templ else.html-template.templ
 #    ^^^^ source.templ html-template.templ block.html-template.templ else.html-template.templ keyword.control.go
 #        ^ source.templ html-template.templ block.html-template.templ else.html-template.templ
-#         ^ source.templ html-template.templ block.html-template.templ else.html-template.templ punctuation.definition.end.bracket.curly.go
+#         ^ source.templ html-template.templ block.html-template.templ else.html-template.templ punctuation.definition.begin.bracket.curly.go
 >			{ "Else" }
 #^^^ source.templ html-template.templ block.html-template.templ else.html-template.templ
 #   ^^ source.templ html-template.templ block.html-template.templ else.html-template.templ expression.html-template.templ start.string-expression.templ

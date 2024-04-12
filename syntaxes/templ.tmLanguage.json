@@ -350,7 +350,7 @@
           "name": "keyword.control.go"
         },
         "2": {
-          "name": "punctuation.definition.end.bracket.curly.go"
+          "name": "punctuation.definition.begin.bracket.curly.go"
         }
       },
       "end": "^\\s*(})$",
