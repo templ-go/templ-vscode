@@ -20,6 +20,18 @@ Please raise any issues in https://github.com/a-h/templ
 npm run compile
 ```
 
+### test
+
+```sh
+npm run test
+```
+
+### test-update
+
+```sh
+npm run test:update
+```
+
 ### version
 
 requires: compile

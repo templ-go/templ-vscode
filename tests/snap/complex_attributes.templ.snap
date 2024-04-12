@@ -1,0 +1,156 @@
+>package testcomplexattributes
+#^^^^^^^ source.templ keyword.package.go
+#       ^ source.templ
+#        ^^^^^^^^^^^^^^^^^^^^^ source.templ entity.name.package.go
+>
+>templ ComplexAttributes() {
+#^^^^^ source.templ html-template.templ keyword.control.go
+#     ^ source.templ html-template.templ
+#      ^^^^^^^^^^^^^^^^^ source.templ html-template.templ
+#                       ^ source.templ html-template.templ punctuation.definition.begin.bracket.round.go
+#                        ^ source.templ html-template.templ params.html-template.templ punctuation.definition.end.bracket.round.go
+#                         ^ source.templ html-template.templ block.html-template.templ
+#                          ^ source.templ html-template.templ block.html-template.templ punctuation.definition.begin.bracket.curly.go
+>	<div
+#^ source.templ html-template.templ block.html-template.templ
+# ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#  ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+>		x-data="{darkMode: localStorage.getItem('darkMode') || localStorage.setItem('darkMode', 'system')}"
+#^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html
+#  ^^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.other.attribute-name.html
+#        ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html
+#         ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html string.quoted.double.html punctuation.definition.string.begin.html
+#          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html string.quoted.double.html
+#                                                                                                    ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html string.quoted.double.html punctuation.definition.string.end.html
+>		x-init="$watch('darkMode', val => localStorage.setItem('darkMode', val))"
+#^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html
+#  ^^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.other.attribute-name.html
+#        ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html
+#         ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html string.quoted.double.html punctuation.definition.string.begin.html
+#          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html string.quoted.double.html
+#                                                                          ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html string.quoted.double.html punctuation.definition.string.end.html
+>		:class="{'dark': darkMode === 'dark' || (darkMode === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)}"
+#^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html
+#   ^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.other.attribute-name.html
+#        ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html
+#         ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html string.quoted.double.html punctuation.definition.string.begin.html
+#          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html string.quoted.double.html
+#                                                                 ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html string.quoted.double.html invalid.illegal.bad-ampersand.html
+#                                                                  ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html string.quoted.double.html invalid.illegal.bad-ampersand.html
+#                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html string.quoted.double.html
+#                                                                                                                               ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html string.quoted.double.html punctuation.definition.string.end.html
+>	></div>
+#^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html
+# ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+#  ^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#    ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#       ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+>	<div x-data="{ count: 0 }">
+#^ source.templ html-template.templ block.html-template.templ
+# ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#  ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#     ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html
+#      ^^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.other.attribute-name.html
+#            ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html
+#             ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html string.quoted.double.html punctuation.definition.string.begin.html
+#              ^^^^^^^^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html string.quoted.double.html
+#                          ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html string.quoted.double.html punctuation.definition.string.end.html
+#                           ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+>		<button
+#^^ source.templ html-template.templ block.html-template.templ
+#  ^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html punctuation.definition.tag.begin.html
+#   ^^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html entity.name.tag.inline.any.html
+>			x-on:click="count++"
+#^^^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html
+#   ^^^^^^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html entity.other.attribute-name.html
+#             ^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html
+#              ^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html string.quoted.double.html punctuation.definition.string.begin.html
+#               ^^^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html string.quoted.double.html
+#                      ^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html string.quoted.double.html punctuation.definition.string.end.html
+>		>Increment</button>
+#^^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html
+#  ^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html punctuation.definition.tag.end.html
+#   ^^^^^^^^^ source.templ html-template.templ block.html-template.templ
+#            ^^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html punctuation.definition.tag.begin.html
+#              ^^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html entity.name.tag.inline.any.html
+#                    ^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html punctuation.definition.tag.end.html
+>		<span x-text="count"></span>
+#^^ source.templ html-template.templ block.html-template.templ
+#  ^ source.templ html-template.templ block.html-template.templ meta.tag.any.html punctuation.definition.tag.html
+#   ^^^^ source.templ html-template.templ block.html-template.templ meta.tag.any.html entity.name.tag.html
+#       ^ source.templ html-template.templ block.html-template.templ meta.tag.any.html
+#        ^^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.any.html entity.other.attribute-name.html
+#              ^ source.templ html-template.templ block.html-template.templ meta.tag.any.html
+#               ^ source.templ html-template.templ block.html-template.templ meta.tag.any.html string.quoted.double.html punctuation.definition.string.begin.html
+#                ^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.any.html string.quoted.double.html
+#                     ^ source.templ html-template.templ block.html-template.templ meta.tag.any.html string.quoted.double.html punctuation.definition.string.end.html
+#                      ^ source.templ html-template.templ block.html-template.templ meta.tag.any.html punctuation.definition.tag.html
+#                       ^ source.templ html-template.templ block.html-template.templ meta.tag.any.html punctuation.definition.tag.html meta.scope.between-tag-pair.html
+#                        ^ source.templ html-template.templ block.html-template.templ meta.tag.any.html punctuation.definition.tag.html
+#                         ^^^^ source.templ html-template.templ block.html-template.templ meta.tag.any.html entity.name.tag.html
+#                             ^ source.templ html-template.templ block.html-template.templ meta.tag.any.html punctuation.definition.tag.html
+>	</div>
+#^ source.templ html-template.templ block.html-template.templ
+# ^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#   ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#      ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+>	<div x-data="{ count: 0 }">
+#^ source.templ html-template.templ block.html-template.templ
+# ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#  ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#     ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html
+#      ^^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.other.attribute-name.html
+#            ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html
+#             ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html string.quoted.double.html punctuation.definition.string.begin.html
+#              ^^^^^^^^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html string.quoted.double.html
+#                          ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html string.quoted.double.html punctuation.definition.string.end.html
+#                           ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+>		<button
+#^^ source.templ html-template.templ block.html-template.templ
+#  ^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html punctuation.definition.tag.begin.html
+#   ^^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html entity.name.tag.inline.any.html
+>			@click="count++"
+#^^^^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html
+#    ^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html entity.other.attribute-name.html
+#         ^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html
+#          ^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html string.quoted.double.html punctuation.definition.string.begin.html
+#           ^^^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html string.quoted.double.html
+#                  ^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html string.quoted.double.html punctuation.definition.string.end.html
+>			disabled?={ true }
+#^^^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html
+#   ^^^^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html entity.other.attribute-name.html
+#           ^^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html
+#             ^^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html expression.html-template.templ start.string-expression.templ
+#               ^^^^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html expression.html-template.templ constant.language.go
+#                   ^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html expression.html-template.templ
+#                    ^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html expression.html-template.templ end.string-expression.templ
+>		>Increment</button>
+#^^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html
+#  ^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html punctuation.definition.tag.end.html
+#   ^^^^^^^^^ source.templ html-template.templ block.html-template.templ
+#            ^^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html punctuation.definition.tag.begin.html
+#              ^^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html entity.name.tag.inline.any.html
+#                    ^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html punctuation.definition.tag.end.html
+>		<span x-text="count"></span>
+#^^ source.templ html-template.templ block.html-template.templ
+#  ^ source.templ html-template.templ block.html-template.templ meta.tag.any.html punctuation.definition.tag.html
+#   ^^^^ source.templ html-template.templ block.html-template.templ meta.tag.any.html entity.name.tag.html
+#       ^ source.templ html-template.templ block.html-template.templ meta.tag.any.html
+#        ^^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.any.html entity.other.attribute-name.html
+#              ^ source.templ html-template.templ block.html-template.templ meta.tag.any.html
+#               ^ source.templ html-template.templ block.html-template.templ meta.tag.any.html string.quoted.double.html punctuation.definition.string.begin.html
+#                ^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.any.html string.quoted.double.html
+#                     ^ source.templ html-template.templ block.html-template.templ meta.tag.any.html string.quoted.double.html punctuation.definition.string.end.html
+#                      ^ source.templ html-template.templ block.html-template.templ meta.tag.any.html punctuation.definition.tag.html
+#                       ^ source.templ html-template.templ block.html-template.templ meta.tag.any.html punctuation.definition.tag.html meta.scope.between-tag-pair.html
+#                        ^ source.templ html-template.templ block.html-template.templ meta.tag.any.html punctuation.definition.tag.html
+#                         ^^^^ source.templ html-template.templ block.html-template.templ meta.tag.any.html entity.name.tag.html
+#                             ^ source.templ html-template.templ block.html-template.templ meta.tag.any.html punctuation.definition.tag.html
+>	</div>
+#^ source.templ html-template.templ block.html-template.templ
+# ^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#   ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#      ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+>}
+#^ source.templ html-template.templ block.html-template.templ punctuation.definition.end.bracket.curly.go
+>
