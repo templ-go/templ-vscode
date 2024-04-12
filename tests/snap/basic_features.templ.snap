@@ -1,0 +1,586 @@
+>package main
+#^^^^^^^ source.templ keyword.package.go
+#       ^ source.templ
+#        ^^^^ source.templ entity.name.package.go
+>
+>templ Hello(name string) {
+#^^^^^ source.templ html-template.templ keyword.control.go
+#     ^ source.templ html-template.templ
+#      ^^^^^ source.templ html-template.templ
+#           ^ source.templ html-template.templ punctuation.definition.begin.bracket.round.go
+#            ^^^^^ source.templ html-template.templ params.html-template.templ
+#                 ^^^^^^ source.templ html-template.templ params.html-template.templ storage.type.string.go
+#                       ^ source.templ html-template.templ params.html-template.templ punctuation.definition.end.bracket.round.go
+#                        ^ source.templ html-template.templ block.html-template.templ
+#                         ^ source.templ html-template.templ block.html-template.templ punctuation.definition.begin.bracket.curly.go
+>	<div>Hello, { name }</div>
+#^ source.templ html-template.templ block.html-template.templ
+# ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#  ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#     ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+#      ^^^^^^^ source.templ html-template.templ block.html-template.templ
+#             ^^ source.templ html-template.templ block.html-template.templ expression.html-template.templ start.string-expression.templ
+#               ^^^^^ source.templ html-template.templ block.html-template.templ expression.html-template.templ
+#                    ^ source.templ html-template.templ block.html-template.templ expression.html-template.templ end.string-expression.templ
+#                     ^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#                       ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#                          ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+>}
+#^ source.templ html-template.templ block.html-template.templ punctuation.definition.end.bracket.curly.go
+>
+>templ Greeting(
+#^^^^^ source.templ html-template.templ keyword.control.go
+#     ^ source.templ html-template.templ
+#      ^^^^^^^^ source.templ html-template.templ
+#              ^ source.templ html-template.templ punctuation.definition.begin.bracket.round.go
+>	person Person,
+#^^^^^^^^^^^^^^ source.templ html-template.templ params.html-template.templ
+#              ^ source.templ html-template.templ params.html-template.templ punctuation.other.comma.go
+>) {
+#^ source.templ html-template.templ params.html-template.templ punctuation.definition.end.bracket.round.go
+# ^ source.templ html-template.templ block.html-template.templ
+#  ^ source.templ html-template.templ block.html-template.templ punctuation.definition.begin.bracket.curly.go
+>	<div class="greeting">
+#^ source.templ html-template.templ block.html-template.templ
+# ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#  ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#     ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html
+#      ^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.other.attribute-name.html
+#           ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html
+#            ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html string.quoted.double.html punctuation.definition.string.begin.html
+#             ^^^^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html string.quoted.double.html
+#                     ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html string.quoted.double.html punctuation.definition.string.end.html
+#                      ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+>		@Hello(person.Name)
+#^^ source.templ html-template.templ block.html-template.templ
+#  ^ source.templ html-template.templ block.html-template.templ import-expression.templ keyword.control.go
+#   ^^^^^ source.templ html-template.templ block.html-template.templ import-expression.templ
+#        ^ source.templ html-template.templ block.html-template.templ import-expression.templ punctuation.definition.begin.bracket.round.go
+#         ^^^^^^ source.templ html-template.templ block.html-template.templ import-expression.templ params.import-expression.templ variable.other.object.access.go
+#               ^ source.templ html-template.templ block.html-template.templ import-expression.templ params.import-expression.templ punctuation.separator.dot-access.go
+#                ^^^^ source.templ html-template.templ block.html-template.templ import-expression.templ params.import-expression.templ variable.other.property.go
+#                    ^ source.templ html-template.templ block.html-template.templ import-expression.templ params.import-expression.templ punctuation.definition.end.bracket.round.go
+>	</div>
+#^ source.templ html-template.templ block.html-template.templ
+# ^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#   ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#      ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+>}
+#^ source.templ html-template.templ block.html-template.templ punctuation.definition.end.bracket.curly.go
+>
+>type Data struct {
+#^^^^ source.templ keyword.type.go
+#    ^ source.templ
+#     ^^^^ source.templ entity.name.type.go
+#         ^ source.templ
+#          ^^^^^^ source.templ keyword.struct.go
+#                ^ source.templ
+#                 ^ source.templ punctuation.definition.begin.bracket.curly.go
+>	message string
+#^^^^^^^^^ source.templ
+#         ^^^^^^ source.templ storage.type.string.go
+>}
+#^ source.templ punctuation.definition.end.bracket.curly.go
+>
+>templ (d Data) Method() {
+#^^^^^ source.templ html-template.templ keyword.control.go
+#     ^ source.templ html-template.templ
+#      ^ source.templ html-template.templ punctuation.definition.begin.bracket.round.go
+#       ^^^^^^ source.templ html-template.templ
+#             ^ source.templ html-template.templ punctuation.definition.end.bracket.round.go
+#              ^^^^^^^ source.templ html-template.templ
+#                     ^ source.templ html-template.templ punctuation.definition.begin.bracket.round.go
+#                      ^ source.templ html-template.templ params.html-template.templ punctuation.definition.end.bracket.round.go
+#                       ^ source.templ html-template.templ block.html-template.templ
+#                        ^ source.templ html-template.templ block.html-template.templ punctuation.definition.begin.bracket.curly.go
+>	<div>{ d.message }</div>
+#^ source.templ html-template.templ block.html-template.templ
+# ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#  ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#     ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+#      ^^ source.templ html-template.templ block.html-template.templ expression.html-template.templ start.string-expression.templ
+#        ^ source.templ html-template.templ block.html-template.templ expression.html-template.templ variable.other.object.access.go
+#         ^ source.templ html-template.templ block.html-template.templ expression.html-template.templ punctuation.separator.dot-access.go
+#          ^^^^^^^ source.templ html-template.templ block.html-template.templ expression.html-template.templ variable.other.property.go
+#                 ^ source.templ html-template.templ block.html-template.templ expression.html-template.templ
+#                  ^ source.templ html-template.templ block.html-template.templ expression.html-template.templ end.string-expression.templ
+#                   ^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#                     ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#                        ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+>}
+#^ source.templ html-template.templ block.html-template.templ punctuation.definition.end.bracket.curly.go
+>
+>templ Message() {
+#^^^^^ source.templ html-template.templ keyword.control.go
+#     ^ source.templ html-template.templ
+#      ^^^^^^^ source.templ html-template.templ
+#             ^ source.templ html-template.templ punctuation.definition.begin.bracket.round.go
+#              ^ source.templ html-template.templ params.html-template.templ punctuation.definition.end.bracket.round.go
+#               ^ source.templ html-template.templ block.html-template.templ
+#                ^ source.templ html-template.templ block.html-template.templ punctuation.definition.begin.bracket.curly.go
+>	<div>
+#^ source.templ html-template.templ block.html-template.templ
+# ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#  ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#     ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+>		@Data{
+#^^ source.templ html-template.templ block.html-template.templ
+#  ^ source.templ html-template.templ block.html-template.templ import-expression.templ keyword.control.go
+#   ^^^^ source.templ html-template.templ block.html-template.templ import-expression.templ
+#       ^ source.templ html-template.templ block.html-template.templ import-expression.templ punctuation.definition.begin.bracket.curly.go
+>			message: "You can implement methods on a type.",
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.templ html-template.templ block.html-template.templ
+>		}.Method()
+#^^^^^^^^^^^^^ source.templ html-template.templ block.html-template.templ
+>	</div>
+#^ source.templ html-template.templ block.html-template.templ
+# ^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#   ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#      ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+>}
+#^ source.templ html-template.templ block.html-template.templ punctuation.definition.end.bracket.curly.go
+>
+>script withComment() {
+#^^^^^^ source.templ script-template.templ keyword.control.go
+#      ^ source.templ script-template.templ
+#       ^^^^^^^^^^^ source.templ script-template.templ
+#                  ^ source.templ script-template.templ punctuation.definition.begin.bracket.round.go
+#                   ^ source.templ script-template.templ params.script-template.templ punctuation.definition.end.bracket.round.go
+#                    ^ source.templ script-template.templ block.script-template.templ
+#                     ^ source.templ script-template.templ block.script-template.templ punctuation.definition.begin.bracket.curly.go
+>	//'
+#^ source.templ script-template.templ block.script-template.templ punctuation.whitespace.comment.leading.js
+# ^^ source.templ script-template.templ block.script-template.templ comment.line.double-slash.js punctuation.definition.comment.js
+#   ^ source.templ script-template.templ block.script-template.templ comment.line.double-slash.js
+>}
+#^ source.templ script-template.templ block.script-template.templ punctuation.definition.end.bracket.curly.go
+>
+>templ conditionals(d data) {
+#^^^^^ source.templ html-template.templ keyword.control.go
+#     ^ source.templ html-template.templ
+#      ^^^^^^^^^^^^ source.templ html-template.templ
+#                  ^ source.templ html-template.templ punctuation.definition.begin.bracket.round.go
+#                   ^^^^^^ source.templ html-template.templ params.html-template.templ
+#                         ^ source.templ html-template.templ params.html-template.templ punctuation.definition.end.bracket.round.go
+#                          ^ source.templ html-template.templ block.html-template.templ
+#                           ^ source.templ html-template.templ block.html-template.templ punctuation.definition.begin.bracket.curly.go
+>	<div>
+#^ source.templ html-template.templ block.html-template.templ
+# ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#  ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#     ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+>		if d.IsTrue() {
+#^^ source.templ html-template.templ block.html-template.templ if.html-template.templ
+#  ^^ source.templ html-template.templ block.html-template.templ if.html-template.templ keyword.control.go
+#    ^ source.templ html-template.templ block.html-template.templ if.html-template.templ
+#     ^ source.templ html-template.templ block.html-template.templ if.html-template.templ expression.if.html-template.templ variable.other.object.access.go
+#      ^ source.templ html-template.templ block.html-template.templ if.html-template.templ expression.if.html-template.templ punctuation.separator.dot-access.go
+#       ^^^^^^ source.templ html-template.templ block.html-template.templ if.html-template.templ expression.if.html-template.templ entity.name.function.member.go
+#             ^ source.templ html-template.templ block.html-template.templ if.html-template.templ expression.if.html-template.templ punctuation.section.arguments.bracket.round.function.member.go
+#              ^ source.templ html-template.templ block.html-template.templ if.html-template.templ expression.if.html-template.templ punctuation.section.arguments.bracket.round.function.member.go
+#               ^ source.templ html-template.templ block.html-template.templ if.html-template.templ expression.if.html-template.templ
+#                ^ source.templ html-template.templ block.html-template.templ if.html-template.templ expression.if.html-template.templ punctuation.definition.begin.bracket.curly.go
+>			<div>True</div>
+#^^^ source.templ html-template.templ block.html-template.templ if.html-template.templ block.if.html-template.templ
+#   ^ source.templ html-template.templ block.html-template.templ if.html-template.templ block.if.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#    ^^^ source.templ html-template.templ block.html-template.templ if.html-template.templ block.if.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#       ^ source.templ html-template.templ block.html-template.templ if.html-template.templ block.if.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+#        ^^^^ source.templ html-template.templ block.html-template.templ if.html-template.templ block.if.html-template.templ
+#            ^^ source.templ html-template.templ block.html-template.templ if.html-template.templ block.if.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#              ^^^ source.templ html-template.templ block.html-template.templ if.html-template.templ block.if.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#                 ^ source.templ html-template.templ block.html-template.templ if.html-template.templ block.if.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+>		} else if !d.IsTrue() {
+#^^ source.templ html-template.templ block.html-template.templ if.html-template.templ block.if.html-template.templ
+#  ^ source.templ html-template.templ block.html-template.templ if.html-template.templ block.if.html-template.templ punctuation.definition.end.bracket.curly.go
+#   ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ
+#    ^^^^^^^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ keyword.control.go
+#           ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ
+#            ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ expression.else-if.html-template.templ keyword.operator.logical.go
+#             ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ expression.else-if.html-template.templ variable.other.object.access.go
+#              ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ expression.else-if.html-template.templ punctuation.separator.dot-access.go
+#               ^^^^^^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ expression.else-if.html-template.templ entity.name.function.member.go
+#                     ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ expression.else-if.html-template.templ punctuation.section.arguments.bracket.round.function.member.go
+#                      ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ expression.else-if.html-template.templ punctuation.section.arguments.bracket.round.function.member.go
+#                       ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ expression.else-if.html-template.templ
+#                        ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ expression.else-if.html-template.templ punctuation.definition.begin.bracket.curly.go
+>			{ "False" }
+#^^^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ block.else-if.html-template.templ
+#   ^^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ block.else-if.html-template.templ expression.html-template.templ start.string-expression.templ
+#     ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ block.else-if.html-template.templ expression.html-template.templ string.quoted.double.go punctuation.definition.string.begin.go
+#      ^^^^^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ block.else-if.html-template.templ expression.html-template.templ string.quoted.double.go
+#           ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ block.else-if.html-template.templ expression.html-template.templ string.quoted.double.go punctuation.definition.string.end.go
+#            ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ block.else-if.html-template.templ expression.html-template.templ
+#             ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ block.else-if.html-template.templ expression.html-template.templ end.string-expression.templ
+>		} else {
+#^^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ block.else-if.html-template.templ
+#  ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ block.else-if.html-template.templ punctuation.definition.end.bracket.curly.go
+#   ^ source.templ html-template.templ block.html-template.templ else.html-template.templ meta.embedded.block.go
+#    ^^^^ source.templ html-template.templ block.html-template.templ else.html-template.templ meta.embedded.block.go keyword.control.go
+#        ^ source.templ html-template.templ block.html-template.templ else.html-template.templ meta.embedded.block.go
+#         ^ source.templ html-template.templ block.html-template.templ else.html-template.templ meta.embedded.block.go punctuation.definition.begin.bracket.curly.go
+>			{ "Else" }
+#^^^ source.templ html-template.templ block.html-template.templ else.html-template.templ
+#   ^^ source.templ html-template.templ block.html-template.templ else.html-template.templ expression.html-template.templ start.string-expression.templ
+#     ^ source.templ html-template.templ block.html-template.templ else.html-template.templ expression.html-template.templ string.quoted.double.go punctuation.definition.string.begin.go
+#      ^^^^ source.templ html-template.templ block.html-template.templ else.html-template.templ expression.html-template.templ string.quoted.double.go
+#          ^ source.templ html-template.templ block.html-template.templ else.html-template.templ expression.html-template.templ string.quoted.double.go punctuation.definition.string.end.go
+#           ^ source.templ html-template.templ block.html-template.templ else.html-template.templ expression.html-template.templ
+#            ^ source.templ html-template.templ block.html-template.templ else.html-template.templ expression.html-template.templ end.string-expression.templ
+>		}
+#^^^ source.templ html-template.templ block.html-template.templ else.html-template.templ meta.embedded.block.go
+>	</div>
+#^ source.templ html-template.templ block.html-template.templ
+# ^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#   ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#      ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+>	<div>
+#^ source.templ html-template.templ block.html-template.templ
+# ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#  ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#     ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+>		if 1 == 2 {
+#^^ source.templ html-template.templ block.html-template.templ if.html-template.templ
+#  ^^ source.templ html-template.templ block.html-template.templ if.html-template.templ keyword.control.go
+#    ^ source.templ html-template.templ block.html-template.templ if.html-template.templ
+#     ^ source.templ html-template.templ block.html-template.templ if.html-template.templ expression.if.html-template.templ constant.numeric.decimal.go
+#      ^ source.templ html-template.templ block.html-template.templ if.html-template.templ expression.if.html-template.templ
+#       ^^ source.templ html-template.templ block.html-template.templ if.html-template.templ expression.if.html-template.templ keyword.operator.comparison.go
+#         ^ source.templ html-template.templ block.html-template.templ if.html-template.templ expression.if.html-template.templ
+#          ^ source.templ html-template.templ block.html-template.templ if.html-template.templ expression.if.html-template.templ constant.numeric.decimal.go
+#           ^ source.templ html-template.templ block.html-template.templ if.html-template.templ expression.if.html-template.templ
+#            ^ source.templ html-template.templ block.html-template.templ if.html-template.templ expression.if.html-template.templ punctuation.definition.begin.bracket.curly.go
+>			{ "If" }
+#^^^ source.templ html-template.templ block.html-template.templ if.html-template.templ block.if.html-template.templ
+#   ^^ source.templ html-template.templ block.html-template.templ if.html-template.templ block.if.html-template.templ expression.html-template.templ start.string-expression.templ
+#     ^ source.templ html-template.templ block.html-template.templ if.html-template.templ block.if.html-template.templ expression.html-template.templ string.quoted.double.go punctuation.definition.string.begin.go
+#      ^^ source.templ html-template.templ block.html-template.templ if.html-template.templ block.if.html-template.templ expression.html-template.templ string.quoted.double.go
+#        ^ source.templ html-template.templ block.html-template.templ if.html-template.templ block.if.html-template.templ expression.html-template.templ string.quoted.double.go punctuation.definition.string.end.go
+#         ^ source.templ html-template.templ block.html-template.templ if.html-template.templ block.if.html-template.templ expression.html-template.templ
+#          ^ source.templ html-template.templ block.html-template.templ if.html-template.templ block.if.html-template.templ expression.html-template.templ end.string-expression.templ
+>		} else if 1 == 1 {
+#^^ source.templ html-template.templ block.html-template.templ if.html-template.templ block.if.html-template.templ
+#  ^ source.templ html-template.templ block.html-template.templ if.html-template.templ block.if.html-template.templ punctuation.definition.end.bracket.curly.go
+#   ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ
+#    ^^^^^^^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ keyword.control.go
+#           ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ
+#            ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ expression.else-if.html-template.templ constant.numeric.decimal.go
+#             ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ expression.else-if.html-template.templ
+#              ^^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ expression.else-if.html-template.templ keyword.operator.comparison.go
+#                ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ expression.else-if.html-template.templ
+#                 ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ expression.else-if.html-template.templ constant.numeric.decimal.go
+#                  ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ expression.else-if.html-template.templ
+#                   ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ expression.else-if.html-template.templ punctuation.definition.begin.bracket.curly.go
+>			{ "ElseIf" }
+#^^^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ block.else-if.html-template.templ
+#   ^^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ block.else-if.html-template.templ expression.html-template.templ start.string-expression.templ
+#     ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ block.else-if.html-template.templ expression.html-template.templ string.quoted.double.go punctuation.definition.string.begin.go
+#      ^^^^^^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ block.else-if.html-template.templ expression.html-template.templ string.quoted.double.go
+#            ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ block.else-if.html-template.templ expression.html-template.templ string.quoted.double.go punctuation.definition.string.end.go
+#             ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ block.else-if.html-template.templ expression.html-template.templ
+#              ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ block.else-if.html-template.templ expression.html-template.templ end.string-expression.templ
+>		}
+#^^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ block.else-if.html-template.templ
+#  ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ block.else-if.html-template.templ punctuation.definition.end.bracket.curly.go
+>	</div>
+#^ source.templ html-template.templ block.html-template.templ
+# ^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#   ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#      ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+>	<div>
+#^ source.templ html-template.templ block.html-template.templ
+# ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#  ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#     ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+>		if 1 == 2 {
+#^^ source.templ html-template.templ block.html-template.templ if.html-template.templ
+#  ^^ source.templ html-template.templ block.html-template.templ if.html-template.templ keyword.control.go
+#    ^ source.templ html-template.templ block.html-template.templ if.html-template.templ
+#     ^ source.templ html-template.templ block.html-template.templ if.html-template.templ expression.if.html-template.templ constant.numeric.decimal.go
+#      ^ source.templ html-template.templ block.html-template.templ if.html-template.templ expression.if.html-template.templ
+#       ^^ source.templ html-template.templ block.html-template.templ if.html-template.templ expression.if.html-template.templ keyword.operator.comparison.go
+#         ^ source.templ html-template.templ block.html-template.templ if.html-template.templ expression.if.html-template.templ
+#          ^ source.templ html-template.templ block.html-template.templ if.html-template.templ expression.if.html-template.templ constant.numeric.decimal.go
+#           ^ source.templ html-template.templ block.html-template.templ if.html-template.templ expression.if.html-template.templ
+#            ^ source.templ html-template.templ block.html-template.templ if.html-template.templ expression.if.html-template.templ punctuation.definition.begin.bracket.curly.go
+>			{ "If" }
+#^^^ source.templ html-template.templ block.html-template.templ if.html-template.templ block.if.html-template.templ
+#   ^^ source.templ html-template.templ block.html-template.templ if.html-template.templ block.if.html-template.templ expression.html-template.templ start.string-expression.templ
+#     ^ source.templ html-template.templ block.html-template.templ if.html-template.templ block.if.html-template.templ expression.html-template.templ string.quoted.double.go punctuation.definition.string.begin.go
+#      ^^ source.templ html-template.templ block.html-template.templ if.html-template.templ block.if.html-template.templ expression.html-template.templ string.quoted.double.go
+#        ^ source.templ html-template.templ block.html-template.templ if.html-template.templ block.if.html-template.templ expression.html-template.templ string.quoted.double.go punctuation.definition.string.end.go
+#         ^ source.templ html-template.templ block.html-template.templ if.html-template.templ block.if.html-template.templ expression.html-template.templ
+#          ^ source.templ html-template.templ block.html-template.templ if.html-template.templ block.if.html-template.templ expression.html-template.templ end.string-expression.templ
+>		} else if 1 == 3 {
+#^^ source.templ html-template.templ block.html-template.templ if.html-template.templ block.if.html-template.templ
+#  ^ source.templ html-template.templ block.html-template.templ if.html-template.templ block.if.html-template.templ punctuation.definition.end.bracket.curly.go
+#   ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ
+#    ^^^^^^^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ keyword.control.go
+#           ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ
+#            ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ expression.else-if.html-template.templ constant.numeric.decimal.go
+#             ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ expression.else-if.html-template.templ
+#              ^^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ expression.else-if.html-template.templ keyword.operator.comparison.go
+#                ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ expression.else-if.html-template.templ
+#                 ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ expression.else-if.html-template.templ constant.numeric.decimal.go
+#                  ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ expression.else-if.html-template.templ
+#                   ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ expression.else-if.html-template.templ punctuation.definition.begin.bracket.curly.go
+>			<div>
+#^^^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ block.else-if.html-template.templ
+#   ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ block.else-if.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#    ^^^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ block.else-if.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#       ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ block.else-if.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+>				{ "ElseIf" }
+#^^^^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ block.else-if.html-template.templ
+#    ^^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ block.else-if.html-template.templ expression.html-template.templ start.string-expression.templ
+#      ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ block.else-if.html-template.templ expression.html-template.templ string.quoted.double.go punctuation.definition.string.begin.go
+#       ^^^^^^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ block.else-if.html-template.templ expression.html-template.templ string.quoted.double.go
+#             ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ block.else-if.html-template.templ expression.html-template.templ string.quoted.double.go punctuation.definition.string.end.go
+#              ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ block.else-if.html-template.templ expression.html-template.templ
+#               ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ block.else-if.html-template.templ expression.html-template.templ end.string-expression.templ
+>			</div>
+#^^^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ block.else-if.html-template.templ
+#   ^^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ block.else-if.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#     ^^^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ block.else-if.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#        ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ block.else-if.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+>		} else if 1 == 4 {
+#^^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ block.else-if.html-template.templ
+#  ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ block.else-if.html-template.templ punctuation.definition.end.bracket.curly.go
+#   ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ
+#    ^^^^^^^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ keyword.control.go
+#           ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ
+#            ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ expression.else-if.html-template.templ constant.numeric.decimal.go
+#             ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ expression.else-if.html-template.templ
+#              ^^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ expression.else-if.html-template.templ keyword.operator.comparison.go
+#                ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ expression.else-if.html-template.templ
+#                 ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ expression.else-if.html-template.templ constant.numeric.decimal.go
+#                  ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ expression.else-if.html-template.templ
+#                   ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ expression.else-if.html-template.templ punctuation.definition.begin.bracket.curly.go
+>		} else if 1 == 1 {
+#^^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ block.else-if.html-template.templ
+#  ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ block.else-if.html-template.templ punctuation.definition.end.bracket.curly.go
+#   ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ
+#    ^^^^^^^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ keyword.control.go
+#           ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ
+#            ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ expression.else-if.html-template.templ constant.numeric.decimal.go
+#             ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ expression.else-if.html-template.templ
+#              ^^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ expression.else-if.html-template.templ keyword.operator.comparison.go
+#                ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ expression.else-if.html-template.templ
+#                 ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ expression.else-if.html-template.templ constant.numeric.decimal.go
+#                  ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ expression.else-if.html-template.templ
+#                   ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ expression.else-if.html-template.templ punctuation.definition.begin.bracket.curly.go
+>			{ "OK" }
+#^^^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ block.else-if.html-template.templ
+#   ^^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ block.else-if.html-template.templ expression.html-template.templ start.string-expression.templ
+#     ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ block.else-if.html-template.templ expression.html-template.templ string.quoted.double.go punctuation.definition.string.begin.go
+#      ^^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ block.else-if.html-template.templ expression.html-template.templ string.quoted.double.go
+#        ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ block.else-if.html-template.templ expression.html-template.templ string.quoted.double.go punctuation.definition.string.end.go
+#         ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ block.else-if.html-template.templ expression.html-template.templ
+#          ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ block.else-if.html-template.templ expression.html-template.templ end.string-expression.templ
+>		}
+#^^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ block.else-if.html-template.templ
+#  ^ source.templ html-template.templ block.html-template.templ else-if.html-template.templ block.else-if.html-template.templ punctuation.definition.end.bracket.curly.go
+>	</div>
+#^ source.templ html-template.templ block.html-template.templ
+# ^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#   ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#      ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+>}
+#^ source.templ html-template.templ block.html-template.templ punctuation.definition.end.bracket.curly.go
+>
+>templ loops(items []string) {
+#^^^^^ source.templ html-template.templ keyword.control.go
+#     ^ source.templ html-template.templ
+#      ^^^^^ source.templ html-template.templ
+#           ^ source.templ html-template.templ punctuation.definition.begin.bracket.round.go
+#            ^^^^^^ source.templ html-template.templ params.html-template.templ
+#                  ^ source.templ html-template.templ params.html-template.templ punctuation.definition.bracket.square.go
+#                   ^ source.templ html-template.templ params.html-template.templ punctuation.definition.bracket.square.go
+#                    ^^^^^^ source.templ html-template.templ params.html-template.templ storage.type.string.go
+#                          ^ source.templ html-template.templ params.html-template.templ punctuation.definition.end.bracket.round.go
+#                           ^ source.templ html-template.templ block.html-template.templ
+#                            ^ source.templ html-template.templ block.html-template.templ punctuation.definition.begin.bracket.curly.go
+>	for _, item := range items {
+#^ source.templ html-template.templ block.html-template.templ for.html-template.templ meta.embedded.block.go
+# ^^^ source.templ html-template.templ block.html-template.templ for.html-template.templ meta.embedded.block.go keyword.control.go
+#    ^ source.templ html-template.templ block.html-template.templ for.html-template.templ meta.embedded.block.go
+#     ^ source.templ html-template.templ block.html-template.templ for.html-template.templ meta.embedded.block.go variable.other.assignment.go
+#      ^ source.templ html-template.templ block.html-template.templ for.html-template.templ meta.embedded.block.go punctuation.other.comma.go
+#       ^ source.templ html-template.templ block.html-template.templ for.html-template.templ meta.embedded.block.go
+#        ^^^^ source.templ html-template.templ block.html-template.templ for.html-template.templ meta.embedded.block.go variable.other.assignment.go
+#            ^ source.templ html-template.templ block.html-template.templ for.html-template.templ meta.embedded.block.go
+#             ^^ source.templ html-template.templ block.html-template.templ for.html-template.templ meta.embedded.block.go keyword.operator.assignment.go
+#               ^ source.templ html-template.templ block.html-template.templ for.html-template.templ meta.embedded.block.go
+#                ^^^^^ source.templ html-template.templ block.html-template.templ for.html-template.templ meta.embedded.block.go keyword.control.go
+#                     ^^^^^^^ source.templ html-template.templ block.html-template.templ for.html-template.templ meta.embedded.block.go
+#                            ^ source.templ html-template.templ block.html-template.templ for.html-template.templ meta.embedded.block.go punctuation.definition.begin.bracket.curly.go
+>		<div>{ item }</div>
+#^^ source.templ html-template.templ block.html-template.templ for.html-template.templ
+#  ^ source.templ html-template.templ block.html-template.templ for.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#   ^^^ source.templ html-template.templ block.html-template.templ for.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#      ^ source.templ html-template.templ block.html-template.templ for.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+#       ^^ source.templ html-template.templ block.html-template.templ for.html-template.templ expression.html-template.templ start.string-expression.templ
+#         ^^^^^ source.templ html-template.templ block.html-template.templ for.html-template.templ expression.html-template.templ
+#              ^ source.templ html-template.templ block.html-template.templ for.html-template.templ expression.html-template.templ end.string-expression.templ
+#               ^^ source.templ html-template.templ block.html-template.templ for.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#                 ^^^ source.templ html-template.templ block.html-template.templ for.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#                    ^ source.templ html-template.templ block.html-template.templ for.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+>	}
+#^^^ source.templ html-template.templ block.html-template.templ for.html-template.templ meta.embedded.block.go
+>}
+#^ source.templ html-template.templ block.html-template.templ punctuation.definition.end.bracket.curly.go
+>
+>templ render(input string) {
+#^^^^^ source.templ html-template.templ keyword.control.go
+#     ^ source.templ html-template.templ
+#      ^^^^^^ source.templ html-template.templ
+#            ^ source.templ html-template.templ punctuation.definition.begin.bracket.round.go
+#             ^^^^^^ source.templ html-template.templ params.html-template.templ
+#                   ^^^^^^ source.templ html-template.templ params.html-template.templ storage.type.string.go
+#                         ^ source.templ html-template.templ params.html-template.templ punctuation.definition.end.bracket.round.go
+#                          ^ source.templ html-template.templ block.html-template.templ
+#                           ^ source.templ html-template.templ block.html-template.templ punctuation.definition.begin.bracket.curly.go
+>	switch input {
+#^ source.templ html-template.templ block.html-template.templ switch.html-template.templ meta.embedded.block.go
+# ^^^^^^ source.templ html-template.templ block.html-template.templ switch.html-template.templ meta.embedded.block.go keyword.control.go
+#       ^^^^^^^ source.templ html-template.templ block.html-template.templ switch.html-template.templ meta.embedded.block.go
+#              ^ source.templ html-template.templ block.html-template.templ switch.html-template.templ meta.embedded.block.go punctuation.definition.begin.bracket.curly.go
+>		case "a":
+#^^ source.templ html-template.templ block.html-template.templ switch.html-template.templ case.switch.html-template.templ
+#  ^^^^ source.templ html-template.templ block.html-template.templ switch.html-template.templ case.switch.html-template.templ keyword.control.go
+#      ^ source.templ html-template.templ block.html-template.templ switch.html-template.templ case.switch.html-template.templ
+#       ^ source.templ html-template.templ block.html-template.templ switch.html-template.templ case.switch.html-template.templ string.quoted.double.go punctuation.definition.string.begin.go
+#        ^ source.templ html-template.templ block.html-template.templ switch.html-template.templ case.switch.html-template.templ string.quoted.double.go
+#         ^ source.templ html-template.templ block.html-template.templ switch.html-template.templ case.switch.html-template.templ string.quoted.double.go punctuation.definition.string.end.go
+#          ^ source.templ html-template.templ block.html-template.templ switch.html-template.templ case.switch.html-template.templ punctuation.other.colon.go
+>			{ "it was 'a'" }
+#^^^ source.templ html-template.templ block.html-template.templ switch.html-template.templ
+#   ^^ source.templ html-template.templ block.html-template.templ switch.html-template.templ expression.html-template.templ start.string-expression.templ
+#     ^ source.templ html-template.templ block.html-template.templ switch.html-template.templ expression.html-template.templ string.quoted.double.go punctuation.definition.string.begin.go
+#      ^^^^^^^^^^ source.templ html-template.templ block.html-template.templ switch.html-template.templ expression.html-template.templ string.quoted.double.go
+#                ^ source.templ html-template.templ block.html-template.templ switch.html-template.templ expression.html-template.templ string.quoted.double.go punctuation.definition.string.end.go
+#                 ^ source.templ html-template.templ block.html-template.templ switch.html-template.templ expression.html-template.templ
+#                  ^ source.templ html-template.templ block.html-template.templ switch.html-template.templ expression.html-template.templ end.string-expression.templ
+>		case "b":
+#^^ source.templ html-template.templ block.html-template.templ switch.html-template.templ case.switch.html-template.templ
+#  ^^^^ source.templ html-template.templ block.html-template.templ switch.html-template.templ case.switch.html-template.templ keyword.control.go
+#      ^ source.templ html-template.templ block.html-template.templ switch.html-template.templ case.switch.html-template.templ
+#       ^ source.templ html-template.templ block.html-template.templ switch.html-template.templ case.switch.html-template.templ string.quoted.double.go punctuation.definition.string.begin.go
+#        ^ source.templ html-template.templ block.html-template.templ switch.html-template.templ case.switch.html-template.templ string.quoted.double.go
+#         ^ source.templ html-template.templ block.html-template.templ switch.html-template.templ case.switch.html-template.templ string.quoted.double.go punctuation.definition.string.end.go
+#          ^ source.templ html-template.templ block.html-template.templ switch.html-template.templ case.switch.html-template.templ punctuation.other.colon.go
+>			<div>It was 'b'</div>
+#^^^ source.templ html-template.templ block.html-template.templ switch.html-template.templ
+#   ^ source.templ html-template.templ block.html-template.templ switch.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#    ^^^ source.templ html-template.templ block.html-template.templ switch.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#       ^ source.templ html-template.templ block.html-template.templ switch.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+#        ^^^^^^^^^^ source.templ html-template.templ block.html-template.templ switch.html-template.templ
+#                  ^^ source.templ html-template.templ block.html-template.templ switch.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#                    ^^^ source.templ html-template.templ block.html-template.templ switch.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#                       ^ source.templ html-template.templ block.html-template.templ switch.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+>		default:
+#^^ source.templ html-template.templ block.html-template.templ switch.html-template.templ default.switch.html-template.templ
+#  ^^^^^^^ source.templ html-template.templ block.html-template.templ switch.html-template.templ default.switch.html-template.templ keyword.control.go
+#         ^ source.templ html-template.templ block.html-template.templ switch.html-template.templ default.switch.html-template.templ punctuation.other.colon.go
+>			{ "it was something else" }
+#^^^ source.templ html-template.templ block.html-template.templ switch.html-template.templ
+#   ^^ source.templ html-template.templ block.html-template.templ switch.html-template.templ expression.html-template.templ start.string-expression.templ
+#     ^ source.templ html-template.templ block.html-template.templ switch.html-template.templ expression.html-template.templ string.quoted.double.go punctuation.definition.string.begin.go
+#      ^^^^^^^^^^^^^^^^^^^^^ source.templ html-template.templ block.html-template.templ switch.html-template.templ expression.html-template.templ string.quoted.double.go
+#                           ^ source.templ html-template.templ block.html-template.templ switch.html-template.templ expression.html-template.templ string.quoted.double.go punctuation.definition.string.end.go
+#                            ^ source.templ html-template.templ block.html-template.templ switch.html-template.templ expression.html-template.templ
+#                             ^ source.templ html-template.templ block.html-template.templ switch.html-template.templ expression.html-template.templ end.string-expression.templ
+>	}
+#^^ source.templ html-template.templ block.html-template.templ switch.html-template.templ meta.embedded.block.go
+>}
+#^ source.templ html-template.templ block.html-template.templ punctuation.definition.end.bracket.curly.go
+>
+>templ attributeEscaping(url string) {
+#^^^^^ source.templ html-template.templ keyword.control.go
+#     ^ source.templ html-template.templ
+#      ^^^^^^^^^^^^^^^^^ source.templ html-template.templ
+#                       ^ source.templ html-template.templ punctuation.definition.begin.bracket.round.go
+#                        ^^^^ source.templ html-template.templ params.html-template.templ
+#                            ^^^^^^ source.templ html-template.templ params.html-template.templ storage.type.string.go
+#                                  ^ source.templ html-template.templ params.html-template.templ punctuation.definition.end.bracket.round.go
+#                                   ^ source.templ html-template.templ block.html-template.templ
+#                                    ^ source.templ html-template.templ block.html-template.templ punctuation.definition.begin.bracket.curly.go
+>	<div>
+#^ source.templ html-template.templ block.html-template.templ
+# ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#  ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#     ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+>		<a href={ templ.URL(url) }>text</a>
+#^^ source.templ html-template.templ block.html-template.templ
+#  ^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html punctuation.definition.tag.begin.html
+#   ^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html entity.name.tag.inline.any.html
+#    ^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html
+#     ^^^^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html entity.other.attribute-name.html
+#         ^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html
+#          ^^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html expression.html-template.templ start.string-expression.templ
+#            ^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html expression.html-template.templ variable.other.object.access.go
+#                 ^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html expression.html-template.templ punctuation.separator.dot-access.go
+#                  ^^^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html expression.html-template.templ entity.name.function.member.go
+#                     ^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html expression.html-template.templ punctuation.section.arguments.bracket.round.function.member.go
+#                      ^^^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html expression.html-template.templ
+#                         ^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html expression.html-template.templ punctuation.section.arguments.bracket.round.function.member.go
+#                          ^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html expression.html-template.templ
+#                           ^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html expression.html-template.templ end.string-expression.templ
+#                            ^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html punctuation.definition.tag.end.html
+#                             ^^^^ source.templ html-template.templ block.html-template.templ
+#                                 ^^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html punctuation.definition.tag.begin.html
+#                                   ^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html entity.name.tag.inline.any.html
+#                                    ^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html punctuation.definition.tag.end.html
+>	</div>
+#^ source.templ html-template.templ block.html-template.templ
+# ^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#   ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#      ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+>	<div>
+#^ source.templ html-template.templ block.html-template.templ
+# ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#  ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#     ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+>		<button
+#^^ source.templ html-template.templ block.html-template.templ
+#  ^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html punctuation.definition.tag.begin.html
+#   ^^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html entity.name.tag.inline.any.html
+>			hx-post="/click"
+#^^^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html
+#   ^^^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html entity.other.attribute-name.html
+#          ^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html
+#           ^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html string.quoted.double.html punctuation.definition.string.begin.html
+#            ^^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html string.quoted.double.html
+#                  ^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html string.quoted.double.html punctuation.definition.string.end.html
+>			hx-trigger="click"
+#^^^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html
+#   ^^^^^^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html entity.other.attribute-name.html
+#             ^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html
+#              ^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html string.quoted.double.html punctuation.definition.string.begin.html
+#               ^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html string.quoted.double.html
+#                    ^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html string.quoted.double.html punctuation.definition.string.end.html
+>			hx-vals='{"val":"Value"}'
+#^^^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html
+#   ^^^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html entity.other.attribute-name.html
+#          ^^^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html
+#             ^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html string.quoted.double.html punctuation.definition.string.begin.html
+#              ^^^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html string.quoted.double.html
+#                 ^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html string.quoted.double.html punctuation.definition.string.end.html
+#                  ^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html
+#                   ^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html string.quoted.double.html punctuation.definition.string.begin.html
+#                    ^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html string.quoted.double.html
+#                         ^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html string.quoted.double.html punctuation.definition.string.end.html
+#                          ^^^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html
+>		>Click</button>
+#^^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html
+#  ^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html punctuation.definition.tag.end.html
+#   ^^^^^ source.templ html-template.templ block.html-template.templ
+#        ^^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html punctuation.definition.tag.begin.html
+#          ^^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html entity.name.tag.inline.any.html
+#                ^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html punctuation.definition.tag.end.html
+>	</div>
+#^ source.templ html-template.templ block.html-template.templ
+# ^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#   ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#      ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+>}
+#^ source.templ html-template.templ block.html-template.templ punctuation.definition.end.bracket.curly.go
+>
