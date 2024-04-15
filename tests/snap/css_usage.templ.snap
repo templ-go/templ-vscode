@@ -23,9 +23,9 @@
 #                              ^ source.templ html-template.templ block.html-template.templ punctuation.definition.begin.bracket.curly.go
 >	<style>
 #^ source.templ html-template.templ block.html-template.templ
-# ^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html punctuation.definition.tag.begin.html
-#  ^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html entity.name.tag.inline.any.html
-#       ^ source.templ html-template.templ block.html-template.templ meta.tag.inline.any.html punctuation.definition.tag.end.html
+# ^ source.templ html-template.templ block.html-template.templ meta.tag.style.html punctuation.definition.tag.html
+#  ^^^^^ source.templ html-template.templ block.html-template.templ meta.tag.style.html entity.name.tag.html
+#       ^ source.templ html-template.templ block.html-template.templ meta.tag.style.html punctuation.definition.tag.html
 >	.test {
 #^ source.templ html-template.templ block.html-template.templ meta.tag.style.html
 # ^ source.templ html-template.templ block.html-template.templ meta.tag.style.html meta.selector.css entity.other.attribute-name.class.css punctuation.definition.entity.css
