@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.23](https://github.com/a-h/templ-vscode/compare/v0.0.22...v0.0.23) (2024-04-15)
+
+
+### Features
+
+* multi-line templ/script/css function params syntax highlighting ([#41](https://github.com/a-h/templ-vscode/issues/41)) ([ba185d4](https://github.com/a-h/templ-vscode/commit/ba185d4f792eb7f58e35085e830e3b0db84e38ad))
+* show "Starting LSP: templ" as a status bar message ([#43](https://github.com/a-h/templ-vscode/issues/43)) ([fd2ae87](https://github.com/a-h/templ-vscode/commit/fd2ae878edd820f2c6b63da7a8f6ad2bdb49a63a))
+
+
+### Bug Fixes
+
+* **#652:** remove usage of lookbehind regex with wildcard lengths  ([#47](https://github.com/a-h/templ-vscode/issues/47)) ([25eeddc](https://github.com/a-h/templ-vscode/commit/25eeddc8a31f3b454d1a6e24afdc6743733033d0)), closes [#652](https://github.com/a-h/templ-vscode/issues/652)
+
 ### [0.0.22](https://github.com/a-h/templ-vscode/compare/v0.0.20...v0.0.22) (2024-03-01)
 
 
