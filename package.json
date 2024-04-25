@@ -26,7 +26,8 @@
     "test:update": "vscode-tmgrammar-snap -g ./tests/go.tmLanguage.json -g ./tests/css.tmLanguage.json -g ./tests/JavaScript.tmLanguage.json --updateSnapshot 'tests/snap/**/*.templ'"
   },
   "categories": [
-    "Programming Languages"
+    "Programming Languages",
+    "Snippets"
   ],
   "contributes": {
     "languages": [
@@ -90,7 +91,13 @@
           "description": "Set to a value such as localhost:7474 to enable a HTTP endpoint that can be used for debugging (same as the templ -http argument)"
         }
       }
-    }
+    },
+    "snippets": [
+      {
+        "language": "templ",
+        "path": "./snippet/snippets.json"
+      }
+    ]
   },
   "devDependencies": {
     "@types/vscode": "1.88.0",

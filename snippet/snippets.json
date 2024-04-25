@@ -1,0 +1,13 @@
+{
+    "Generate templ template": {
+        "prefix": "templ",
+        "body": [
+            "package ${package_name};",
+            "\n",
+            "templ ${template_name}(){",
+            "\t$0",
+            "}"
+        ],
+        "description": "Generate templ template"
+    }
+}
