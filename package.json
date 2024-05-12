@@ -90,6 +90,12 @@
           "description": "Set to a value such as localhost:7474 to enable a HTTP endpoint that can be used for debugging (same as the templ -http argument)"
         }
       }
+    },
+    "configurationDefaults": {
+      "explorer.fileNesting.enabled": true,
+      "explorer.fileNesting.patterns": {
+        "*.templ": "${capture}_templ.go"
+      }
     }
   },
   "devDependencies": {
