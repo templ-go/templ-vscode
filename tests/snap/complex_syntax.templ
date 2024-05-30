@@ -10,20 +10,20 @@ templ (d Data) Method(greeting string) {
 }
 
 templ test(comp templ.Component) {
-    <div>
-        @comp {
-            <div>Children</div>
-        }
-    </div>
+	<div>
+		@comp {
+			<div>Children</div>
+		}
+	</div>
 }
 
-templ Hello() {
+templ Hello[T ~string]() {
 	@Data{
-	    message: "You can implement methods on a type.",
+		message: "You can implement methods on a type.",
 	}.Method("hello") {
-	    @test(Data{ message: "You can implement methods on a type." }.Method("hello"))
-        <div>
-            { children... }
-        </div>
+		@test(Data{message: "You can implement methods on a type."}.Method("hello"))
+		<div>
+			{ children... }
+		</div>
 	}
 }
