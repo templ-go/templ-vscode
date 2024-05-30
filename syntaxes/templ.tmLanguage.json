@@ -170,7 +170,7 @@
       ]
     },
     "html-template": {
-      "begin": "^(templ) ((?:\\([A-z_][A-z_0-9]* \\*?[A-z_][A-z_0-9]*\\) )?[A-z_][A-z_0-9]*\\()",
+      "begin": "^(templ) ((?:\\([A-z_][A-z_0-9]* \\*?[A-z_][A-z_0-9]*\\) )?[A-z_][A-z_0-9]*(\\(|\\[))",
       "beginCaptures": {
         "1": {
           "name": "keyword.control.go"
@@ -192,6 +192,21 @@
           "endCaptures": {
             "1": {
               "name": "punctuation.definition.end.bracket.round.go"
+            }
+          },
+          "patterns": [
+            {
+              "include": "source.go"
+            }
+          ]
+        },
+        {
+          "name": "type-params.html-template.templ",
+          "begin": "(?<=\\[)",
+          "end": "(\\])",
+          "endCaptures": {
+            "1": {
+              "name": "punctuation.definition.end.bracket.square.go"
             }
           },
           "patterns": [
