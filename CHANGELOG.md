@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.25](https://github.com/a-h/templ-vscode/compare/v0.0.24...v0.0.25) (2024-05-30)
+
+
+### Features
+
+* capture generic function declarations ([#58](https://github.com/a-h/templ-vscode/issues/58)) ([4f85ade](https://github.com/a-h/templ-vscode/commit/4f85ade86dba0ecabd80fe6e845653a0a4aed5bf))
+* enable nesting of _templ.go files, fixes [#730](https://github.com/a-h/templ-vscode/issues/730) ([913c9b8](https://github.com/a-h/templ-vscode/commit/913c9b89ca152413024f28d0b7419ef147e44410))
+
 ### [0.0.24](https://github.com/a-h/templ-vscode/compare/v0.0.23...v0.0.24) (2024-04-15)
 
 ### [0.0.23](https://github.com/a-h/templ-vscode/compare/v0.0.22...v0.0.23) (2024-04-15)
