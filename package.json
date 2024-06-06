@@ -94,7 +94,7 @@
     "configurationDefaults": {
       "explorer.fileNesting.enabled": true,
       "explorer.fileNesting.patterns": {
-        "*.templ": "${capture}_templ.go"
+        "*.templ": "${capture}_templ.go,${capture}_templ.txt"
       }
     }
   },
