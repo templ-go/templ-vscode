@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.26](https://github.com/a-h/templ-vscode/compare/v0.0.25...v0.0.26) (2024-06-27)
+
+
+### Features
+
+* Add Code Folding ([#66](https://github.com/a-h/templ-vscode/issues/66)) ([fd83bb6](https://github.com/a-h/templ-vscode/commit/fd83bb63c285f646bbe2f172eef4b9c6284c41ab))
+* add watch files to folding rules ([c6155a3](https://github.com/a-h/templ-vscode/commit/c6155a364981466aacbdf5d5b5e222da271694ed))
+
 ### [0.0.25](https://github.com/a-h/templ-vscode/compare/v0.0.24...v0.0.25) (2024-05-30)
 
 
