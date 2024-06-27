@@ -17,6 +17,7 @@ import fs from "fs/promises";
 import path from "path";
 import { LanguageClient } from "vscode-languageclient/node";
 import { lookpath } from "lookpath";
+import { CustomLanguageClient } from "./custom-client";
 
 export async function activate(ctx: vscode.ExtensionContext) {
   try {
@@ -149,9 +150,12 @@ export async function buildLanguageClient(): Promise<LanguageClient> {
     await stopLanguageClient();
   }
 
-  vscode.window.setStatusBarMessage(`Starting LSP: templ ${args.join(" ")}`, 3000);
+  vscode.window.setStatusBarMessage(
+    `Starting LSP: templ ${args.join(" ")}`,
+    3000
+  );
 
-  const c = new LanguageClient(
+  const c = new CustomLanguageClient(
     "templ", // id
     "templ",
     {
