@@ -88,6 +88,11 @@
           "type": "string",
           "default": "",
           "description": "Set to a value such as localhost:7474 to enable a HTTP endpoint that can be used for debugging (same as the templ -http argument)"
+        },
+        "templ.experiments": {
+          "type": "string",
+          "default": "",
+          "description": "A comma separated list of enabled experiments e.g. \"experimentfoo,experimentbar\" (same as the TEMPL_EXPERIMENT environment variable)"
         }
       }
     },
