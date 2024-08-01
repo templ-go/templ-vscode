@@ -41,6 +41,7 @@ interface Configuration {
   log: string;
   pprof: boolean;
   http: string;
+  experiments: string;
 }
 
 interface TemplCtx {
@@ -57,6 +58,7 @@ const loadConfiguration = (): Configuration => {
     log: c.get("log") || "",
     pprof: c.get("pprof") ? true : false,
     http: c.get("http") || "",
+    experiments: c.get("experiments") || "",
   };
 };
 
@@ -155,11 +157,19 @@ export async function buildLanguageClient(): Promise<LanguageClient> {
     3000
   );
 
+  const envTemplExperiments = process.env.TEMPL_EXPERIMENT;
+  const templExperiments = config.experiments === "" ? envTemplExperiments : config.experiments;
   const c = new CustomLanguageClient(
     "templ", // id
     "templ",
     {
       command: templPath,
+      options: { 
+        env:{
+          ...process.env,
+          TEMPL_EXPERIMENT: templExperiments,
+        },
+      },
       args,
     },
     {
