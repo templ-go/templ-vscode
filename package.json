@@ -104,7 +104,7 @@
     }
   },
   "devDependencies": {
-    "@types/vscode": "1.88.0",
+    "@types/vscode": "1.92.0",
     "@vscode/test-electron": "2.3.9",
     "@vscode/vsce": "^2.26.0",
     "standard-version": "^9.5.0",
