@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.28](https://github.com/a-h/templ-vscode/compare/v0.0.26...v0.0.28) (2024-08-30)
+
+
+### Features
+
+* add experiments config option ([#71](https://github.com/a-h/templ-vscode/issues/71)) ([20ab2b8](https://github.com/a-h/templ-vscode/commit/20ab2b806b3e6bcb781bf45da3a1903ddfb422bb))
+* inherit all HTML language server features ([#73](https://github.com/a-h/templ-vscode/issues/73)) ([1fc1817](https://github.com/a-h/templ-vscode/commit/1fc1817c52c8ab5bf22bae9c34887b41ecfcb0c6))
+
 ### [0.0.27](https://github.com/a-h/templ-vscode/compare/v0.0.26...v0.0.27) (2024-08-30)
 
 
