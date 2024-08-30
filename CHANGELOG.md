@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.29](https://github.com/a-h/templ-vscode/compare/v0.0.28...v0.0.29) (2024-08-30)
+
 ### [0.0.28](https://github.com/a-h/templ-vscode/compare/v0.0.26...v0.0.28) (2024-08-30)
 
 
