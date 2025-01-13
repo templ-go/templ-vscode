@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.30](https://github.com/a-h/templ-vscode/compare/v0.0.29...v0.0.30) (2025-01-13)
+
+
+### Features
+
+* add raw go highlighting ([#84](https://github.com/a-h/templ-vscode/issues/84)) ([b99c1c9](https://github.com/a-h/templ-vscode/commit/b99c1c940cec830c01a80b58ae3cce714b30056c))
+
 ### [0.0.29](https://github.com/a-h/templ-vscode/compare/v0.0.28...v0.0.29) (2024-08-30)
 
 ### [0.0.28](https://github.com/a-h/templ-vscode/compare/v0.0.26...v0.0.28) (2024-08-30)
