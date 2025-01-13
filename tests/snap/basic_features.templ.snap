@@ -40,6 +40,21 @@
 #^ source.templ html-template.templ params.html-template.templ punctuation.definition.end.bracket.round.go
 # ^ source.templ html-template.templ block.html-template.templ
 #  ^ source.templ html-template.templ block.html-template.templ punctuation.definition.begin.bracket.curly.go
+>	{{ person.Name = "Bob" }}
+#^ source.templ html-template.templ block.html-template.templ
+# ^^ source.templ html-template.templ block.html-template.templ raw-go.templ start.raw-go.templ
+#   ^ source.templ html-template.templ block.html-template.templ raw-go.templ
+#    ^^^^^^ source.templ html-template.templ block.html-template.templ raw-go.templ variable.other.object.access.go
+#          ^ source.templ html-template.templ block.html-template.templ raw-go.templ punctuation.separator.dot-access.go
+#           ^^^^ source.templ html-template.templ block.html-template.templ raw-go.templ variable.other.property.go
+#               ^ source.templ html-template.templ block.html-template.templ raw-go.templ
+#                ^ source.templ html-template.templ block.html-template.templ raw-go.templ keyword.operator.assignment.go
+#                 ^ source.templ html-template.templ block.html-template.templ raw-go.templ
+#                  ^ source.templ html-template.templ block.html-template.templ raw-go.templ string.quoted.double.go punctuation.definition.string.begin.go
+#                   ^^^ source.templ html-template.templ block.html-template.templ raw-go.templ string.quoted.double.go
+#                      ^ source.templ html-template.templ block.html-template.templ raw-go.templ string.quoted.double.go punctuation.definition.string.end.go
+#                       ^ source.templ html-template.templ block.html-template.templ raw-go.templ
+#                        ^^ source.templ html-template.templ block.html-template.templ raw-go.templ end.raw-go.templ
 >	<div class="greeting">
 #^ source.templ html-template.templ block.html-template.templ
 # ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html

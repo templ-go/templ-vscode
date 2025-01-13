@@ -293,8 +293,37 @@
         },
         {
           "include": "#switch-expression"
+        },
+        {
+          "include": "#raw-go"
         }
       ]
+    },
+    "raw-go": {
+      "begin": "{{",
+      "beginCaptures": {
+        "0": {
+          "name": "start.raw-go.templ"
+        },
+        "1": {
+          "name": "punctuation.brace.open"
+        }
+      },
+      "end": "}}",
+      "endCaptures": {
+        "0": {
+          "name": "end.raw-go.templ"
+        },
+        "1": {
+          "name": "punctuation.brace.open"
+        }
+      },
+      "patterns": [
+        {
+          "include": "source.go"
+        }
+      ],
+      "name": "raw-go.templ"
     },
     "string-expression": {
       "begin": "{\\s+",
