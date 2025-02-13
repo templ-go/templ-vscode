@@ -1,4 +1,5 @@
 import * as vscode from "vscode";
+import { exec } from "child_process";
 import {
   CancellationToken,
   CloseAction,
@@ -24,8 +25,8 @@ export async function activate(ctx: vscode.ExtensionContext) {
     ctx.subscriptions.push(
       vscode.commands.registerCommand(
         "templ.restartServer",
-        startLanguageClient
-      )
+        startLanguageClient,
+      ),
     );
 
     await startLanguageClient();
@@ -80,7 +81,33 @@ const templLocations = [
   "/usr/share/go/bin/templ",
 ];
 
+async function tryGoTool(): Promise<string | undefined> {
+  try {
+    const go = await lookpath("go");
+    if (!go) return undefined;
+    const result = await run(go + " tool -n templ");
+    return result
+  } catch (err) {
+    console.log(err)
+    return undefined
+  }
+}
+
+function run(cmd: string): Promise<string> {
+  const dir = vscode.workspace.workspaceFolders ? vscode.workspace.workspaceFolders[0].uri.fsPath : ""
+  return new Promise((resolve, reject) => {
+    exec(cmd, { cwd: dir }, (error, stdout, _) => {
+      if (error) return reject(error)
+      resolve(stdout.trim())
+    })
+  })
+}
+
 async function findTempl(): Promise<string> {
+  const goTool = await tryGoTool();
+  if (goTool) {
+    return goTool;
+  }
   const linuxName = await lookpath("templ");
   if (linuxName) {
     return linuxName;
@@ -98,7 +125,7 @@ async function findTempl(): Promise<string> {
     }
   }
   throw new Error(
-    `Could not find templ executable in path or in ${templLocations.join(", ")}`
+    `Could not find templ executable in path or in ${templLocations.join(", ")}`,
   );
 }
 
@@ -153,19 +180,21 @@ export async function buildLanguageClient(): Promise<LanguageClient> {
   }
 
   vscode.window.setStatusBarMessage(
-    `Starting LSP: templ ${args.join(" ")}`,
-    3000
+    `Starting LSP: ${templPath} ${args.join(" ")}`,
+    3000,
   );
 
   const envTemplExperiments = process.env.TEMPL_EXPERIMENT;
-  const templExperiments = config.experiments === "" ? envTemplExperiments : config.experiments;
+  const templExperiments =
+    config.experiments === "" ? envTemplExperiments : config.experiments;
+
   const c = new CustomLanguageClient(
     "templ", // id
     "templ",
     {
       command: templPath,
-      options: { 
-        env:{
+      options: {
+        env: {
           ...process.env,
           TEMPL_EXPERIMENT: templExperiments,
         },
@@ -184,14 +213,14 @@ export async function buildLanguageClient(): Promise<LanguageClient> {
         error: (
           error: Error,
           message: Message,
-          count: number
+          count: number,
         ): ErrorHandlerResult => {
           // Allow 5 crashes before shutdown.
           if (count < 5) {
             return { action: ErrorAction.Continue };
           }
           vscode.window.showErrorMessage(
-            `Error communicating with the language server: ${error}: ${message}.`
+            `Error communicating with the language server: ${error}: ${message}.`,
           );
           return { action: ErrorAction.Shutdown };
         },
@@ -204,7 +233,7 @@ export async function buildLanguageClient(): Promise<LanguageClient> {
           document: vscode.TextDocument,
           options: vscode.FormattingOptions,
           token: vscode.CancellationToken,
-          next: ProvideDocumentFormattingEditsSignature
+          next: ProvideDocumentFormattingEditsSignature,
         ) => {
           return next(document, options, token);
         },
@@ -213,7 +242,7 @@ export async function buildLanguageClient(): Promise<LanguageClient> {
           position: vscode.Position,
           context: vscode.CompletionContext,
           token: vscode.CancellationToken,
-          next: ProvideCompletionItemsSignature
+          next: ProvideCompletionItemsSignature,
         ) => {
           const list = await next(document, position, context, token);
           if (!list) {
@@ -258,11 +287,11 @@ export async function buildLanguageClient(): Promise<LanguageClient> {
           //          { languageId: 'go', uri: document.uri });
           const editorParamHintsEnabled = vscode.workspace.getConfiguration(
             "editor.parameterHints",
-            document.uri
+            document.uri,
           )["enabled"];
           const goParamHintsEnabled = vscode.workspace.getConfiguration(
             "[go]",
-            document.uri
+            document.uri,
           )["editor.parameterHints.enabled"];
           let paramHintsEnabled = false;
           if (typeof goParamHintsEnabled === "undefined") {
@@ -297,7 +326,7 @@ export async function buildLanguageClient(): Promise<LanguageClient> {
           configuration: async (
             params: ConfigurationParams,
             token: CancellationToken,
-            next: ConfigurationRequest.HandlerSignature
+            next: ConfigurationRequest.HandlerSignature,
           ): Promise<any[] | ResponseError<void>> => {
             const configs = await next(params, token);
             if (!configs || !Array.isArray(configs)) {
@@ -314,7 +343,7 @@ export async function buildLanguageClient(): Promise<LanguageClient> {
         },
       },
     },
-    false
+    false,
   );
   return c;
 }
