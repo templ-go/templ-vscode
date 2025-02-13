@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.31](https://github.com/a-h/templ-vscode/compare/v0.0.30...v0.0.31) (2025-02-13)
+
+
+### Features
+
+* support go tool directive when searching for templ ([#85](https://github.com/a-h/templ-vscode/issues/85)) ([8679b57](https://github.com/a-h/templ-vscode/commit/8679b575b3247babc5f078f6328b1ff6683a234b))
+
 ### [0.0.30](https://github.com/a-h/templ-vscode/compare/v0.0.29...v0.0.30) (2025-01-13)
 
 
