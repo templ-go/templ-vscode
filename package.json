@@ -123,7 +123,7 @@
     "webpack-cli": "5.1.4"
   },
   "dependencies": {
-    "lookpath": "^1.2.2",
+    "lookpath": "^1.2.3",
     "vscode-languageclient": "9.0.1"
   }
 }
