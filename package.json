@@ -93,6 +93,11 @@
           "type": "string",
           "default": "",
           "description": "A comma separated list of enabled experiments e.g. \"experimentfoo,experimentbar\" (same as the TEMPL_EXPERIMENT environment variable)"
+        },
+        "templ.executablePath": {
+          "type": "string",
+          "default": "",
+          "description": "Path of the templ executable. To be used if extension is unable to find the location of templ executable"
         }
       }
     },
