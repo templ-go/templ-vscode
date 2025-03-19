@@ -43,6 +43,7 @@ interface Configuration {
   pprof: boolean;
   http: string;
   experiments: string;
+  executablePath: string;
 }
 
 interface TemplCtx {
@@ -60,6 +61,7 @@ const loadConfiguration = (): Configuration => {
     pprof: c.get("pprof") ? true : false,
     http: c.get("http") || "",
     experiments: c.get("experiments") || "",
+    executablePath: c.get("executablePath") || "",
   };
 };
 
@@ -104,6 +106,11 @@ function run(cmd: string): Promise<string> {
 }
 
 async function findTempl(): Promise<string> {
+  const config = loadConfiguration();
+  if (config.executablePath) {
+    return config.executablePath;
+  }
+  
   const goTool = await tryGoTool();
   if (goTool) {
     return goTool;
