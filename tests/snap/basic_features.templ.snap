@@ -600,3 +600,13 @@
 >}
 #^ source.templ html-template.templ block.html-template.templ punctuation.definition.end.bracket.curly.go
 >
+>templ nospace(){
+#^^^^^ source.templ html-template.templ keyword.control.go
+#     ^ source.templ html-template.templ
+#      ^^^^^^^ source.templ html-template.templ
+#             ^ source.templ html-template.templ punctuation.definition.begin.bracket.round.go
+#              ^ source.templ html-template.templ params.html-template.templ punctuation.definition.end.bracket.round.go
+#               ^ source.templ html-template.templ block.html-template.templ punctuation.definition.begin.bracket.curly.go
+>}
+#^ source.templ html-template.templ block.html-template.templ punctuation.definition.end.bracket.curly.go
+>

@@ -50,7 +50,7 @@
         },
         {
           "name": "block.script-template.templ",
-          "begin": "(?<=\\)) ({)$",
+          "begin": "(?<=\\))\\s*({)$",
           "beginCaptures": {
             "1": {
               "name": "punctuation.definition.begin.bracket.curly.go"
@@ -105,7 +105,7 @@
         },
         {
           "name": "block.css-template.templ",
-          "begin": "(?<=\\)) ({)$",
+          "begin": "(?<=\\))\\s*({)$",
           "beginCaptures": {
             "1": {
               "name": "punctuation.definition.begin.bracket.curly.go"
@@ -217,7 +217,7 @@
         },
         {
           "name": "block.html-template.templ",
-          "begin": "(?<=\\)) ({)$",
+          "begin": "(?<=\\))\\s*({)$",
           "beginCaptures": {
             "1": {
               "name": "punctuation.definition.begin.bracket.curly.go"
