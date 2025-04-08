@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.34](https://github.com/a-h/templ-vscode/compare/v0.0.33...v0.0.34) (2025-04-08)
+
+
+### Features
+
+* set templ executable path as a configuration variable ([#94](https://github.com/a-h/templ-vscode/issues/94)) ([3a3ad34](https://github.com/a-h/templ-vscode/commit/3a3ad34dbeb9de69d0fcd9f720081c92eb838c54))
+
 ### [0.0.33](https://github.com/a-h/templ-vscode/compare/v0.0.32...v0.0.33) (2025-02-13)
 
 
