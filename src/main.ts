@@ -39,6 +39,8 @@ export async function activate(ctx: vscode.ExtensionContext) {
 interface Configuration {
   goplsLog: string;
   goplsRPCTrace: boolean;
+  goplsRemote: string;
+  noPreload: boolean;
   log: string;
   pprof: boolean;
   http: string;
