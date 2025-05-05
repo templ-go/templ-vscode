@@ -74,6 +74,16 @@
           "default": false,
           "description": "Set to true to enable gopls RPC tracing (same as the templ -goplsRPCTrace argument)"
         },
+        "templ.goplsRemote": {
+          "type": "string",
+          "default": "",
+          "description": "The remote gopls instance to connect to (same as the templ -gopls-remote argument)"
+        },
+        "templ.noPreload": {
+          "type": "boolean",
+          "default": false,
+          "description": "Disable preloading of templ files on server startup and use custom GOPACKAGESDRIVER for lazy loading (useful for large monorepos). GOPACKAGESDRIVER environment variable must be set. (same as the templ -no-preload argument)"
+        },
         "templ.log": {
           "type": "string",
           "default": "",
