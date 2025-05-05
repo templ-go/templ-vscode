@@ -57,6 +57,8 @@ const loadConfiguration = (): Configuration => {
   return {
     goplsLog: c.get("goplsLog") || "",
     goplsRPCTrace: c.get("goplsRPCTrace") ? true : false,
+    goplsRemote: c.get("goplsRemote") ||  "",
+    noPreload: c.get("noPreload") ? true : false,
     log: c.get("log") || "",
     pprof: c.get("pprof") ? true : false,
     http: c.get("http") || "",
@@ -169,6 +171,12 @@ export async function buildLanguageClient(): Promise<LanguageClient> {
   }
   if (config.goplsRPCTrace) {
     args.push(`-goplsRPCTrace=true`);
+  }
+  if (config.goplsRemote.length > 0) {
+    args.push(`-gopls-remote=${config.goplsRemote}`);
+  }
+  if (config.noPreload) {
+    args.push(`-no-preload=true`);
   }
   if (config.log.length > 0) {
     args.push(`-log=${config.log}`);
