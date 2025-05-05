@@ -82,7 +82,7 @@
         "templ.noPreload": {
           "type": "boolean",
           "default": false,
-          "description": "Disable preloading of templ files on server startup and use custom GOPACKAGESDRIVER for lazy loading (useful for large monorepos). GOPACKAGESDRIVER environment variable must be set. (same as the templ -no-preload argument)"
+          "description": "Set to true to disable preloading of templ files on server startup and use custom GOPACKAGESDRIVER for lazy loading (useful for large monorepos). GOPACKAGESDRIVER environment variable must be set. (same as the templ -no-preload argument)"
         },
         "templ.log": {
           "type": "string",
