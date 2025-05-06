@@ -77,7 +77,7 @@
         "templ.goplsRemote": {
           "type": "string",
           "default": "",
-          "description": "The remote gopls instance to connect to (same as the templ -gopls-remote argument)"
+          "description": "The remote gopls instance to connect to. Set to \"auto\" to enable automatic management: templ will start the gopls daemon if it's not running, connect to it, and forward LSP traffic as needed (same as the templ -gopls-remote argument)"
         },
         "templ.noPreload": {
           "type": "boolean",
