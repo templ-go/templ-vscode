@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.35](https://github.com/a-h/templ-vscode/compare/v0.0.33...v0.0.35) (2025-05-07)
+
+
+### Features
+
+* set templ executable path as a configuration variable ([#94](https://github.com/a-h/templ-vscode/issues/94)) ([3a3ad34](https://github.com/a-h/templ-vscode/commit/3a3ad34dbeb9de69d0fcd9f720081c92eb838c54))
+* support -no-preload and -gopls-remote flags ([#99](https://github.com/a-h/templ-vscode/issues/99)) ([d989a9e](https://github.com/a-h/templ-vscode/commit/d989a9eabcdfee829c2185493045d2e63a93a0ea))
+
+
+### Bug Fixes
+
+* allow space in function defenitions ([#98](https://github.com/a-h/templ-vscode/issues/98)) ([257a638](https://github.com/a-h/templ-vscode/commit/257a6388f92d85bdbea3bc6b76e6b3f32d2aab3f))
+
 ### [0.0.34](https://github.com/a-h/templ-vscode/compare/v0.0.33...v0.0.34) (2025-04-08)
 
 
