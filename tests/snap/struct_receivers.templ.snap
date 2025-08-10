@@ -1,0 +1,125 @@
+>package main
+#^^^^^^^ source.templ keyword.package.go
+#       ^ source.templ
+#        ^^^^ source.templ entity.name.package.go
+>
+>type Notifications struct {
+#^^^^ source.templ keyword.type.go
+#    ^ source.templ
+#     ^^^^^^^^^^^^^ source.templ entity.name.type.go
+#                  ^ source.templ
+#                   ^^^^^^ source.templ keyword.struct.go
+#                         ^ source.templ
+#                          ^ source.templ punctuation.definition.begin.bracket.curly.go
+>	Message string
+#^^^^^^^^^ source.templ
+#         ^^^^^^ source.templ storage.type.string.go
+>}
+#^ source.templ punctuation.definition.end.bracket.curly.go
+>
+>templ (n Notifications) WithVar() {
+#^^^^^ source.templ html-template.templ keyword.control.go
+#     ^ source.templ html-template.templ
+#      ^ source.templ html-template.templ punctuation.definition.begin.bracket.round.go
+#       ^^^^^^^^^^^^^^^ source.templ html-template.templ
+#                      ^ source.templ html-template.templ punctuation.definition.end.bracket.round.go
+#                       ^^^^^^^^ source.templ html-template.templ
+#                               ^ source.templ html-template.templ punctuation.definition.begin.bracket.round.go
+#                                ^ source.templ html-template.templ params.html-template.templ punctuation.definition.end.bracket.round.go
+#                                 ^ source.templ html-template.templ block.html-template.templ
+#                                  ^ source.templ html-template.templ block.html-template.templ punctuation.definition.begin.bracket.curly.go
+>	<div>With variable: { n.Message }</div>
+#^ source.templ html-template.templ block.html-template.templ
+# ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#  ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#     ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+#      ^^^^^^^^^^^^^^^ source.templ html-template.templ block.html-template.templ
+#                     ^^ source.templ html-template.templ block.html-template.templ expression.html-template.templ start.string-expression.templ
+#                       ^ source.templ html-template.templ block.html-template.templ expression.html-template.templ variable.other.object.access.go
+#                        ^ source.templ html-template.templ block.html-template.templ expression.html-template.templ punctuation.separator.dot-access.go
+#                         ^^^^^^^ source.templ html-template.templ block.html-template.templ expression.html-template.templ variable.other.property.go
+#                                ^ source.templ html-template.templ block.html-template.templ expression.html-template.templ
+#                                 ^ source.templ html-template.templ block.html-template.templ expression.html-template.templ end.string-expression.templ
+#                                  ^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#                                    ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#                                       ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+>}
+#^ source.templ html-template.templ block.html-template.templ punctuation.definition.end.bracket.curly.go
+>
+>templ (Notifications) NoVar() {
+#^^^^^ source.templ html-template.templ keyword.control.go
+#     ^ source.templ html-template.templ
+#      ^ source.templ html-template.templ punctuation.definition.begin.bracket.round.go
+#       ^^^^^^^^^^^^^ source.templ html-template.templ
+#                    ^ source.templ html-template.templ punctuation.definition.end.bracket.round.go
+#                     ^^^^^^ source.templ html-template.templ
+#                           ^ source.templ html-template.templ punctuation.definition.begin.bracket.round.go
+#                            ^ source.templ html-template.templ params.html-template.templ punctuation.definition.end.bracket.round.go
+#                             ^ source.templ html-template.templ block.html-template.templ
+#                              ^ source.templ html-template.templ block.html-template.templ punctuation.definition.begin.bracket.curly.go
+>	<div>No variable: { Message }</div>
+#^ source.templ html-template.templ block.html-template.templ
+# ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#  ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#     ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+#      ^^^^^^^^^^^^^ source.templ html-template.templ block.html-template.templ
+#                   ^^ source.templ html-template.templ block.html-template.templ expression.html-template.templ start.string-expression.templ
+#                     ^^^^^^^^ source.templ html-template.templ block.html-template.templ expression.html-template.templ
+#                             ^ source.templ html-template.templ block.html-template.templ expression.html-template.templ end.string-expression.templ
+#                              ^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#                                ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#                                   ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+>}
+#^ source.templ html-template.templ block.html-template.templ punctuation.definition.end.bracket.curly.go
+>
+>templ TestStructReceivers() {
+#^^^^^ source.templ html-template.templ keyword.control.go
+#     ^ source.templ html-template.templ
+#      ^^^^^^^^^^^^^^^^^^^ source.templ html-template.templ
+#                         ^ source.templ html-template.templ punctuation.definition.begin.bracket.round.go
+#                          ^ source.templ html-template.templ params.html-template.templ punctuation.definition.end.bracket.round.go
+#                           ^ source.templ html-template.templ block.html-template.templ
+#                            ^ source.templ html-template.templ block.html-template.templ punctuation.definition.begin.bracket.curly.go
+>	<div>
+#^ source.templ html-template.templ block.html-template.templ
+# ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#  ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#     ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+>		@WithVar(Notifications{Message: "A"})
+#^^ source.templ html-template.templ block.html-template.templ
+#  ^ source.templ html-template.templ block.html-template.templ import-expression.templ keyword.control.go
+#   ^^^^^^^ source.templ html-template.templ block.html-template.templ import-expression.templ
+#          ^ source.templ html-template.templ block.html-template.templ import-expression.templ punctuation.definition.begin.bracket.round.go
+#           ^^^^^^^^^^^^^ source.templ html-template.templ block.html-template.templ import-expression.templ params.import-expression.templ
+#                        ^ source.templ html-template.templ block.html-template.templ import-expression.templ params.import-expression.templ punctuation.definition.begin.bracket.curly.go
+#                         ^^^^^^^ source.templ html-template.templ block.html-template.templ import-expression.templ params.import-expression.templ
+#                                ^ source.templ html-template.templ block.html-template.templ import-expression.templ params.import-expression.templ punctuation.other.colon.go
+#                                 ^ source.templ html-template.templ block.html-template.templ import-expression.templ params.import-expression.templ
+#                                  ^ source.templ html-template.templ block.html-template.templ import-expression.templ params.import-expression.templ string.quoted.double.go punctuation.definition.string.begin.go
+#                                   ^ source.templ html-template.templ block.html-template.templ import-expression.templ params.import-expression.templ string.quoted.double.go
+#                                    ^ source.templ html-template.templ block.html-template.templ import-expression.templ params.import-expression.templ string.quoted.double.go punctuation.definition.string.end.go
+#                                     ^ source.templ html-template.templ block.html-template.templ import-expression.templ params.import-expression.templ punctuation.definition.end.bracket.curly.go
+#                                      ^ source.templ html-template.templ block.html-template.templ import-expression.templ params.import-expression.templ punctuation.definition.end.bracket.round.go
+>		@NoVar(Notifications{Message: "B"})
+#^^ source.templ html-template.templ block.html-template.templ
+#  ^ source.templ html-template.templ block.html-template.templ import-expression.templ keyword.control.go
+#   ^^^^^ source.templ html-template.templ block.html-template.templ import-expression.templ
+#        ^ source.templ html-template.templ block.html-template.templ import-expression.templ punctuation.definition.begin.bracket.round.go
+#         ^^^^^^^^^^^^^ source.templ html-template.templ block.html-template.templ import-expression.templ params.import-expression.templ
+#                      ^ source.templ html-template.templ block.html-template.templ import-expression.templ params.import-expression.templ punctuation.definition.begin.bracket.curly.go
+#                       ^^^^^^^ source.templ html-template.templ block.html-template.templ import-expression.templ params.import-expression.templ
+#                              ^ source.templ html-template.templ block.html-template.templ import-expression.templ params.import-expression.templ punctuation.other.colon.go
+#                               ^ source.templ html-template.templ block.html-template.templ import-expression.templ params.import-expression.templ
+#                                ^ source.templ html-template.templ block.html-template.templ import-expression.templ params.import-expression.templ string.quoted.double.go punctuation.definition.string.begin.go
+#                                 ^ source.templ html-template.templ block.html-template.templ import-expression.templ params.import-expression.templ string.quoted.double.go
+#                                  ^ source.templ html-template.templ block.html-template.templ import-expression.templ params.import-expression.templ string.quoted.double.go punctuation.definition.string.end.go
+#                                   ^ source.templ html-template.templ block.html-template.templ import-expression.templ params.import-expression.templ punctuation.definition.end.bracket.curly.go
+#                                    ^ source.templ html-template.templ block.html-template.templ import-expression.templ params.import-expression.templ punctuation.definition.end.bracket.round.go
+>	</div>
+#^ source.templ html-template.templ block.html-template.templ
+# ^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.begin.html
+#   ^^^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html entity.name.tag.block.any.html
+#      ^ source.templ html-template.templ block.html-template.templ meta.tag.block.any.html punctuation.definition.tag.end.html
+>}
+#^ source.templ html-template.templ block.html-template.templ punctuation.definition.end.bracket.curly.go
+>

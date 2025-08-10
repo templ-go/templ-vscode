@@ -1,0 +1,20 @@
+package main
+
+type Notifications struct {
+	Message string
+}
+
+templ (n Notifications) WithVar() {
+	<div>With variable: { n.Message }</div>
+}
+
+templ (Notifications) NoVar() {
+	<div>No variable: { Message }</div>
+}
+
+templ TestStructReceivers() {
+	<div>
+		@WithVar(Notifications{Message: "A"})
+		@NoVar(Notifications{Message: "B"})
+	</div>
+}
