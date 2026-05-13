@@ -44,6 +44,8 @@ interface Configuration {
   log: string;
   pprof: boolean;
   http: string;
+  prettierCommand: string;
+  prettierRequired: boolean;
   experiments: string;
   executablePath: string;
 }
@@ -64,6 +66,8 @@ const loadConfiguration = (): Configuration => {
     log: c.get("log") || "",
     pprof: c.get("pprof") ? true : false,
     http: c.get("http") || "",
+    prettierCommand: c.get("prettierCommand") || "",
+    prettierRequired: c.get("prettierRequired") ? true : false,
     experiments: c.get("experiments") || "",
     executablePath: c.get("executablePath") || "",
   };
@@ -188,6 +192,12 @@ export async function buildLanguageClient(): Promise<LanguageClient> {
   }
   if (config.http.length > 0) {
     args.push(`-http=${config.http}`);
+  }
+  if (config.prettierCommand.length > 0) {
+    args.push(`-prettier-command=${config.prettierCommand}`);
+  }
+  if (config.prettierRequired) {
+    args.push(`-prettier-required=${config.prettierRequired}`);
   }
 
   const templPath = await findTempl();
