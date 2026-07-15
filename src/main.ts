@@ -46,6 +46,7 @@ interface Configuration {
   http: string;
   experiments: string;
   executablePath: string;
+  goFileSupport: boolean;
 }
 
 interface TemplCtx {
@@ -66,6 +67,7 @@ const loadConfiguration = (): Configuration => {
     http: c.get("http") || "",
     experiments: c.get("experiments") || "",
     executablePath: c.get("executablePath") || "",
+    goFileSupport: c.get("goFileSupport") ? true : false,
   };
 };
 
@@ -114,7 +116,7 @@ async function findTempl(): Promise<string> {
   if (config.executablePath) {
     return config.executablePath;
   }
-  
+
   const goTool = await tryGoTool();
   if (goTool) {
     return goTool;
@@ -159,14 +161,61 @@ async function stopLanguageClient() {
 }
 
 async function startLanguageClient() {
-  ctx.languageClient = await buildLanguageClient();
-  await ctx.languageClient.start();
+  const config = loadConfiguration();
+  const { client, goState } = await buildLanguageClient();
+  ctx.languageClient = client;
+  await client.start();
+  // client.start() resolves after the Initialize handshake, so
+  // initializeResult is available. Enable Go file navigation only if
+  // both the proxy advertises support and the user has not disabled it.
+  const proxySupportsGoFiles = hasGoFileSupport(client);
+  goState.goFileSupport = config.goFileSupport && proxySupportsGoFiles;
+  if (config.goFileSupport && !proxySupportsGoFiles) {
+    vscode.window.showWarningMessage(
+      "templ: Go file support is enabled in settings, but the templ binary does not support it. Update templ to enable cross-file navigation.",
+    );
+  }
 }
 
-export async function buildLanguageClient(): Promise<LanguageClient> {
-  const documentSelector = [{ language: "templ", scheme: "file" }];
+// isGoDocument returns true if the document is a Go file on disk.
+function isGoDocument(document: vscode.TextDocument): boolean {
+  return document.languageId === "go";
+}
 
+// hasGoFileSupport checks the Initialize response from the templ LSP to
+// determine whether the proxy supports handling .go file requests for
+// cross-file navigation. This allows the extension to work with both old
+// and new versions of the templ binary.
+function hasGoFileSupport(client: LanguageClient): boolean {
+  const experimental = client.initializeResult?.capabilities?.experimental;
+  return experimental?.templ?.goFileSupport === true;
+}
+
+interface GoFileState {
+  goFileSupport: boolean;
+}
+
+interface BuildResult {
+  client: LanguageClient;
+  goState: GoFileState;
+}
+
+export async function buildLanguageClient(): Promise<BuildResult> {
   const config = loadConfiguration();
+
+  // Register for both templ and Go files when goFileSupport is enabled.
+  // Go files are included so the templ LSP proxy's internal gopls stays
+  // in sync and can provide cross-file operations (e.g., renaming a Go
+  // symbol updates templ files too). If the proxy does not advertise
+  // goFileSupport, middleware blocks all features for Go files, making
+  // registration harmless. If the user has disabled goFileSupport in
+  // settings, Go files are not registered at all.
+  const documentSelector = config.goFileSupport
+    ? [
+        { language: "templ", scheme: "file" },
+        { language: "go", scheme: "file" },
+      ]
+    : [{ language: "templ", scheme: "file" }];
   const args: Array<string> = ["lsp"];
   if (config.goplsLog.length > 0) {
     args.push(`-goplsLog=${config.goplsLog}`);
@@ -205,6 +254,11 @@ export async function buildLanguageClient(): Promise<LanguageClient> {
   const templExperiments =
     config.experiments === "" ? envTemplExperiments : config.experiments;
 
+  // Set to true after the Initialize handshake if the proxy supports Go file
+  // navigation. Until then, middleware blocks all features for Go files.
+  // This is mutated by startLanguageClient after client.start() resolves.
+  const goState = { goFileSupport: false };
+
   const c = new CustomLanguageClient(
     "templ", // id
     "templ",
@@ -220,6 +274,7 @@ export async function buildLanguageClient(): Promise<LanguageClient> {
     },
     {
       documentSelector,
+      initializationOptions: {},
       uriConverters: {
         // Apply file:/// scheme to all file paths.
         code2Protocol: (uri: vscode.Uri): string =>
@@ -246,12 +301,22 @@ export async function buildLanguageClient(): Promise<LanguageClient> {
         }),
       },
       middleware: {
+        // Block features for Go files that the Go extension already provides.
+        // Navigation features (definition, references, rename, type definition,
+        // implementation, call hierarchy) are allowed through only when the
+        // proxy advertises goFileSupport, because the templ proxy converts
+        // _templ.go locations to .templ locations.
+        provideHover: (document, position, token, next) => {
+          if (isGoDocument(document)) return undefined;
+          return next(document, position, token);
+        },
         provideDocumentFormattingEdits: async (
           document: vscode.TextDocument,
           options: vscode.FormattingOptions,
           token: vscode.CancellationToken,
           next: ProvideDocumentFormattingEditsSignature,
         ) => {
+          if (isGoDocument(document)) return undefined;
           return next(document, options, token);
         },
         provideCompletionItem: async (
@@ -261,6 +326,7 @@ export async function buildLanguageClient(): Promise<LanguageClient> {
           token: vscode.CancellationToken,
           next: ProvideCompletionItemsSignature,
         ) => {
+          if (isGoDocument(document)) return undefined;
           const list = await next(document, position, context, token);
           if (!list) {
             return list;
@@ -333,6 +399,83 @@ export async function buildLanguageClient(): Promise<LanguageClient> {
           }
           return list;
         },
+        provideSignatureHelp: (document, position, context, token, next) => {
+          if (isGoDocument(document)) return undefined;
+          return next(document, position, context, token);
+        },
+        provideCodeActions: (document, range, context, token, next) => {
+          if (isGoDocument(document)) return undefined;
+          return next(document, range, context, token);
+        },
+        provideCodeLenses: (document, token, next) => {
+          if (isGoDocument(document)) return undefined;
+          return next(document, token);
+        },
+        provideDocumentHighlights: (document, position, token, next) => {
+          if (isGoDocument(document)) return undefined;
+          return next(document, position, token);
+        },
+        provideDocumentSymbols: (document, token, next) => {
+          if (isGoDocument(document)) return undefined;
+          return next(document, token);
+        },
+        provideDocumentLinks: (document, token, next) => {
+          if (isGoDocument(document)) return undefined;
+          return next(document, token);
+        },
+        provideDocumentSemanticTokens: (document, token, next) => {
+          if (isGoDocument(document)) return undefined;
+          return next(document, token);
+        },
+        provideDocumentSemanticTokensEdits: (
+          document,
+          previousResultId,
+          token,
+          next,
+        ) => {
+          if (isGoDocument(document)) return undefined;
+          return next(document, previousResultId, token);
+        },
+        provideDocumentRangeSemanticTokens: (
+          document,
+          range,
+          token,
+          next,
+        ) => {
+          if (isGoDocument(document)) return undefined;
+          return next(document, range, token);
+        },
+        // Navigation features: only forward for Go files when the proxy
+        // advertises goFileSupport. Without it, the old proxy would return
+        // nil for .go file navigation, giving the user no results.
+        provideDefinition: (document, position, token, next) => {
+          if (isGoDocument(document) && !goState.goFileSupport) return undefined;
+          return next(document, position, token);
+        },
+        provideDeclaration: (document, position, token, next) => {
+          if (isGoDocument(document) && !goState.goFileSupport) return undefined;
+          return next(document, position, token);
+        },
+        provideReferences: (document, position, options, token, next) => {
+          if (isGoDocument(document) && !goState.goFileSupport) return undefined;
+          return next(document, position, options, token);
+        },
+        provideTypeDefinition: (document, position, token, next) => {
+          if (isGoDocument(document) && !goState.goFileSupport) return undefined;
+          return next(document, position, token);
+        },
+        provideImplementation: (document, position, token, next) => {
+          if (isGoDocument(document) && !goState.goFileSupport) return undefined;
+          return next(document, position, token);
+        },
+        provideRenameEdits: (document, position, newName, token, next) => {
+          if (isGoDocument(document) && !goState.goFileSupport) return undefined;
+          return next(document, position, newName, token);
+        },
+        prepareRename: (document, position, token, next) => {
+          if (isGoDocument(document) && !goState.goFileSupport) return undefined;
+          return next(document, position, token);
+        },
         // Keep track of the last file change in order to not prompt
         // user if they are actively working.
         didOpen: async (e, next) => next(e),
@@ -351,9 +494,7 @@ export async function buildLanguageClient(): Promise<LanguageClient> {
             }
             const ret = [] as any[];
             for (let i = 0; i < configs.length; i++) {
-              let workspaceConfig = configs[i];
-              console.log(workspaceConfig);
-              ret.push(workspaceConfig);
+              ret.push(configs[i]);
             }
             return ret;
           },
@@ -362,5 +503,6 @@ export async function buildLanguageClient(): Promise<LanguageClient> {
     },
     false,
   );
-  return c;
+
+  return { client: c, goState };
 }

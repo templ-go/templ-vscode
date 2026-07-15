@@ -108,6 +108,11 @@
           "type": "string",
           "default": "",
           "description": "Path of the templ executable. To be used if extension is unable to find the location of templ executable"
+        },
+        "templ.goFileSupport": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable cross-file navigation between .go and .templ files (e.g., Go to Definition from a .go file navigates to the .templ source). Disable this if you experience issues with the Go extension."
         }
       }
     },
