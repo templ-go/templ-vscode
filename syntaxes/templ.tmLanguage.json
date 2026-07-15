@@ -18,7 +18,7 @@
   ],
   "repository": {
     "script-template": {
-      "begin": "^(script) ([A-z_][A-z_0-9]*\\()",
+      "begin": "^(script) ([A-Za-z_][A-Za-z_0-9]*\\()",
       "beginCaptures": {
         "1": {
           "name": "keyword.control.go"
@@ -73,7 +73,7 @@
     },
     "css-template": {
       "name": "css-template.templ",
-      "begin": "^(css) ([A-z_][A-z_0-9]*\\()",
+      "begin": "^(css) ([A-Za-z_][A-Za-z_0-9]*\\()",
       "beginCaptures": {
         "1": {
           "name": "keyword.control.go"
@@ -388,7 +388,7 @@
       ]
     },
     "else-expression": {
-      "begin": "\\s+(else)\\s+({)\\s*$",
+      "begin": "\\s+(else)\\s*({)\\s*$",
       "beginCaptures": {
         "1": {
           "name": "keyword.control.go"
@@ -540,7 +540,7 @@
       "patterns": [
         {
           "name": "import-expression.templ",
-          "begin": "(@)((?:[A-z_][A-z_0-9]*\\.)?[A-z_][A-z_0-9]*(?:\\(|{|$))",
+          "begin": "(@)((?:[A-Za-z_][A-Za-z_0-9]*\\.)?[A-Za-z_][A-Za-z_0-9]*(?:\\(|{|$))",
           "beginCaptures": {
             "1": {
               "name": "keyword.control.go"
@@ -557,8 +557,8 @@
           "patterns": [
             {
               "name": "struct-method.import-expression.templ",
-              "begin": "(?<=[A-z_0-9]{)",
-              "end": "\\s*(})(\\.[A-z_][A-z_0-9]*\\()",
+              "begin": "(?<=[A-Za-z_0-9]{)",
+              "end": "\\s*(})(\\.[A-Za-z_][A-Za-z_0-9]*\\()",
               "endCaptures": {
                 "1": {
                   "name": "punctuation.definition.end.bracket.curly.go"
