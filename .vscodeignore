@@ -4,3 +4,14 @@ out/
 src/
 tsconfig.json
 webpack.config.js
+.direnv/**
+.envrc
+.gitattributes
+.gitignore
+.github/**
+eslint.config.mjs
+flake.lock
+flake.nix
+package-lock.json
+tests/**
+vsc-extension-quickstart.md

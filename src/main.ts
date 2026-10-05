@@ -60,7 +60,7 @@ const loadConfiguration = (): Configuration => {
   return {
     goplsLog: c.get("goplsLog") || "",
     goplsRPCTrace: c.get("goplsRPCTrace") ? true : false,
-    goplsRemote: c.get("goplsRemote") ||  "",
+    goplsRemote: c.get("goplsRemote") || "",
     noPreload: c.get("noPreload") ? true : false,
     log: c.get("log") || "",
     pprof: c.get("pprof") ? true : false,
@@ -92,23 +92,29 @@ const templLocations = [
 async function tryGoTool(): Promise<string | undefined> {
   try {
     const go = await lookpath("go");
-    if (!go) return undefined;
+    if (!go) {
+      return undefined;
+    }
     const result = await run(go + " tool -n templ");
-    return result
+    return result;
   } catch (err) {
-    console.log(err)
-    return undefined
+    console.log(err);
+    return undefined;
   }
 }
 
 function run(cmd: string): Promise<string> {
-  const dir = vscode.workspace.workspaceFolders ? vscode.workspace.workspaceFolders[0].uri.fsPath : ""
+  const dir = vscode.workspace.workspaceFolders
+    ? vscode.workspace.workspaceFolders[0].uri.fsPath
+    : "";
   return new Promise((resolve, reject) => {
     exec(cmd, { cwd: dir }, (error, stdout, _) => {
-      if (error) return reject(error)
-      resolve(stdout.trim())
-    })
-  })
+      if (error) {
+        return reject(error);
+      }
+      resolve(stdout.trim());
+    });
+  });
 }
 
 async function findTempl(): Promise<string> {
@@ -133,7 +139,7 @@ async function findTempl(): Promise<string> {
     try {
       await fs.stat(exe);
       return exe;
-    } catch (err) {
+    } catch {
       // ignore
     }
   }
@@ -145,7 +151,9 @@ async function findTempl(): Promise<string> {
 async function stopLanguageClient() {
   const c = ctx.languageClient;
   ctx.languageClient = undefined;
-  if (!c) return false;
+  if (!c) {
+    return false;
+  }
 
   if (c.diagnostics) {
     c.diagnostics.clear();
@@ -251,8 +259,8 @@ export async function buildLanguageClient(): Promise<BuildResult> {
   );
 
   const envTemplExperiments = process.env.TEMPL_EXPERIMENT;
-  const templExperiments =
-    config.experiments === "" ? envTemplExperiments : config.experiments;
+  const templExperiments
+    = config.experiments === "" ? envTemplExperiments : config.experiments;
 
   // Set to true after the Initialize handshake if the proxy supports Go file
   // navigation. Until then, middleware blocks all features for Go files.
@@ -307,7 +315,9 @@ export async function buildLanguageClient(): Promise<BuildResult> {
         // proxy advertises goFileSupport, because the templ proxy converts
         // _templ.go locations to .templ locations.
         provideHover: (document, position, token, next) => {
-          if (isGoDocument(document)) return undefined;
+          if (isGoDocument(document)) {
+            return undefined;
+          }
           return next(document, position, token);
         },
         provideDocumentFormattingEdits: async (
@@ -316,7 +326,9 @@ export async function buildLanguageClient(): Promise<BuildResult> {
           token: vscode.CancellationToken,
           next: ProvideDocumentFormattingEditsSignature,
         ) => {
-          if (isGoDocument(document)) return undefined;
+          if (isGoDocument(document)) {
+            return undefined;
+          }
           return next(document, options, token);
         },
         provideCompletionItem: async (
@@ -326,7 +338,9 @@ export async function buildLanguageClient(): Promise<BuildResult> {
           token: vscode.CancellationToken,
           next: ProvideCompletionItemsSignature,
         ) => {
-          if (isGoDocument(document)) return undefined;
+          if (isGoDocument(document)) {
+            return undefined;
+          }
           const list = await next(document, position, context, token);
           if (!list) {
             return list;
@@ -341,9 +355,9 @@ export async function buildLanguageClient(): Promise<BuildResult> {
           // "incompleteResults" since otherwise client side filtering is
           // important.
           if (
-            !Array.isArray(list) &&
-            list.isIncomplete &&
-            list.items.length > 1
+            !Array.isArray(list)
+            && list.isIncomplete
+            && list.items.length > 1
           ) {
             let hardcodedFilterText = items[0].filterText;
             if (!hardcodedFilterText) {
@@ -376,19 +390,17 @@ export async function buildLanguageClient(): Promise<BuildResult> {
             "[go]",
             document.uri,
           )["editor.parameterHints.enabled"];
-          let paramHintsEnabled = false;
-          if (typeof goParamHintsEnabled === "undefined") {
-            paramHintsEnabled = editorParamHintsEnabled;
-          } else {
-            paramHintsEnabled = goParamHintsEnabled;
-          }
+          const paramHintsEnabled
+            = typeof goParamHintsEnabled === "undefined"
+              ? editorParamHintsEnabled
+              : goParamHintsEnabled;
           // If the user has parameterHints (signature help) enabled,
           // trigger it for function or method completion items.
           if (paramHintsEnabled) {
             for (const item of items) {
               if (
-                item.kind === CompletionItemKind.Method ||
-                item.kind === CompletionItemKind.Function
+                item.kind === CompletionItemKind.Method
+                || item.kind === CompletionItemKind.Function
               ) {
                 item.command = {
                   title: "triggerParameterHints",
@@ -400,31 +412,45 @@ export async function buildLanguageClient(): Promise<BuildResult> {
           return list;
         },
         provideSignatureHelp: (document, position, context, token, next) => {
-          if (isGoDocument(document)) return undefined;
+          if (isGoDocument(document)) {
+            return undefined;
+          }
           return next(document, position, context, token);
         },
         provideCodeActions: (document, range, context, token, next) => {
-          if (isGoDocument(document)) return undefined;
+          if (isGoDocument(document)) {
+            return undefined;
+          }
           return next(document, range, context, token);
         },
         provideCodeLenses: (document, token, next) => {
-          if (isGoDocument(document)) return undefined;
+          if (isGoDocument(document)) {
+            return undefined;
+          }
           return next(document, token);
         },
         provideDocumentHighlights: (document, position, token, next) => {
-          if (isGoDocument(document)) return undefined;
+          if (isGoDocument(document)) {
+            return undefined;
+          }
           return next(document, position, token);
         },
         provideDocumentSymbols: (document, token, next) => {
-          if (isGoDocument(document)) return undefined;
+          if (isGoDocument(document)) {
+            return undefined;
+          }
           return next(document, token);
         },
         provideDocumentLinks: (document, token, next) => {
-          if (isGoDocument(document)) return undefined;
+          if (isGoDocument(document)) {
+            return undefined;
+          }
           return next(document, token);
         },
         provideDocumentSemanticTokens: (document, token, next) => {
-          if (isGoDocument(document)) return undefined;
+          if (isGoDocument(document)) {
+            return undefined;
+          }
           return next(document, token);
         },
         provideDocumentSemanticTokensEdits: (
@@ -433,47 +459,60 @@ export async function buildLanguageClient(): Promise<BuildResult> {
           token,
           next,
         ) => {
-          if (isGoDocument(document)) return undefined;
+          if (isGoDocument(document)) {
+            return undefined;
+          }
           return next(document, previousResultId, token);
         },
-        provideDocumentRangeSemanticTokens: (
-          document,
-          range,
-          token,
-          next,
-        ) => {
-          if (isGoDocument(document)) return undefined;
+        provideDocumentRangeSemanticTokens: (document, range, token, next) => {
+          if (isGoDocument(document)) {
+            return undefined;
+          }
           return next(document, range, token);
         },
         // Navigation features: only forward for Go files when the proxy
         // advertises goFileSupport. Without it, the old proxy would return
         // nil for .go file navigation, giving the user no results.
         provideDefinition: (document, position, token, next) => {
-          if (isGoDocument(document) && !goState.goFileSupport) return undefined;
+          if (isGoDocument(document) && !goState.goFileSupport) {
+            return undefined;
+          }
           return next(document, position, token);
         },
         provideDeclaration: (document, position, token, next) => {
-          if (isGoDocument(document) && !goState.goFileSupport) return undefined;
+          if (isGoDocument(document) && !goState.goFileSupport) {
+            return undefined;
+          }
           return next(document, position, token);
         },
         provideReferences: (document, position, options, token, next) => {
-          if (isGoDocument(document) && !goState.goFileSupport) return undefined;
+          if (isGoDocument(document) && !goState.goFileSupport) {
+            return undefined;
+          }
           return next(document, position, options, token);
         },
         provideTypeDefinition: (document, position, token, next) => {
-          if (isGoDocument(document) && !goState.goFileSupport) return undefined;
+          if (isGoDocument(document) && !goState.goFileSupport) {
+            return undefined;
+          }
           return next(document, position, token);
         },
         provideImplementation: (document, position, token, next) => {
-          if (isGoDocument(document) && !goState.goFileSupport) return undefined;
+          if (isGoDocument(document) && !goState.goFileSupport) {
+            return undefined;
+          }
           return next(document, position, token);
         },
         provideRenameEdits: (document, position, newName, token, next) => {
-          if (isGoDocument(document) && !goState.goFileSupport) return undefined;
+          if (isGoDocument(document) && !goState.goFileSupport) {
+            return undefined;
+          }
           return next(document, position, newName, token);
         },
         prepareRename: (document, position, token, next) => {
-          if (isGoDocument(document) && !goState.goFileSupport) return undefined;
+          if (isGoDocument(document) && !goState.goFileSupport) {
+            return undefined;
+          }
           return next(document, position, token);
         },
         // Keep track of the last file change in order to not prompt

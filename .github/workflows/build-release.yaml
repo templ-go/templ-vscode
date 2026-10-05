@@ -17,10 +17,10 @@ jobs:
       contents: read
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Check if version has changed
         id: check-version
-        uses: actions/github-script@v7
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
           script: |
             const version = '${{ github.event.inputs.version }}' || require('./package.json').version;
@@ -60,14 +60,14 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           submodules: recursive
           fetch-depth: 0
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
-          node-version: '18'
+          node-version: '24'
           cache: npm
 
       - name: Install Node.js dependencies
@@ -83,13 +83,13 @@ jobs:
         run: |
           echo "EXT_VERSION=$(node -p -e "require('./package.json').version")" >> $GITHUB_ENV
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: templ-${{ env.EXT_VERSION }}.vsix
           path: ./templ-${{ env.EXT_VERSION }}.vsix
 
       - name: Create release and upload release asset
-        uses: actions/github-script@v7
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
           script: |
             const fs = require("fs");
@@ -129,13 +129,12 @@ jobs:
     permissions: {}
 
     steps:
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         with:
           name: templ-${{ needs.release.outputs.version }}.vsix
 
       - name: Publish to marketplace
-        # https://github.com/HaaLeo/publish-vscode-extension/releases/tag/v1.4.0
-        uses: HaaLeo/publish-vscode-extension@dfe4f6ad46624424fe24cb5bca79839183399045
+        uses: HaaLeo/publish-vscode-extension@1b8df468b849f76a143b8c18bf0ffa2075398d12 # v2.1.0
         with:
           pat: ${{ secrets.PUBLISHER_KEY }}
           registryUrl: https://marketplace.visualstudio.com
@@ -150,7 +149,7 @@ jobs:
       OPEN_VSX_TOKEN: ${{ secrets.OPEN_VSX_TOKEN }}
     steps:
       - name: Download artifact
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         with:
           name: templ-${{ needs.release.outputs.version }}.vsix
 

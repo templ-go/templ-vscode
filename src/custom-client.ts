@@ -1,4 +1,4 @@
-import { FoldingRangeFeature } from "vscode-languageclient/lib/common/foldingRange";
+import { FoldingRangeRequest } from "vscode-languageserver-protocol";
 import {
   DynamicFeature,
   LanguageClient,
@@ -10,7 +10,10 @@ export class CustomLanguageClient extends LanguageClient {
     // Templ does not have a folding implementation
     // so we prevent the client from registering it
     // causing vscode to use it's default folding, which is good enough
-    if (feature instanceof FoldingRangeFeature) {
+    if (
+      "registrationType" in feature
+      && feature.registrationType.method === FoldingRangeRequest.method
+    ) {
       return;
     }
     super.registerFeature(feature);
