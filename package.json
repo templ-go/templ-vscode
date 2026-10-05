@@ -100,6 +100,16 @@
           "default": "",
           "description": "Set to a value such as localhost:7474 to enable a HTTP endpoint that can be used for debugging (same as the templ -http argument)"
         },
+        "templ.prettierCommand": {
+          "type": "string",
+          "default": "",
+          "description": "Set the command to use for formatting HTML, CSS, and JS blocks. (same as the templ -prettier-command argument). Example: \"prettier --stdin-filepath $TEMPL_PRETTIER_FILENAME --use-tabs --tab-width 4\""
+        },
+        "templ.prettierRequired": {
+          "type": "boolean",
+          "default": false,
+          "description": "Set to true to return an error the prettier command is not available. Default is false. (same as the templ -prettier-required argument)"
+        },
         "templ.experiments": {
           "type": "string",
           "default": "",
